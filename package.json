@@ -1,0 +1,21 @@
+{
+  "name": "leaf-data",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "fmt": "prettier . --write",
+    "build": "tsc --build",
+    "test": "npm run build && vitest run"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}
