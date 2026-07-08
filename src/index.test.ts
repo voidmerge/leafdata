@@ -5,11 +5,11 @@ describe('leaf-data', async () => {
   it('stringify sanity', async () => {
     const obj = new LeafObj()
       .withBool('test', true, ['note test'])
-      .withObj('obj', new LeafObj()
-        .withBool('test', true, ['second note'])
-        .withArr('arr', new LeafArr()
-          .pushBool(true)
-        )
+      .withProp(
+        'obj',
+        new LeafObj()
+          .withBool('test', true, ['second note'])
+          .withProp('arr', new LeafArr().pushBool(true)),
       );
 
     //console.log(JSON.stringify(obj));
@@ -27,6 +27,14 @@ obj = {
   });
 
   it('parse sanity', async () => {
+    const obj = LeafObj.parse(`
+obj = {
+  test = bob
+  ned = true
+  "fred" = "bob"
+}
+`);
+    console.log(JSON.stringify(obj, null, 2));
     /*
     const p = new Parse();
     p.writeChunk(`

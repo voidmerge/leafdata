@@ -35,30 +35,27 @@ export class LeafObj extends LeafNode {
     this.v = {};
   }
 
-  withBool(k: string, v: boolean, notes?: string[]): LeafObj {
-    this.v[k] = new LeafBool(v, notes);
+  withProp(k: string, v: LeafVal): LeafObj {
+    this.v[k] = v;
     return this;
+  }
+
+  withBool(k: string, v: boolean, notes?: string[]): LeafObj {
+    return this.withProp(k, new LeafBool(v, notes));
   }
 
   withStr(k: string, v: string, notes?: string[]): LeafObj {
-    this.v[k] = new LeafStr(v, notes);
-    return this;
-  }
-
-  withArr(k: string, v: LeafArr): LeafObj {
-    this.v[k] = v;
-    return this;
-  }
-
-  withObj(k: string, v: LeafObj): LeafObj {
-    this.v[k] = v;
-    return this;
+    return this.withProp(k, new LeafStr(v, notes));
   }
 
   stringify(): string {
     const out: string[] = [];
     renderObjProps(out, 0, this);
     return out.join('');
+  }
+
+  static parse(leaf: string): LeafObj {
+    return parse(leaf);
   }
 }
 
@@ -177,6 +174,131 @@ function renderArr(out: string[], depth: number, arr: LeafArr) {
   out.push(']');
 }
 
+const RE: [string, RegExp][] = [
+  ['whitespace', /([, \t\r\n]+)/y],
+  ['{', /(\{)/y],
+  ['}', /(\})/y],
+  ['[', /(\[)/y],
+  [']', /(\])/y],
+  ['bool', /(true|false)\b/y],
+  ['prop-id', /([a-zA-Z_$][a-zA-Z0-9_$]{0,63})[ \t\r\n]*=/y],
+  ['prop-str', /("(?:[^"\\]|\\["\\\/bfnrt]|\\u[0-9a-fA-F]{4})*")[ \t\r\n]*=/y],
+  ['id', /([a-zA-Z_$][a-zA-Z0-9_$]{0,63})/y],
+  ['str', /("(?:[^"\\]|\\["\\\/bfnrt]|\\u[0-9a-fA-F]{4})*")/y],
+];
+
+type Tok = [string, string, string | boolean, string, string];
+
+function lex(data: string): Tok[] {
+  const out: Tok[] = [];
+  let index = 0;
+  let line = 1;
+  let col = 1;
+
+  while (index < data.length) {
+    let didMatch = false;
+
+    for (const [t, re] of RE) {
+      re.lastIndex = index;
+
+      const match = data.match(re);
+
+      if (match) {
+        const start = `${line}:${col}:${index}`;
+        const raw = match[0];
+        index += raw.length;
+        for (const c of raw) {
+          col++;
+          if (c === '\n') {
+            line++;
+            col = 1;
+          }
+        }
+
+        let value = match[1];
+        switch (t) {
+          case 'prop-str':
+          case 'str':
+          case 'bool':
+            value = JSON.parse(value);
+            break;
+        }
+
+        if (t !== 'whitespace') {
+          out.push([t, raw, value, start, `${line}:${col}:${index}`]);
+        }
+        didMatch = true;
+        break;
+      }
+    }
+
+    if (!didMatch) {
+      throw new Error(
+        `leaf parser unexpected ${line}:${col}:${index} ${JSON.stringify(data.substring(index, index + 16))}...`,
+      );
+    }
+  }
+
+  return out;
+}
+
+function parse(data: string): LeafObj {
+  const tok = lex(data);
+  const out = new LeafObj();
+  parseObjProps(tok, out, true);
+  return out;
+}
+
+function peekTok(tok: Tok[], want: string[]): Tok {
+  if (!tok.length) {
+    throw new Error(`expected ${JSON.stringify(want)}, got: eof`);
+  }
+  if (!want.includes(tok[0][0])) {
+    throw new Error(`expected ${JSON.stringify(want)}, got: ${tok[0][0]}`);
+  }
+  return tok[0]!;
+}
+
+function parseVal(tok: Tok[]): LeafVal {
+  const val = peekTok(tok, ['{', 'id', 'str', 'bool']);
+  tok.shift();
+  switch (val[0]) {
+    case '{':
+      return parseObj(tok);
+    case 'id':
+    case 'str':
+      return new LeafStr(val[2] as string);
+    case 'bool':
+      return new LeafBool(val[2] as boolean);
+  }
+  throw new Error('unreachable');
+}
+
+function parseObjProps(tok: Tok[], obj: LeafObj, isTop?: boolean) {
+  while (true) {
+    if (isTop === true && !tok.length) {
+      return;
+    }
+    const key = peekTok(tok, ['prop-id', 'prop-str', '}']);
+    if (key[0] === '}') {
+      return;
+    }
+    tok.shift();
+    const val = parseVal(tok);
+    obj.withProp(key[2] as string, val);
+  }
+}
+
+function parseObj(tok: Tok[]): LeafObj {
+  const obj = new LeafObj();
+
+  parseObjProps(tok, obj);
+
+  peekTok(tok, ['}']);
+  tok.shift();
+
+  return obj;
+}
 
 /*
 export enum LeafType {
