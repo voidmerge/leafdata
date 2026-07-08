@@ -1,19 +1,33 @@
-import { Render, Parse } from './index.js';
+//import { Render, Parse } from './index.js';
+import { LeafObj, LeafArr } from './index.js';
 
 describe('leaf-data', async () => {
-  it('render sanity', async () => {
-    const r = new Render();
-    r.prop('foo');
-    r.objBeg();
-    r.prop('hello');
-    r.str('world');
-    r.prop('bool');
-    r.bool(true);
-    r.objEnd();
-    expect(r.render()).to.equal('foo={\nhello="world"\nbool=true\n}\n');
+  it('stringify sanity', async () => {
+    const obj = new LeafObj()
+      .withBool('test', true, ['note test'])
+      .withObj('obj', new LeafObj()
+        .withBool('test', true, ['second note'])
+        .withArr('arr', new LeafArr()
+          .pushBool(true)
+        )
+      );
+
+    //console.log(JSON.stringify(obj));
+
+    expect(obj.stringify()).to.equal(`# note test
+test = true
+obj = {
+  # second note
+  test = true
+  arr = [
+    true
+  ]
+}
+`);
   });
 
-  it('tokenize sanity', async () => {
+  it('parse sanity', async () => {
+    /*
     const p = new Parse();
     p.writeChunk(`
 foo = {
@@ -25,6 +39,8 @@ foo = {
     for (const leaf of p) {
       console.log(JSON.stringify(leaf));
     }
+    */
+
     /*
     const pos = { line: 1, col: 1 };
 

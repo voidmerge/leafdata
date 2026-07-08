@@ -1,3 +1,184 @@
+export enum LeafNodeType {
+  Null = 'Null',
+  Obj = 'Obj',
+  Arr = 'Arr',
+  Bool = 'Bool',
+  Str = 'Str',
+}
+
+export class LeafNode {
+  readonly t: LeafNodeType = LeafNodeType.Null;
+  notes?: string[];
+
+  constructor(notes?: string[]) {
+    if (notes) {
+      const newNotes = this.notes || [];
+      for (const note of notes) {
+        if (note.includes('\n')) {
+          newNotes.push(...note.split('\n'));
+        } else {
+          newNotes.push(note);
+        }
+      }
+      this.notes = newNotes;
+    }
+  }
+}
+
+export class LeafObj extends LeafNode {
+  readonly t = LeafNodeType.Obj;
+
+  v: { [prop: string]: LeafVal };
+
+  constructor() {
+    super();
+    this.v = {};
+  }
+
+  withBool(k: string, v: boolean, notes?: string[]): LeafObj {
+    this.v[k] = new LeafBool(v, notes);
+    return this;
+  }
+
+  withStr(k: string, v: string, notes?: string[]): LeafObj {
+    this.v[k] = new LeafStr(v, notes);
+    return this;
+  }
+
+  withArr(k: string, v: LeafArr): LeafObj {
+    this.v[k] = v;
+    return this;
+  }
+
+  withObj(k: string, v: LeafObj): LeafObj {
+    this.v[k] = v;
+    return this;
+  }
+
+  stringify(): string {
+    const out: string[] = [];
+    renderObjProps(out, 0, this);
+    return out.join('');
+  }
+}
+
+export class LeafArr extends LeafNode {
+  readonly t = LeafNodeType.Arr;
+
+  v: LeafVal[];
+
+  constructor() {
+    super();
+    this.v = [];
+  }
+
+  pushBool(v: boolean): LeafArr {
+    this.v.push(new LeafBool(v));
+    return this;
+  }
+}
+
+export class LeafBool extends LeafNode {
+  readonly t = LeafNodeType.Bool;
+
+  v: boolean;
+
+  constructor(v: boolean, notes?: string[]) {
+    super(notes);
+    this.v = v;
+  }
+}
+
+export class LeafStr extends LeafNode {
+  readonly t = LeafNodeType.Str;
+
+  v: string;
+
+  constructor(v: string, notes?: string[]) {
+    super(notes);
+    this.v = v;
+  }
+}
+
+export type LeafVal = LeafObj | LeafArr | LeafBool | LeafStr;
+
+function renderVal(out: string[], depth: number, val: LeafVal) {
+  switch (val.t) {
+    case LeafNodeType.Obj:
+      renderObj(out, depth, val);
+      break;
+    case LeafNodeType.Arr:
+      renderArr(out, depth, val);
+      break;
+    case LeafNodeType.Bool:
+      out.push(JSON.stringify(val.v));
+      break;
+    case LeafNodeType.Str:
+      renderStr(out, val.v);
+      break;
+  }
+}
+
+function renderDepth(out: string[], depth: number) {
+  for (let i = 0; i < depth; ++i) {
+    out.push('  ');
+  }
+}
+
+function renderStr(out: string[], str: string) {
+  if (/[a-zA-Z_$](?:a-zA-Z0-9_$){0,63}/.test(str)) {
+    out.push(str);
+  } else {
+    out.push(JSON.stringify(str));
+  }
+}
+
+function renderObjProps(out: string[], depth: number, obj: LeafObj) {
+  for (const prop in obj.v) {
+    const v = obj.v[prop];
+
+    if (v.notes) {
+      for (const note of v.notes) {
+        renderDepth(out, depth);
+        out.push(`# ${note}\n`);
+      }
+    }
+
+    renderDepth(out, depth);
+    renderStr(out, prop);
+    out.push(' = ');
+    renderVal(out, depth, v);
+    out.push('\n');
+  }
+}
+
+function renderObj(out: string[], depth: number, obj: LeafObj) {
+  out.push('{\n');
+  renderObjProps(out, depth + 1, obj);
+  renderDepth(out, depth);
+  out.push('}');
+}
+
+function renderArr(out: string[], depth: number, arr: LeafArr) {
+  out.push('[\n');
+  for (const v of arr.v) {
+    if (v.notes) {
+      for (const note of v.notes) {
+        renderDepth(out, depth + 1);
+        out.push(`# ${note}\n`);
+      }
+    }
+
+    renderDepth(out, depth + 1);
+    renderVal(out, depth + 1, v);
+    out.push('\n');
+  }
+  renderDepth(out, depth);
+  out.push(']');
+}
+
+
+/*
 export enum LeafType {
   Ws = 'Ws',
   Prop = 'Prop',
@@ -142,3 +323,4 @@ export class Parse {
     this.#input = this.#input + chunk;
   }
 }
+*/
