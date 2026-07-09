@@ -9,14 +9,8 @@ import { V_identContext } from "./leafdataParser.js";
 import { V_strContext } from "./leafdataParser.js";
 import { V_objContext } from "./leafdataParser.js";
 import { V_arrContext } from "./leafdataParser.js";
-import { Obj_propsContext } from "./leafdataParser.js";
 import { PropContext } from "./leafdataParser.js";
-import { Arr_itemsContext } from "./leafdataParser.js";
 import { ItemContext } from "./leafdataParser.js";
-import { NotesContext } from "./leafdataParser.js";
-import { AssignContext } from "./leafdataParser.js";
-import { KeyContext } from "./leafdataParser.js";
-import { ValContext } from "./leafdataParser.js";
 
 
 /**
@@ -95,16 +89,6 @@ export class leafdataListener implements ParseTreeListener {
      */
     exitV_arr?: (ctx: V_arrContext) => void;
     /**
-     * Enter a parse tree produced by `leafdataParser.obj_props`.
-     * @param ctx the parse tree
-     */
-    enterObj_props?: (ctx: Obj_propsContext) => void;
-    /**
-     * Exit a parse tree produced by `leafdataParser.obj_props`.
-     * @param ctx the parse tree
-     */
-    exitObj_props?: (ctx: Obj_propsContext) => void;
-    /**
      * Enter a parse tree produced by `leafdataParser.prop`.
      * @param ctx the parse tree
      */
@@ -115,16 +99,6 @@ export class leafdataListener implements ParseTreeListener {
      */
     exitProp?: (ctx: PropContext) => void;
     /**
-     * Enter a parse tree produced by `leafdataParser.arr_items`.
-     * @param ctx the parse tree
-     */
-    enterArr_items?: (ctx: Arr_itemsContext) => void;
-    /**
-     * Exit a parse tree produced by `leafdataParser.arr_items`.
-     * @param ctx the parse tree
-     */
-    exitArr_items?: (ctx: Arr_itemsContext) => void;
-    /**
      * Enter a parse tree produced by `leafdataParser.item`.
      * @param ctx the parse tree
      */
@@ -134,46 +108,6 @@ export class leafdataListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitItem?: (ctx: ItemContext) => void;
-    /**
-     * Enter a parse tree produced by `leafdataParser.notes`.
-     * @param ctx the parse tree
-     */
-    enterNotes?: (ctx: NotesContext) => void;
-    /**
-     * Exit a parse tree produced by `leafdataParser.notes`.
-     * @param ctx the parse tree
-     */
-    exitNotes?: (ctx: NotesContext) => void;
-    /**
-     * Enter a parse tree produced by `leafdataParser.assign`.
-     * @param ctx the parse tree
-     */
-    enterAssign?: (ctx: AssignContext) => void;
-    /**
-     * Exit a parse tree produced by `leafdataParser.assign`.
-     * @param ctx the parse tree
-     */
-    exitAssign?: (ctx: AssignContext) => void;
-    /**
-     * Enter a parse tree produced by `leafdataParser.key`.
-     * @param ctx the parse tree
-     */
-    enterKey?: (ctx: KeyContext) => void;
-    /**
-     * Exit a parse tree produced by `leafdataParser.key`.
-     * @param ctx the parse tree
-     */
-    exitKey?: (ctx: KeyContext) => void;
-    /**
-     * Enter a parse tree produced by `leafdataParser.val`.
-     * @param ctx the parse tree
-     */
-    enterVal?: (ctx: ValContext) => void;
-    /**
-     * Exit a parse tree produced by `leafdataParser.val`.
-     * @param ctx the parse tree
-     */
-    exitVal?: (ctx: ValContext) => void;
 
     visitTerminal(node: TerminalNode): void {}
     visitErrorNode(node: ErrorNode): void {}

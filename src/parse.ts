@@ -12,39 +12,34 @@ import { leafdataParser } from './gen/leafdataParser.js';
 export interface CSTNode {
   t: string;
   l: string;
-  v: string | CSTNode[];
+  v: (string | CSTNode)[];
 }
 
 export function treeToCST(
   node: ParseTree,
   tokenStream: CommonTokenStream,
-): CSTNode {
+): string | CSTNode {
   if (node instanceof TerminalNode) {
     const token = node.symbol;
     const tokenIndex = token.tokenIndex;
 
     if (token.type === Token.EOF) {
-      return {
-        t: 'eof',
-        l: `${token.line}:${token.column}:${token.start}:${token.stop}`,
-        v: '',
-      };
+      return '';
     }
 
-    return {
-      t: 'lit',
-      l: `${token.line}:${token.column}:${token.start}:${token.stop}`,
-      v: token.text ?? '',
-    };
+    return token.text ?? '';
   }
 
   const ctx = node as ParserRuleContext;
   const ruleName = ctx.constructor.name.replace(/Context$/, '');
 
-  const childrenNodes: CSTNode[] = [];
+  const childrenNodes: (string | CSTNode)[] = [];
   if (ctx.children) {
     for (const child of ctx.children) {
-      childrenNodes.push(treeToCST(child, tokenStream));
+      const n = treeToCST(child, tokenStream);
+      if (n !== '') {
+        childrenNodes.push(n);
+      }
     }
   }
 

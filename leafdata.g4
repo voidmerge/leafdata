@@ -4,27 +4,26 @@ grammar leafdata;
 
 // -- parser -- //
 
-leafdata : obj_props? EOF ;
+leafdata : prop* NOTES? EOF ;
 
 v_null : NULL ;
 v_bool : TRUE | FALSE ;
 v_ident : IDENT ;
 v_str : STR ;
-v_obj : OBJ_OPEN obj_props? OBJ_CLOSE ;
-v_arr : ARR_OPEN arr_items? ARR_CLOSE ;
+v_obj : OBJ_OPEN prop* NOTES? OBJ_CLOSE ;
+v_arr : ARR_OPEN item* NOTES? ARR_CLOSE ;
 
-obj_props : prop+ notes? ;
-prop : notes? key assign val ;
+prop :
+  NOTES?
+  ( v_ident | v_str )
+  EQ
+  ( v_null | v_bool | v_ident | v_str | v_obj | v_arr )
+  ;
 
-arr_items : item+ notes? ;
-item : notes? val ;
-
-notes : NOTES ;
-
-assign : EQ ;
-
-key : v_ident | v_str ;
-val : v_null | v_bool | v_ident | v_str | v_obj | v_arr ;
+item :
+  NOTES?
+  ( v_null | v_bool | v_ident | v_str | v_obj | v_arr )
+  ;
 
 // -- lexer -- //
 
