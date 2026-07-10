@@ -7,6 +7,7 @@ import { V_nullContext } from "./leafdataParser.js";
 import { V_boolContext } from "./leafdataParser.js";
 import { V_identContext } from "./leafdataParser.js";
 import { V_strContext } from "./leafdataParser.js";
+import { V_str_dataContext } from "./leafdataParser.js";
 import { V_objContext } from "./leafdataParser.js";
 import { V_arrContext } from "./leafdataParser.js";
 
@@ -66,6 +67,16 @@ export class leafdataParserListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitV_str?: (ctx: V_strContext) => void;
+    /**
+     * Enter a parse tree produced by `leafdataParser.v_str_data`.
+     * @param ctx the parse tree
+     */
+    enterV_str_data?: (ctx: V_str_dataContext) => void;
+    /**
+     * Exit a parse tree produced by `leafdataParser.v_str_data`.
+     * @param ctx the parse tree
+     */
+    exitV_str_data?: (ctx: V_str_dataContext) => void;
     /**
      * Enter a parse tree produced by `leafdataParser.v_obj`.
      * @param ctx the parse tree

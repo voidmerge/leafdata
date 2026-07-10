@@ -25,7 +25,8 @@ v_bool : TRUE | FALSE ;
 
 v_ident : IDENT ;
 
-v_str : STR_OPEN STR? STR_CLOSE ;
+v_str : STR_OPEN v_str_data? STR_CLOSE ;
+v_str_data : STR ;
 
 v_obj :
   OBJ_OPEN
