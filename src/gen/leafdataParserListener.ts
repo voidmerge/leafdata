@@ -9,15 +9,13 @@ import { V_identContext } from "./leafdataParser.js";
 import { V_strContext } from "./leafdataParser.js";
 import { V_objContext } from "./leafdataParser.js";
 import { V_arrContext } from "./leafdataParser.js";
-import { PropContext } from "./leafdataParser.js";
-import { ItemContext } from "./leafdataParser.js";
 
 
 /**
  * This interface defines a complete listener for a parse tree produced by
  * `leafdataParser`.
  */
-export class leafdataListener implements ParseTreeListener {
+export class leafdataParserListener implements ParseTreeListener {
     /**
      * Enter a parse tree produced by `leafdataParser.leafdata`.
      * @param ctx the parse tree
@@ -88,26 +86,6 @@ export class leafdataListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitV_arr?: (ctx: V_arrContext) => void;
-    /**
-     * Enter a parse tree produced by `leafdataParser.prop`.
-     * @param ctx the parse tree
-     */
-    enterProp?: (ctx: PropContext) => void;
-    /**
-     * Exit a parse tree produced by `leafdataParser.prop`.
-     * @param ctx the parse tree
-     */
-    exitProp?: (ctx: PropContext) => void;
-    /**
-     * Enter a parse tree produced by `leafdataParser.item`.
-     * @param ctx the parse tree
-     */
-    enterItem?: (ctx: ItemContext) => void;
-    /**
-     * Exit a parse tree produced by `leafdataParser.item`.
-     * @param ctx the parse tree
-     */
-    exitItem?: (ctx: ItemContext) => void;
 
     visitTerminal(node: TerminalNode): void {}
     visitErrorNode(node: ErrorNode): void {}

@@ -65,14 +65,16 @@ export function treeToCST(
 }
 
 const input = `
-a = [ null, true
+a=[ null, true
   false
 ]
 o = { a = null, b = true
   c = false
 }
 # hey
-"a$876_ao" = abz
+"a\u0000$8
+\t76_ao
+  " = abz
 # yowza
 `;
 
