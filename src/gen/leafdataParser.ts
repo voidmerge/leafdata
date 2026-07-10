@@ -9,39 +9,53 @@ type int = number;
 
 
 export class leafdataParser extends antlr.Parser {
-    public static readonly OBJ_OPEN = 1;
-    public static readonly OBJ_CLOSE = 2;
-    public static readonly ARR_OPEN = 3;
-    public static readonly ARR_CLOSE = 4;
-    public static readonly EQ = 5;
-    public static readonly NULL = 6;
-    public static readonly TRUE = 7;
-    public static readonly FALSE = 8;
-    public static readonly IDENT = 9;
-    public static readonly NOTES = 10;
-    public static readonly STR_OPEN = 11;
-    public static readonly STR_CLOSE = 12;
-    public static readonly STR = 13;
+    public static readonly BIGINT_MARK = 1;
+    public static readonly BINPCT_MARK = 2;
+    public static readonly BINB64_MARK = 3;
+    public static readonly DQ = 4;
+    public static readonly OBJ_OPEN = 5;
+    public static readonly OBJ_CLOSE = 6;
+    public static readonly ARR_OPEN = 7;
+    public static readonly ARR_CLOSE = 8;
+    public static readonly NULL = 9;
+    public static readonly TRUE = 10;
+    public static readonly FALSE = 11;
+    public static readonly F64 = 12;
+    public static readonly IDENT = 13;
+    public static readonly NOTES = 14;
+    public static readonly STR = 15;
+    public static readonly BIGINT = 16;
+    public static readonly BINPCT = 17;
+    public static readonly BINB64 = 18;
     public static readonly RULE_leafdata = 0;
     public static readonly RULE_v_null = 1;
     public static readonly RULE_v_bool = 2;
-    public static readonly RULE_v_ident = 3;
-    public static readonly RULE_v_str = 4;
-    public static readonly RULE_v_str_data = 5;
-    public static readonly RULE_v_obj = 6;
-    public static readonly RULE_v_arr = 7;
+    public static readonly RULE_v_f64 = 3;
+    public static readonly RULE_v_bigint = 4;
+    public static readonly RULE_v_bigint_val = 5;
+    public static readonly RULE_v_binpct = 6;
+    public static readonly RULE_v_binpct_val = 7;
+    public static readonly RULE_v_binb64 = 8;
+    public static readonly RULE_v_binb64_val = 9;
+    public static readonly RULE_v_ident = 10;
+    public static readonly RULE_v_str = 11;
+    public static readonly RULE_v_obj = 12;
+    public static readonly RULE_v_arr = 13;
 
     public static readonly literalNames = [
-        null, "'{'", "'}'", "'['", "']'", "'='", "'null'", "'true'", "'false'"
+        null, "'bigint@'", "'binpct@'", "'binb64@'", "'\"'", "'{'", "'}'", 
+        "'['", "']'", "'null'", "'true'", "'false'"
     ];
 
     public static readonly symbolicNames = [
-        null, "OBJ_OPEN", "OBJ_CLOSE", "ARR_OPEN", "ARR_CLOSE", "EQ", "NULL", 
-        "TRUE", "FALSE", "IDENT", "NOTES", "STR_OPEN", "STR_CLOSE", "STR"
+        null, "BIGINT_MARK", "BINPCT_MARK", "BINB64_MARK", "DQ", "OBJ_OPEN", 
+        "OBJ_CLOSE", "ARR_OPEN", "ARR_CLOSE", "NULL", "TRUE", "FALSE", "F64", 
+        "IDENT", "NOTES", "STR", "BIGINT", "BINPCT", "BINB64"
     ];
     public static readonly ruleNames = [
-        "leafdata", "v_null", "v_bool", "v_ident", "v_str", "v_str_data", 
-        "v_obj", "v_arr",
+        "leafdata", "v_null", "v_bool", "v_f64", "v_bigint", "v_bigint_val", 
+        "v_binpct", "v_binpct_val", "v_binb64", "v_binb64_val", "v_ident", 
+        "v_str", "v_obj", "v_arr",
     ];
 
     public get grammarFileName(): string { return "leafdataParser.g4"; }
@@ -63,127 +77,136 @@ export class leafdataParser extends antlr.Parser {
         this.enterRule(localContext, 0, leafdataParser.RULE_leafdata);
         let _la: number;
         try {
-            let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 40;
-            this.errorHandler.sync(this);
-            alternative = this.interpreter.adaptivePredict(this.tokenStream, 5, this.context);
-            while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
-                if (alternative === 1) {
-                    {
-                    {
-                    this.state = 17;
-                    this.errorHandler.sync(this);
-                    _la = this.tokenStream.LA(1);
-                    if (_la === 10) {
-                        {
-                        this.state = 16;
-                        this.match(leafdataParser.NOTES);
-                        }
-                    }
-
-                    this.state = 21;
-                    this.errorHandler.sync(this);
-                    switch (this.tokenStream.LA(1)) {
-                    case leafdataParser.IDENT:
-                        {
-                        this.state = 19;
-                        this.v_ident();
-                        }
-                        break;
-                    case leafdataParser.STR_OPEN:
-                        {
-                        this.state = 20;
-                        this.v_str();
-                        }
-                        break;
-                    default:
-                        throw new antlr.NoViableAltException(this);
-                    }
-                    this.state = 24;
-                    this.errorHandler.sync(this);
-                    _la = this.tokenStream.LA(1);
-                    if (_la === 10) {
-                        {
-                        this.state = 23;
-                        this.match(leafdataParser.NOTES);
-                        }
-                    }
-
-                    this.state = 26;
-                    this.match(leafdataParser.EQ);
-                    this.state = 28;
-                    this.errorHandler.sync(this);
-                    _la = this.tokenStream.LA(1);
-                    if (_la === 10) {
-                        {
-                        this.state = 27;
-                        this.match(leafdataParser.NOTES);
-                        }
-                    }
-
-                    this.state = 36;
-                    this.errorHandler.sync(this);
-                    switch (this.tokenStream.LA(1)) {
-                    case leafdataParser.NULL:
-                        {
-                        this.state = 30;
-                        this.v_null();
-                        }
-                        break;
-                    case leafdataParser.TRUE:
-                    case leafdataParser.FALSE:
-                        {
-                        this.state = 31;
-                        this.v_bool();
-                        }
-                        break;
-                    case leafdataParser.IDENT:
-                        {
-                        this.state = 32;
-                        this.v_ident();
-                        }
-                        break;
-                    case leafdataParser.STR_OPEN:
-                        {
-                        this.state = 33;
-                        this.v_str();
-                        }
-                        break;
-                    case leafdataParser.OBJ_OPEN:
-                        {
-                        this.state = 34;
-                        this.v_obj();
-                        }
-                        break;
-                    case leafdataParser.ARR_OPEN:
-                        {
-                        this.state = 35;
-                        this.v_arr();
-                        }
-                        break;
-                    default:
-                        throw new antlr.NoViableAltException(this);
-                    }
-                    }
-                    }
-                }
-                this.state = 42;
-                this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 5, this.context);
-            }
-            this.state = 44;
+            this.state = 29;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
-            if (_la === 10) {
+            if (_la === 14) {
                 {
-                this.state = 43;
+                this.state = 28;
                 this.match(leafdataParser.NOTES);
                 }
             }
 
-            this.state = 46;
+            this.state = 55;
+            this.errorHandler.sync(this);
+            _la = this.tokenStream.LA(1);
+            while (_la === 13 || _la === 15) {
+                {
+                {
+                this.state = 33;
+                this.errorHandler.sync(this);
+                switch (this.tokenStream.LA(1)) {
+                case leafdataParser.IDENT:
+                    {
+                    this.state = 31;
+                    this.v_ident();
+                    }
+                    break;
+                case leafdataParser.STR:
+                    {
+                    this.state = 32;
+                    this.v_str();
+                    }
+                    break;
+                default:
+                    throw new antlr.NoViableAltException(this);
+                }
+                this.state = 36;
+                this.errorHandler.sync(this);
+                _la = this.tokenStream.LA(1);
+                if (_la === 14) {
+                    {
+                    this.state = 35;
+                    this.match(leafdataParser.NOTES);
+                    }
+                }
+
+                this.state = 48;
+                this.errorHandler.sync(this);
+                switch (this.tokenStream.LA(1)) {
+                case leafdataParser.NULL:
+                    {
+                    this.state = 38;
+                    this.v_null();
+                    }
+                    break;
+                case leafdataParser.TRUE:
+                case leafdataParser.FALSE:
+                    {
+                    this.state = 39;
+                    this.v_bool();
+                    }
+                    break;
+                case leafdataParser.F64:
+                    {
+                    this.state = 40;
+                    this.v_f64();
+                    }
+                    break;
+                case leafdataParser.BIGINT_MARK:
+                    {
+                    this.state = 41;
+                    this.v_bigint();
+                    }
+                    break;
+                case leafdataParser.BINPCT_MARK:
+                    {
+                    this.state = 42;
+                    this.v_binpct();
+                    }
+                    break;
+                case leafdataParser.BINB64_MARK:
+                    {
+                    this.state = 43;
+                    this.v_binb64();
+                    }
+                    break;
+                case leafdataParser.IDENT:
+                    {
+                    this.state = 44;
+                    this.v_ident();
+                    }
+                    break;
+                case leafdataParser.STR:
+                    {
+                    this.state = 45;
+                    this.v_str();
+                    }
+                    break;
+                case leafdataParser.OBJ_OPEN:
+                    {
+                    this.state = 46;
+                    this.v_obj();
+                    }
+                    break;
+                case leafdataParser.ARR_OPEN:
+                    {
+                    this.state = 47;
+                    this.v_arr();
+                    }
+                    break;
+                default:
+                    throw new antlr.NoViableAltException(this);
+                }
+                this.state = 51;
+                this.errorHandler.sync(this);
+                _la = this.tokenStream.LA(1);
+                if (_la === 14) {
+                    {
+                    this.state = 50;
+                    this.match(leafdataParser.NOTES);
+                    }
+                }
+
+                }
+                }
+                this.state = 57;
+                this.errorHandler.sync(this);
+                _la = this.tokenStream.LA(1);
+            }
+            this.state = 58;
             this.match(leafdataParser.EOF);
             }
         }
@@ -206,7 +229,7 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 48;
+            this.state = 60;
             this.match(leafdataParser.NULL);
             }
         }
@@ -230,9 +253,9 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 50;
+            this.state = 62;
             _la = this.tokenStream.LA(1);
-            if(!(_la === 7 || _la === 8)) {
+            if(!(_la === 10 || _la === 11)) {
             this.errorHandler.recoverInline(this);
             }
             else {
@@ -254,13 +277,180 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_ident(): V_identContext {
-        let localContext = new V_identContext(this.context, this.state);
-        this.enterRule(localContext, 6, leafdataParser.RULE_v_ident);
+    public v_f64(): V_f64Context {
+        let localContext = new V_f64Context(this.context, this.state);
+        this.enterRule(localContext, 6, leafdataParser.RULE_v_f64);
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 52;
+            this.state = 64;
+            this.match(leafdataParser.F64);
+            }
+        }
+        catch (re) {
+            if (re instanceof antlr.RecognitionException) {
+                this.errorHandler.reportError(this, re);
+                this.errorHandler.recover(this, re);
+            } else {
+                throw re;
+            }
+        }
+        finally {
+            this.exitRule();
+        }
+        return localContext;
+    }
+    public v_bigint(): V_bigintContext {
+        let localContext = new V_bigintContext(this.context, this.state);
+        this.enterRule(localContext, 8, leafdataParser.RULE_v_bigint);
+        try {
+            this.enterOuterAlt(localContext, 1);
+            {
+            this.state = 66;
+            this.match(leafdataParser.BIGINT_MARK);
+            this.state = 67;
+            this.v_bigint_val();
+            }
+        }
+        catch (re) {
+            if (re instanceof antlr.RecognitionException) {
+                this.errorHandler.reportError(this, re);
+                this.errorHandler.recover(this, re);
+            } else {
+                throw re;
+            }
+        }
+        finally {
+            this.exitRule();
+        }
+        return localContext;
+    }
+    public v_bigint_val(): V_bigint_valContext {
+        let localContext = new V_bigint_valContext(this.context, this.state);
+        this.enterRule(localContext, 10, leafdataParser.RULE_v_bigint_val);
+        try {
+            this.enterOuterAlt(localContext, 1);
+            {
+            this.state = 69;
+            this.match(leafdataParser.BIGINT);
+            }
+        }
+        catch (re) {
+            if (re instanceof antlr.RecognitionException) {
+                this.errorHandler.reportError(this, re);
+                this.errorHandler.recover(this, re);
+            } else {
+                throw re;
+            }
+        }
+        finally {
+            this.exitRule();
+        }
+        return localContext;
+    }
+    public v_binpct(): V_binpctContext {
+        let localContext = new V_binpctContext(this.context, this.state);
+        this.enterRule(localContext, 12, leafdataParser.RULE_v_binpct);
+        try {
+            this.enterOuterAlt(localContext, 1);
+            {
+            this.state = 71;
+            this.match(leafdataParser.BINPCT_MARK);
+            this.state = 72;
+            this.v_binpct_val();
+            }
+        }
+        catch (re) {
+            if (re instanceof antlr.RecognitionException) {
+                this.errorHandler.reportError(this, re);
+                this.errorHandler.recover(this, re);
+            } else {
+                throw re;
+            }
+        }
+        finally {
+            this.exitRule();
+        }
+        return localContext;
+    }
+    public v_binpct_val(): V_binpct_valContext {
+        let localContext = new V_binpct_valContext(this.context, this.state);
+        this.enterRule(localContext, 14, leafdataParser.RULE_v_binpct_val);
+        try {
+            this.enterOuterAlt(localContext, 1);
+            {
+            this.state = 74;
+            this.match(leafdataParser.BINPCT);
+            }
+        }
+        catch (re) {
+            if (re instanceof antlr.RecognitionException) {
+                this.errorHandler.reportError(this, re);
+                this.errorHandler.recover(this, re);
+            } else {
+                throw re;
+            }
+        }
+        finally {
+            this.exitRule();
+        }
+        return localContext;
+    }
+    public v_binb64(): V_binb64Context {
+        let localContext = new V_binb64Context(this.context, this.state);
+        this.enterRule(localContext, 16, leafdataParser.RULE_v_binb64);
+        try {
+            this.enterOuterAlt(localContext, 1);
+            {
+            this.state = 76;
+            this.match(leafdataParser.BINB64_MARK);
+            this.state = 77;
+            this.v_binb64_val();
+            }
+        }
+        catch (re) {
+            if (re instanceof antlr.RecognitionException) {
+                this.errorHandler.reportError(this, re);
+                this.errorHandler.recover(this, re);
+            } else {
+                throw re;
+            }
+        }
+        finally {
+            this.exitRule();
+        }
+        return localContext;
+    }
+    public v_binb64_val(): V_binb64_valContext {
+        let localContext = new V_binb64_valContext(this.context, this.state);
+        this.enterRule(localContext, 18, leafdataParser.RULE_v_binb64_val);
+        try {
+            this.enterOuterAlt(localContext, 1);
+            {
+            this.state = 79;
+            this.match(leafdataParser.BINB64);
+            }
+        }
+        catch (re) {
+            if (re instanceof antlr.RecognitionException) {
+                this.errorHandler.reportError(this, re);
+                this.errorHandler.recover(this, re);
+            } else {
+                throw re;
+            }
+        }
+        finally {
+            this.exitRule();
+        }
+        return localContext;
+    }
+    public v_ident(): V_identContext {
+        let localContext = new V_identContext(this.context, this.state);
+        this.enterRule(localContext, 20, leafdataParser.RULE_v_ident);
+        try {
+            this.enterOuterAlt(localContext, 1);
+            {
+            this.state = 81;
             this.match(leafdataParser.IDENT);
             }
         }
@@ -279,47 +469,11 @@ export class leafdataParser extends antlr.Parser {
     }
     public v_str(): V_strContext {
         let localContext = new V_strContext(this.context, this.state);
-        this.enterRule(localContext, 8, leafdataParser.RULE_v_str);
-        let _la: number;
+        this.enterRule(localContext, 22, leafdataParser.RULE_v_str);
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 54;
-            this.match(leafdataParser.STR_OPEN);
-            this.state = 56;
-            this.errorHandler.sync(this);
-            _la = this.tokenStream.LA(1);
-            if (_la === 13) {
-                {
-                this.state = 55;
-                this.v_str_data();
-                }
-            }
-
-            this.state = 58;
-            this.match(leafdataParser.STR_CLOSE);
-            }
-        }
-        catch (re) {
-            if (re instanceof antlr.RecognitionException) {
-                this.errorHandler.reportError(this, re);
-                this.errorHandler.recover(this, re);
-            } else {
-                throw re;
-            }
-        }
-        finally {
-            this.exitRule();
-        }
-        return localContext;
-    }
-    public v_str_data(): V_str_dataContext {
-        let localContext = new V_str_dataContext(this.context, this.state);
-        this.enterRule(localContext, 10, leafdataParser.RULE_v_str_data);
-        try {
-            this.enterOuterAlt(localContext, 1);
-            {
-            this.state = 60;
+            this.state = 83;
             this.match(leafdataParser.STR);
             }
         }
@@ -338,132 +492,141 @@ export class leafdataParser extends antlr.Parser {
     }
     public v_obj(): V_objContext {
         let localContext = new V_objContext(this.context, this.state);
-        this.enterRule(localContext, 12, leafdataParser.RULE_v_obj);
+        this.enterRule(localContext, 24, leafdataParser.RULE_v_obj);
         let _la: number;
         try {
-            let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 62;
+            this.state = 85;
             this.match(leafdataParser.OBJ_OPEN);
             this.state = 87;
             this.errorHandler.sync(this);
-            alternative = this.interpreter.adaptivePredict(this.tokenStream, 13, this.context);
-            while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
-                if (alternative === 1) {
-                    {
-                    {
-                    this.state = 64;
-                    this.errorHandler.sync(this);
-                    _la = this.tokenStream.LA(1);
-                    if (_la === 10) {
-                        {
-                        this.state = 63;
-                        this.match(leafdataParser.NOTES);
-                        }
-                    }
-
-                    this.state = 68;
-                    this.errorHandler.sync(this);
-                    switch (this.tokenStream.LA(1)) {
-                    case leafdataParser.IDENT:
-                        {
-                        this.state = 66;
-                        this.v_ident();
-                        }
-                        break;
-                    case leafdataParser.STR_OPEN:
-                        {
-                        this.state = 67;
-                        this.v_str();
-                        }
-                        break;
-                    default:
-                        throw new antlr.NoViableAltException(this);
-                    }
-                    this.state = 71;
-                    this.errorHandler.sync(this);
-                    _la = this.tokenStream.LA(1);
-                    if (_la === 10) {
-                        {
-                        this.state = 70;
-                        this.match(leafdataParser.NOTES);
-                        }
-                    }
-
-                    this.state = 73;
-                    this.match(leafdataParser.EQ);
-                    this.state = 75;
-                    this.errorHandler.sync(this);
-                    _la = this.tokenStream.LA(1);
-                    if (_la === 10) {
-                        {
-                        this.state = 74;
-                        this.match(leafdataParser.NOTES);
-                        }
-                    }
-
-                    this.state = 83;
-                    this.errorHandler.sync(this);
-                    switch (this.tokenStream.LA(1)) {
-                    case leafdataParser.NULL:
-                        {
-                        this.state = 77;
-                        this.v_null();
-                        }
-                        break;
-                    case leafdataParser.TRUE:
-                    case leafdataParser.FALSE:
-                        {
-                        this.state = 78;
-                        this.v_bool();
-                        }
-                        break;
-                    case leafdataParser.IDENT:
-                        {
-                        this.state = 79;
-                        this.v_ident();
-                        }
-                        break;
-                    case leafdataParser.STR_OPEN:
-                        {
-                        this.state = 80;
-                        this.v_str();
-                        }
-                        break;
-                    case leafdataParser.OBJ_OPEN:
-                        {
-                        this.state = 81;
-                        this.v_obj();
-                        }
-                        break;
-                    case leafdataParser.ARR_OPEN:
-                        {
-                        this.state = 82;
-                        this.v_arr();
-                        }
-                        break;
-                    default:
-                        throw new antlr.NoViableAltException(this);
-                    }
-                    }
-                    }
-                }
-                this.state = 89;
-                this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 13, this.context);
-            }
-            this.state = 91;
-            this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
-            if (_la === 10) {
+            if (_la === 14) {
                 {
-                this.state = 90;
+                this.state = 86;
                 this.match(leafdataParser.NOTES);
                 }
             }
 
-            this.state = 93;
+            this.state = 113;
+            this.errorHandler.sync(this);
+            _la = this.tokenStream.LA(1);
+            while (_la === 13 || _la === 15) {
+                {
+                {
+                this.state = 91;
+                this.errorHandler.sync(this);
+                switch (this.tokenStream.LA(1)) {
+                case leafdataParser.IDENT:
+                    {
+                    this.state = 89;
+                    this.v_ident();
+                    }
+                    break;
+                case leafdataParser.STR:
+                    {
+                    this.state = 90;
+                    this.v_str();
+                    }
+                    break;
+                default:
+                    throw new antlr.NoViableAltException(this);
+                }
+                this.state = 94;
+                this.errorHandler.sync(this);
+                _la = this.tokenStream.LA(1);
+                if (_la === 14) {
+                    {
+                    this.state = 93;
+                    this.match(leafdataParser.NOTES);
+                    }
+                }
+
+                this.state = 106;
+                this.errorHandler.sync(this);
+                switch (this.tokenStream.LA(1)) {
+                case leafdataParser.NULL:
+                    {
+                    this.state = 96;
+                    this.v_null();
+                    }
+                    break;
+                case leafdataParser.TRUE:
+                case leafdataParser.FALSE:
+                    {
+                    this.state = 97;
+                    this.v_bool();
+                    }
+                    break;
+                case leafdataParser.F64:
+                    {
+                    this.state = 98;
+                    this.v_f64();
+                    }
+                    break;
+                case leafdataParser.BIGINT_MARK:
+                    {
+                    this.state = 99;
+                    this.v_bigint();
+                    }
+                    break;
+                case leafdataParser.BINPCT_MARK:
+                    {
+                    this.state = 100;
+                    this.v_binpct();
+                    }
+                    break;
+                case leafdataParser.BINB64_MARK:
+                    {
+                    this.state = 101;
+                    this.v_binb64();
+                    }
+                    break;
+                case leafdataParser.IDENT:
+                    {
+                    this.state = 102;
+                    this.v_ident();
+                    }
+                    break;
+                case leafdataParser.STR:
+                    {
+                    this.state = 103;
+                    this.v_str();
+                    }
+                    break;
+                case leafdataParser.OBJ_OPEN:
+                    {
+                    this.state = 104;
+                    this.v_obj();
+                    }
+                    break;
+                case leafdataParser.ARR_OPEN:
+                    {
+                    this.state = 105;
+                    this.v_arr();
+                    }
+                    break;
+                default:
+                    throw new antlr.NoViableAltException(this);
+                }
+                this.state = 109;
+                this.errorHandler.sync(this);
+                _la = this.tokenStream.LA(1);
+                if (_la === 14) {
+                    {
+                    this.state = 108;
+                    this.match(leafdataParser.NOTES);
+                    }
+                }
+
+                }
+                }
+                this.state = 115;
+                this.errorHandler.sync(this);
+                _la = this.tokenStream.LA(1);
+            }
+            this.state = 116;
             this.match(leafdataParser.OBJ_CLOSE);
             }
         }
@@ -482,92 +645,113 @@ export class leafdataParser extends antlr.Parser {
     }
     public v_arr(): V_arrContext {
         let localContext = new V_arrContext(this.context, this.state);
-        this.enterRule(localContext, 14, leafdataParser.RULE_v_arr);
+        this.enterRule(localContext, 26, leafdataParser.RULE_v_arr);
         let _la: number;
         try {
-            let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 95;
+            this.state = 118;
             this.match(leafdataParser.ARR_OPEN);
-            this.state = 109;
-            this.errorHandler.sync(this);
-            alternative = this.interpreter.adaptivePredict(this.tokenStream, 17, this.context);
-            while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
-                if (alternative === 1) {
-                    {
-                    {
-                    this.state = 97;
-                    this.errorHandler.sync(this);
-                    _la = this.tokenStream.LA(1);
-                    if (_la === 10) {
-                        {
-                        this.state = 96;
-                        this.match(leafdataParser.NOTES);
-                        }
-                    }
-
-                    this.state = 105;
-                    this.errorHandler.sync(this);
-                    switch (this.tokenStream.LA(1)) {
-                    case leafdataParser.NULL:
-                        {
-                        this.state = 99;
-                        this.v_null();
-                        }
-                        break;
-                    case leafdataParser.TRUE:
-                    case leafdataParser.FALSE:
-                        {
-                        this.state = 100;
-                        this.v_bool();
-                        }
-                        break;
-                    case leafdataParser.IDENT:
-                        {
-                        this.state = 101;
-                        this.v_ident();
-                        }
-                        break;
-                    case leafdataParser.STR_OPEN:
-                        {
-                        this.state = 102;
-                        this.v_str();
-                        }
-                        break;
-                    case leafdataParser.OBJ_OPEN:
-                        {
-                        this.state = 103;
-                        this.v_obj();
-                        }
-                        break;
-                    case leafdataParser.ARR_OPEN:
-                        {
-                        this.state = 104;
-                        this.v_arr();
-                        }
-                        break;
-                    default:
-                        throw new antlr.NoViableAltException(this);
-                    }
-                    }
-                    }
-                }
-                this.state = 111;
-                this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 17, this.context);
-            }
-            this.state = 113;
+            this.state = 120;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
-            if (_la === 10) {
+            if (_la === 14) {
                 {
-                this.state = 112;
+                this.state = 119;
                 this.match(leafdataParser.NOTES);
                 }
             }
 
-            this.state = 115;
+            this.state = 139;
+            this.errorHandler.sync(this);
+            _la = this.tokenStream.LA(1);
+            while ((((_la) & ~0x1F) === 0 && ((1 << _la) & 48814) !== 0)) {
+                {
+                {
+                this.state = 132;
+                this.errorHandler.sync(this);
+                switch (this.tokenStream.LA(1)) {
+                case leafdataParser.NULL:
+                    {
+                    this.state = 122;
+                    this.v_null();
+                    }
+                    break;
+                case leafdataParser.TRUE:
+                case leafdataParser.FALSE:
+                    {
+                    this.state = 123;
+                    this.v_bool();
+                    }
+                    break;
+                case leafdataParser.F64:
+                    {
+                    this.state = 124;
+                    this.v_f64();
+                    }
+                    break;
+                case leafdataParser.BIGINT_MARK:
+                    {
+                    this.state = 125;
+                    this.v_bigint();
+                    }
+                    break;
+                case leafdataParser.BINPCT_MARK:
+                    {
+                    this.state = 126;
+                    this.v_binpct();
+                    }
+                    break;
+                case leafdataParser.BINB64_MARK:
+                    {
+                    this.state = 127;
+                    this.v_binb64();
+                    }
+                    break;
+                case leafdataParser.IDENT:
+                    {
+                    this.state = 128;
+                    this.v_ident();
+                    }
+                    break;
+                case leafdataParser.STR:
+                    {
+                    this.state = 129;
+                    this.v_str();
+                    }
+                    break;
+                case leafdataParser.OBJ_OPEN:
+                    {
+                    this.state = 130;
+                    this.v_obj();
+                    }
+                    break;
+                case leafdataParser.ARR_OPEN:
+                    {
+                    this.state = 131;
+                    this.v_arr();
+                    }
+                    break;
+                default:
+                    throw new antlr.NoViableAltException(this);
+                }
+                this.state = 135;
+                this.errorHandler.sync(this);
+                _la = this.tokenStream.LA(1);
+                if (_la === 14) {
+                    {
+                    this.state = 134;
+                    this.match(leafdataParser.NOTES);
+                    }
+                }
+
+                }
+                }
+                this.state = 141;
+                this.errorHandler.sync(this);
+                _la = this.tokenStream.LA(1);
+            }
+            this.state = 142;
             this.match(leafdataParser.ARR_CLOSE);
             }
         }
@@ -586,48 +770,59 @@ export class leafdataParser extends antlr.Parser {
     }
 
     public static readonly _serializedATN: number[] = [
-        4,1,13,118,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
-        6,2,7,7,7,1,0,3,0,18,8,0,1,0,1,0,3,0,22,8,0,1,0,3,0,25,8,0,1,0,1,
-        0,3,0,29,8,0,1,0,1,0,1,0,1,0,1,0,1,0,3,0,37,8,0,5,0,39,8,0,10,0,
-        12,0,42,9,0,1,0,3,0,45,8,0,1,0,1,0,1,1,1,1,1,2,1,2,1,3,1,3,1,4,1,
-        4,3,4,57,8,4,1,4,1,4,1,5,1,5,1,6,1,6,3,6,65,8,6,1,6,1,6,3,6,69,8,
-        6,1,6,3,6,72,8,6,1,6,1,6,3,6,76,8,6,1,6,1,6,1,6,1,6,1,6,1,6,3,6,
-        84,8,6,5,6,86,8,6,10,6,12,6,89,9,6,1,6,3,6,92,8,6,1,6,1,6,1,7,1,
-        7,3,7,98,8,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,106,8,7,5,7,108,8,7,10,
-        7,12,7,111,9,7,1,7,3,7,114,8,7,1,7,1,7,1,7,0,0,8,0,2,4,6,8,10,12,
-        14,0,1,1,0,7,8,140,0,40,1,0,0,0,2,48,1,0,0,0,4,50,1,0,0,0,6,52,1,
-        0,0,0,8,54,1,0,0,0,10,60,1,0,0,0,12,62,1,0,0,0,14,95,1,0,0,0,16,
-        18,5,10,0,0,17,16,1,0,0,0,17,18,1,0,0,0,18,21,1,0,0,0,19,22,3,6,
-        3,0,20,22,3,8,4,0,21,19,1,0,0,0,21,20,1,0,0,0,22,24,1,0,0,0,23,25,
-        5,10,0,0,24,23,1,0,0,0,24,25,1,0,0,0,25,26,1,0,0,0,26,28,5,5,0,0,
-        27,29,5,10,0,0,28,27,1,0,0,0,28,29,1,0,0,0,29,36,1,0,0,0,30,37,3,
-        2,1,0,31,37,3,4,2,0,32,37,3,6,3,0,33,37,3,8,4,0,34,37,3,12,6,0,35,
-        37,3,14,7,0,36,30,1,0,0,0,36,31,1,0,0,0,36,32,1,0,0,0,36,33,1,0,
-        0,0,36,34,1,0,0,0,36,35,1,0,0,0,37,39,1,0,0,0,38,17,1,0,0,0,39,42,
-        1,0,0,0,40,38,1,0,0,0,40,41,1,0,0,0,41,44,1,0,0,0,42,40,1,0,0,0,
-        43,45,5,10,0,0,44,43,1,0,0,0,44,45,1,0,0,0,45,46,1,0,0,0,46,47,5,
-        0,0,1,47,1,1,0,0,0,48,49,5,6,0,0,49,3,1,0,0,0,50,51,7,0,0,0,51,5,
-        1,0,0,0,52,53,5,9,0,0,53,7,1,0,0,0,54,56,5,11,0,0,55,57,3,10,5,0,
-        56,55,1,0,0,0,56,57,1,0,0,0,57,58,1,0,0,0,58,59,5,12,0,0,59,9,1,
-        0,0,0,60,61,5,13,0,0,61,11,1,0,0,0,62,87,5,1,0,0,63,65,5,10,0,0,
-        64,63,1,0,0,0,64,65,1,0,0,0,65,68,1,0,0,0,66,69,3,6,3,0,67,69,3,
-        8,4,0,68,66,1,0,0,0,68,67,1,0,0,0,69,71,1,0,0,0,70,72,5,10,0,0,71,
-        70,1,0,0,0,71,72,1,0,0,0,72,73,1,0,0,0,73,75,5,5,0,0,74,76,5,10,
-        0,0,75,74,1,0,0,0,75,76,1,0,0,0,76,83,1,0,0,0,77,84,3,2,1,0,78,84,
-        3,4,2,0,79,84,3,6,3,0,80,84,3,8,4,0,81,84,3,12,6,0,82,84,3,14,7,
-        0,83,77,1,0,0,0,83,78,1,0,0,0,83,79,1,0,0,0,83,80,1,0,0,0,83,81,
-        1,0,0,0,83,82,1,0,0,0,84,86,1,0,0,0,85,64,1,0,0,0,86,89,1,0,0,0,
-        87,85,1,0,0,0,87,88,1,0,0,0,88,91,1,0,0,0,89,87,1,0,0,0,90,92,5,
-        10,0,0,91,90,1,0,0,0,91,92,1,0,0,0,92,93,1,0,0,0,93,94,5,2,0,0,94,
-        13,1,0,0,0,95,109,5,3,0,0,96,98,5,10,0,0,97,96,1,0,0,0,97,98,1,0,
-        0,0,98,105,1,0,0,0,99,106,3,2,1,0,100,106,3,4,2,0,101,106,3,6,3,
-        0,102,106,3,8,4,0,103,106,3,12,6,0,104,106,3,14,7,0,105,99,1,0,0,
-        0,105,100,1,0,0,0,105,101,1,0,0,0,105,102,1,0,0,0,105,103,1,0,0,
-        0,105,104,1,0,0,0,106,108,1,0,0,0,107,97,1,0,0,0,108,111,1,0,0,0,
-        109,107,1,0,0,0,109,110,1,0,0,0,110,113,1,0,0,0,111,109,1,0,0,0,
-        112,114,5,10,0,0,113,112,1,0,0,0,113,114,1,0,0,0,114,115,1,0,0,0,
-        115,116,5,4,0,0,116,15,1,0,0,0,19,17,21,24,28,36,40,44,56,64,68,
-        71,75,83,87,91,97,105,109,113
+        4,1,18,145,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
+        1,0,3,0,30,8,0,1,0,1,0,3,0,34,8,0,1,0,3,0,37,8,0,1,0,1,0,1,0,1,0,
+        1,0,1,0,1,0,1,0,1,0,1,0,3,0,49,8,0,1,0,3,0,52,8,0,5,0,54,8,0,10,
+        0,12,0,57,9,0,1,0,1,0,1,1,1,1,1,2,1,2,1,3,1,3,1,4,1,4,1,4,1,5,1,
+        5,1,6,1,6,1,6,1,7,1,7,1,8,1,8,1,8,1,9,1,9,1,10,1,10,1,11,1,11,1,
+        12,1,12,3,12,88,8,12,1,12,1,12,3,12,92,8,12,1,12,3,12,95,8,12,1,
+        12,1,12,1,12,1,12,1,12,1,12,1,12,1,12,1,12,1,12,3,12,107,8,12,1,
+        12,3,12,110,8,12,5,12,112,8,12,10,12,12,12,115,9,12,1,12,1,12,1,
+        13,1,13,3,13,121,8,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,
+        13,1,13,3,13,133,8,13,1,13,3,13,136,8,13,5,13,138,8,13,10,13,12,
+        13,141,9,13,1,13,1,13,1,13,0,0,14,0,2,4,6,8,10,12,14,16,18,20,22,
+        24,26,0,1,1,0,10,11,170,0,29,1,0,0,0,2,60,1,0,0,0,4,62,1,0,0,0,6,
+        64,1,0,0,0,8,66,1,0,0,0,10,69,1,0,0,0,12,71,1,0,0,0,14,74,1,0,0,
+        0,16,76,1,0,0,0,18,79,1,0,0,0,20,81,1,0,0,0,22,83,1,0,0,0,24,85,
+        1,0,0,0,26,118,1,0,0,0,28,30,5,14,0,0,29,28,1,0,0,0,29,30,1,0,0,
+        0,30,55,1,0,0,0,31,34,3,20,10,0,32,34,3,22,11,0,33,31,1,0,0,0,33,
+        32,1,0,0,0,34,36,1,0,0,0,35,37,5,14,0,0,36,35,1,0,0,0,36,37,1,0,
+        0,0,37,48,1,0,0,0,38,49,3,2,1,0,39,49,3,4,2,0,40,49,3,6,3,0,41,49,
+        3,8,4,0,42,49,3,12,6,0,43,49,3,16,8,0,44,49,3,20,10,0,45,49,3,22,
+        11,0,46,49,3,24,12,0,47,49,3,26,13,0,48,38,1,0,0,0,48,39,1,0,0,0,
+        48,40,1,0,0,0,48,41,1,0,0,0,48,42,1,0,0,0,48,43,1,0,0,0,48,44,1,
+        0,0,0,48,45,1,0,0,0,48,46,1,0,0,0,48,47,1,0,0,0,49,51,1,0,0,0,50,
+        52,5,14,0,0,51,50,1,0,0,0,51,52,1,0,0,0,52,54,1,0,0,0,53,33,1,0,
+        0,0,54,57,1,0,0,0,55,53,1,0,0,0,55,56,1,0,0,0,56,58,1,0,0,0,57,55,
+        1,0,0,0,58,59,5,0,0,1,59,1,1,0,0,0,60,61,5,9,0,0,61,3,1,0,0,0,62,
+        63,7,0,0,0,63,5,1,0,0,0,64,65,5,12,0,0,65,7,1,0,0,0,66,67,5,1,0,
+        0,67,68,3,10,5,0,68,9,1,0,0,0,69,70,5,16,0,0,70,11,1,0,0,0,71,72,
+        5,2,0,0,72,73,3,14,7,0,73,13,1,0,0,0,74,75,5,17,0,0,75,15,1,0,0,
+        0,76,77,5,3,0,0,77,78,3,18,9,0,78,17,1,0,0,0,79,80,5,18,0,0,80,19,
+        1,0,0,0,81,82,5,13,0,0,82,21,1,0,0,0,83,84,5,15,0,0,84,23,1,0,0,
+        0,85,87,5,5,0,0,86,88,5,14,0,0,87,86,1,0,0,0,87,88,1,0,0,0,88,113,
+        1,0,0,0,89,92,3,20,10,0,90,92,3,22,11,0,91,89,1,0,0,0,91,90,1,0,
+        0,0,92,94,1,0,0,0,93,95,5,14,0,0,94,93,1,0,0,0,94,95,1,0,0,0,95,
+        106,1,0,0,0,96,107,3,2,1,0,97,107,3,4,2,0,98,107,3,6,3,0,99,107,
+        3,8,4,0,100,107,3,12,6,0,101,107,3,16,8,0,102,107,3,20,10,0,103,
+        107,3,22,11,0,104,107,3,24,12,0,105,107,3,26,13,0,106,96,1,0,0,0,
+        106,97,1,0,0,0,106,98,1,0,0,0,106,99,1,0,0,0,106,100,1,0,0,0,106,
+        101,1,0,0,0,106,102,1,0,0,0,106,103,1,0,0,0,106,104,1,0,0,0,106,
+        105,1,0,0,0,107,109,1,0,0,0,108,110,5,14,0,0,109,108,1,0,0,0,109,
+        110,1,0,0,0,110,112,1,0,0,0,111,91,1,0,0,0,112,115,1,0,0,0,113,111,
+        1,0,0,0,113,114,1,0,0,0,114,116,1,0,0,0,115,113,1,0,0,0,116,117,
+        5,6,0,0,117,25,1,0,0,0,118,120,5,7,0,0,119,121,5,14,0,0,120,119,
+        1,0,0,0,120,121,1,0,0,0,121,139,1,0,0,0,122,133,3,2,1,0,123,133,
+        3,4,2,0,124,133,3,6,3,0,125,133,3,8,4,0,126,133,3,12,6,0,127,133,
+        3,16,8,0,128,133,3,20,10,0,129,133,3,22,11,0,130,133,3,24,12,0,131,
+        133,3,26,13,0,132,122,1,0,0,0,132,123,1,0,0,0,132,124,1,0,0,0,132,
+        125,1,0,0,0,132,126,1,0,0,0,132,127,1,0,0,0,132,128,1,0,0,0,132,
+        129,1,0,0,0,132,130,1,0,0,0,132,131,1,0,0,0,133,135,1,0,0,0,134,
+        136,5,14,0,0,135,134,1,0,0,0,135,136,1,0,0,0,136,138,1,0,0,0,137,
+        132,1,0,0,0,138,141,1,0,0,0,139,137,1,0,0,0,139,140,1,0,0,0,140,
+        142,1,0,0,0,141,139,1,0,0,0,142,143,5,8,0,0,143,27,1,0,0,0,16,29,
+        33,36,48,51,55,87,91,94,106,109,113,120,132,135,139
     ];
 
     private static __ATN: antlr.ATN;
@@ -655,15 +850,6 @@ export class LeafdataContext extends antlr.ParserRuleContext {
     }
     public EOF(): antlr.TerminalNode {
         return this.getToken(leafdataParser.EOF, 0)!;
-    }
-    public EQ(): antlr.TerminalNode[];
-    public EQ(i: number): antlr.TerminalNode | null;
-    public EQ(i?: number): antlr.TerminalNode | null | antlr.TerminalNode[] {
-    	if (i === undefined) {
-    		return this.getTokens(leafdataParser.EQ);
-    	} else {
-    		return this.getToken(leafdataParser.EQ, i);
-    	}
     }
     public NOTES(): antlr.TerminalNode[];
     public NOTES(i: number): antlr.TerminalNode | null;
@@ -709,6 +895,42 @@ export class LeafdataContext extends antlr.ParserRuleContext {
         }
 
         return this.getRuleContext(i, V_boolContext);
+    }
+    public v_f64(): V_f64Context[];
+    public v_f64(i: number): V_f64Context | null;
+    public v_f64(i?: number): V_f64Context[] | V_f64Context | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_f64Context);
+        }
+
+        return this.getRuleContext(i, V_f64Context);
+    }
+    public v_bigint(): V_bigintContext[];
+    public v_bigint(i: number): V_bigintContext | null;
+    public v_bigint(i?: number): V_bigintContext[] | V_bigintContext | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_bigintContext);
+        }
+
+        return this.getRuleContext(i, V_bigintContext);
+    }
+    public v_binpct(): V_binpctContext[];
+    public v_binpct(i: number): V_binpctContext | null;
+    public v_binpct(i?: number): V_binpctContext[] | V_binpctContext | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_binpctContext);
+        }
+
+        return this.getRuleContext(i, V_binpctContext);
+    }
+    public v_binb64(): V_binb64Context[];
+    public v_binb64(i: number): V_binb64Context | null;
+    public v_binb64(i?: number): V_binb64Context[] | V_binb64Context | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_binb64Context);
+        }
+
+        return this.getRuleContext(i, V_binb64Context);
     }
     public v_obj(): V_objContext[];
     public v_obj(i: number): V_objContext | null;
@@ -793,6 +1015,176 @@ export class V_boolContext extends antlr.ParserRuleContext {
 }
 
 
+export class V_f64Context extends antlr.ParserRuleContext {
+    public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
+        super(parent, invokingState);
+    }
+    public F64(): antlr.TerminalNode {
+        return this.getToken(leafdataParser.F64, 0)!;
+    }
+    public override get ruleIndex(): number {
+        return leafdataParser.RULE_v_f64;
+    }
+    public override enterRule(listener: leafdataParserListener): void {
+        if(listener.enterV_f64) {
+             listener.enterV_f64(this);
+        }
+    }
+    public override exitRule(listener: leafdataParserListener): void {
+        if(listener.exitV_f64) {
+             listener.exitV_f64(this);
+        }
+    }
+}
+
+
+export class V_bigintContext extends antlr.ParserRuleContext {
+    public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
+        super(parent, invokingState);
+    }
+    public BIGINT_MARK(): antlr.TerminalNode {
+        return this.getToken(leafdataParser.BIGINT_MARK, 0)!;
+    }
+    public v_bigint_val(): V_bigint_valContext {
+        return this.getRuleContext(0, V_bigint_valContext)!;
+    }
+    public override get ruleIndex(): number {
+        return leafdataParser.RULE_v_bigint;
+    }
+    public override enterRule(listener: leafdataParserListener): void {
+        if(listener.enterV_bigint) {
+             listener.enterV_bigint(this);
+        }
+    }
+    public override exitRule(listener: leafdataParserListener): void {
+        if(listener.exitV_bigint) {
+             listener.exitV_bigint(this);
+        }
+    }
+}
+
+
+export class V_bigint_valContext extends antlr.ParserRuleContext {
+    public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
+        super(parent, invokingState);
+    }
+    public BIGINT(): antlr.TerminalNode {
+        return this.getToken(leafdataParser.BIGINT, 0)!;
+    }
+    public override get ruleIndex(): number {
+        return leafdataParser.RULE_v_bigint_val;
+    }
+    public override enterRule(listener: leafdataParserListener): void {
+        if(listener.enterV_bigint_val) {
+             listener.enterV_bigint_val(this);
+        }
+    }
+    public override exitRule(listener: leafdataParserListener): void {
+        if(listener.exitV_bigint_val) {
+             listener.exitV_bigint_val(this);
+        }
+    }
+}
+
+
+export class V_binpctContext extends antlr.ParserRuleContext {
+    public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
+        super(parent, invokingState);
+    }
+    public BINPCT_MARK(): antlr.TerminalNode {
+        return this.getToken(leafdataParser.BINPCT_MARK, 0)!;
+    }
+    public v_binpct_val(): V_binpct_valContext {
+        return this.getRuleContext(0, V_binpct_valContext)!;
+    }
+    public override get ruleIndex(): number {
+        return leafdataParser.RULE_v_binpct;
+    }
+    public override enterRule(listener: leafdataParserListener): void {
+        if(listener.enterV_binpct) {
+             listener.enterV_binpct(this);
+        }
+    }
+    public override exitRule(listener: leafdataParserListener): void {
+        if(listener.exitV_binpct) {
+             listener.exitV_binpct(this);
+        }
+    }
+}
+
+
+export class V_binpct_valContext extends antlr.ParserRuleContext {
+    public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
+        super(parent, invokingState);
+    }
+    public BINPCT(): antlr.TerminalNode {
+        return this.getToken(leafdataParser.BINPCT, 0)!;
+    }
+    public override get ruleIndex(): number {
+        return leafdataParser.RULE_v_binpct_val;
+    }
+    public override enterRule(listener: leafdataParserListener): void {
+        if(listener.enterV_binpct_val) {
+             listener.enterV_binpct_val(this);
+        }
+    }
+    public override exitRule(listener: leafdataParserListener): void {
+        if(listener.exitV_binpct_val) {
+             listener.exitV_binpct_val(this);
+        }
+    }
+}
+
+
+export class V_binb64Context extends antlr.ParserRuleContext {
+    public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
+        super(parent, invokingState);
+    }
+    public BINB64_MARK(): antlr.TerminalNode {
+        return this.getToken(leafdataParser.BINB64_MARK, 0)!;
+    }
+    public v_binb64_val(): V_binb64_valContext {
+        return this.getRuleContext(0, V_binb64_valContext)!;
+    }
+    public override get ruleIndex(): number {
+        return leafdataParser.RULE_v_binb64;
+    }
+    public override enterRule(listener: leafdataParserListener): void {
+        if(listener.enterV_binb64) {
+             listener.enterV_binb64(this);
+        }
+    }
+    public override exitRule(listener: leafdataParserListener): void {
+        if(listener.exitV_binb64) {
+             listener.exitV_binb64(this);
+        }
+    }
+}
+
+
+export class V_binb64_valContext extends antlr.ParserRuleContext {
+    public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
+        super(parent, invokingState);
+    }
+    public BINB64(): antlr.TerminalNode {
+        return this.getToken(leafdataParser.BINB64, 0)!;
+    }
+    public override get ruleIndex(): number {
+        return leafdataParser.RULE_v_binb64_val;
+    }
+    public override enterRule(listener: leafdataParserListener): void {
+        if(listener.enterV_binb64_val) {
+             listener.enterV_binb64_val(this);
+        }
+    }
+    public override exitRule(listener: leafdataParserListener): void {
+        if(listener.exitV_binb64_val) {
+             listener.exitV_binb64_val(this);
+        }
+    }
+}
+
+
 export class V_identContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
@@ -820,14 +1212,8 @@ export class V_strContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
-    public STR_OPEN(): antlr.TerminalNode {
-        return this.getToken(leafdataParser.STR_OPEN, 0)!;
-    }
-    public STR_CLOSE(): antlr.TerminalNode {
-        return this.getToken(leafdataParser.STR_CLOSE, 0)!;
-    }
-    public v_str_data(): V_str_dataContext | null {
-        return this.getRuleContext(0, V_str_dataContext);
+    public STR(): antlr.TerminalNode {
+        return this.getToken(leafdataParser.STR, 0)!;
     }
     public override get ruleIndex(): number {
         return leafdataParser.RULE_v_str;
@@ -845,29 +1231,6 @@ export class V_strContext extends antlr.ParserRuleContext {
 }
 
 
-export class V_str_dataContext extends antlr.ParserRuleContext {
-    public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
-        super(parent, invokingState);
-    }
-    public STR(): antlr.TerminalNode {
-        return this.getToken(leafdataParser.STR, 0)!;
-    }
-    public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_str_data;
-    }
-    public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_str_data) {
-             listener.enterV_str_data(this);
-        }
-    }
-    public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_str_data) {
-             listener.exitV_str_data(this);
-        }
-    }
-}
-
-
 export class V_objContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
@@ -877,15 +1240,6 @@ export class V_objContext extends antlr.ParserRuleContext {
     }
     public OBJ_CLOSE(): antlr.TerminalNode {
         return this.getToken(leafdataParser.OBJ_CLOSE, 0)!;
-    }
-    public EQ(): antlr.TerminalNode[];
-    public EQ(i: number): antlr.TerminalNode | null;
-    public EQ(i?: number): antlr.TerminalNode | null | antlr.TerminalNode[] {
-    	if (i === undefined) {
-    		return this.getTokens(leafdataParser.EQ);
-    	} else {
-    		return this.getToken(leafdataParser.EQ, i);
-    	}
     }
     public NOTES(): antlr.TerminalNode[];
     public NOTES(i: number): antlr.TerminalNode | null;
@@ -931,6 +1285,42 @@ export class V_objContext extends antlr.ParserRuleContext {
         }
 
         return this.getRuleContext(i, V_boolContext);
+    }
+    public v_f64(): V_f64Context[];
+    public v_f64(i: number): V_f64Context | null;
+    public v_f64(i?: number): V_f64Context[] | V_f64Context | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_f64Context);
+        }
+
+        return this.getRuleContext(i, V_f64Context);
+    }
+    public v_bigint(): V_bigintContext[];
+    public v_bigint(i: number): V_bigintContext | null;
+    public v_bigint(i?: number): V_bigintContext[] | V_bigintContext | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_bigintContext);
+        }
+
+        return this.getRuleContext(i, V_bigintContext);
+    }
+    public v_binpct(): V_binpctContext[];
+    public v_binpct(i: number): V_binpctContext | null;
+    public v_binpct(i?: number): V_binpctContext[] | V_binpctContext | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_binpctContext);
+        }
+
+        return this.getRuleContext(i, V_binpctContext);
+    }
+    public v_binb64(): V_binb64Context[];
+    public v_binb64(i: number): V_binb64Context | null;
+    public v_binb64(i?: number): V_binb64Context[] | V_binb64Context | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_binb64Context);
+        }
+
+        return this.getRuleContext(i, V_binb64Context);
     }
     public v_obj(): V_objContext[];
     public v_obj(i: number): V_objContext | null;
@@ -1002,6 +1392,42 @@ export class V_arrContext extends antlr.ParserRuleContext {
         }
 
         return this.getRuleContext(i, V_boolContext);
+    }
+    public v_f64(): V_f64Context[];
+    public v_f64(i: number): V_f64Context | null;
+    public v_f64(i?: number): V_f64Context[] | V_f64Context | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_f64Context);
+        }
+
+        return this.getRuleContext(i, V_f64Context);
+    }
+    public v_bigint(): V_bigintContext[];
+    public v_bigint(i: number): V_bigintContext | null;
+    public v_bigint(i?: number): V_bigintContext[] | V_bigintContext | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_bigintContext);
+        }
+
+        return this.getRuleContext(i, V_bigintContext);
+    }
+    public v_binpct(): V_binpctContext[];
+    public v_binpct(i: number): V_binpctContext | null;
+    public v_binpct(i?: number): V_binpctContext[] | V_binpctContext | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_binpctContext);
+        }
+
+        return this.getRuleContext(i, V_binpctContext);
+    }
+    public v_binb64(): V_binb64Context[];
+    public v_binb64(i: number): V_binb64Context | null;
+    public v_binb64(i?: number): V_binb64Context[] | V_binb64Context | null {
+        if (i === undefined) {
+            return this.getRuleContexts(V_binb64Context);
+        }
+
+        return this.getRuleContext(i, V_binb64Context);
     }
     public v_ident(): V_identContext[];
     public v_ident(i: number): V_identContext | null;

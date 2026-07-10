@@ -65,15 +65,19 @@ export function treeToCST(
 }
 
 const input = `
+bigint = bigint@"9876543210000000000000"
+binpct = binpct@"hello%22"
+binb64 = binb64@"bgBsbA=="
 a=[ null, true
   false
+  -3.141e0
 ]
 o = { a = null, b = true
   c = false
 }
 # hey
-"a\u0000$8
-\t76_ao
+"a\\u0000$8
+\\t76_ao
   " = abz
 # yowza
 `;
