@@ -1,5 +1,5 @@
 {
-  "name": "@leaf/leaf-data",
+  "name": "@leaf/leafdata",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -12,11 +12,13 @@
     "gen": "antlr-ng -Dlanguage=TypeScript -visitor -o ./src/gen ./leafdataLexer.g4 ./leafdataParser.g4",
     "fmt": "prettier . --write",
     "build": "npm run gen && tsc --build",
-    "test": "npm run build && vitest run"
+    "test": "npm run build && vitest run",
+    "doc": "typedoc"
   },
   "devDependencies": {
     "antlr-ng": "^1.0.10",
     "prettier": "^3.9.4",
+    "typedoc": "^0.28.20",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   },

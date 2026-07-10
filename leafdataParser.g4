@@ -9,58 +9,55 @@ options {
 leafdata :
   NOTES?
   (
-    ( v_ident | v_str )
+    ( ident | str )
     NOTES?
     (
-      v_null | v_bool | v_f64 | v_bigint | v_pct | v_b64 |
-      v_ident | v_str | v_obj | v_arr
+      null | bool | f64 | bigint | pct | b64 | ident | str | obj | arr
     )
     NOTES?
   )*
   EOF
   ;
 
-v_null : NULL ;
+null : NULL ;
 
-v_bool : TRUE | FALSE ;
+bool : TRUE | FALSE ;
 
-v_f64 : F64 ;
+f64 : F64 ;
 
-v_bigint : BIGINT_MARK v_bigint_val ;
-v_bigint_val : BIGINT ;
+bigint : BIGINT_MARK bigint_val ;
+bigint_val : BIGINT ;
 
-v_pct : PCT_MARK v_pct_val ;
-v_pct_val : PCT ;
+pct : PCT_MARK pct_val ;
+pct_val : PCT ;
 
-v_b64 : B64_MARK v_b64_val ;
-v_b64_val : B64 ;
+b64 : B64_MARK b64_val ;
+b64_val : B64 ;
 
-v_ident : IDENT ;
+ident : IDENT ;
 
-v_str : STR ;
+str : STR ;
 
-v_obj :
+obj :
   OBJ_OPEN
   NOTES?
   (
-    ( v_ident | v_str )
+    ( ident | str )
     NOTES?
     (
-      v_null | v_bool | v_f64 | v_bigint | v_pct | v_b64 |
-      v_ident | v_str | v_obj | v_arr
+      null | bool | f64 | bigint | pct | b64 | ident | str | obj | arr
     )
     NOTES?
   )*
   OBJ_CLOSE
   ;
 
-v_arr :
+arr :
   ARR_OPEN
   NOTES?
   (
     (
-      v_null | v_bool | v_f64 | v_bigint | v_pct | v_b64 |
-      v_ident | v_str | v_obj | v_arr
+      null | bool | f64 | bigint | pct | b64 | ident | str | obj | arr
     )
     NOTES?
   )*

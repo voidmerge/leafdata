@@ -27,19 +27,19 @@ export class leafdataParser extends antlr.Parser {
     public static readonly PCT = 16;
     public static readonly B64 = 17;
     public static readonly RULE_leafdata = 0;
-    public static readonly RULE_v_null = 1;
-    public static readonly RULE_v_bool = 2;
-    public static readonly RULE_v_f64 = 3;
-    public static readonly RULE_v_bigint = 4;
-    public static readonly RULE_v_bigint_val = 5;
-    public static readonly RULE_v_pct = 6;
-    public static readonly RULE_v_pct_val = 7;
-    public static readonly RULE_v_b64 = 8;
-    public static readonly RULE_v_b64_val = 9;
-    public static readonly RULE_v_ident = 10;
-    public static readonly RULE_v_str = 11;
-    public static readonly RULE_v_obj = 12;
-    public static readonly RULE_v_arr = 13;
+    public static readonly RULE_null = 1;
+    public static readonly RULE_bool = 2;
+    public static readonly RULE_f64 = 3;
+    public static readonly RULE_bigint = 4;
+    public static readonly RULE_bigint_val = 5;
+    public static readonly RULE_pct = 6;
+    public static readonly RULE_pct_val = 7;
+    public static readonly RULE_b64 = 8;
+    public static readonly RULE_b64_val = 9;
+    public static readonly RULE_ident = 10;
+    public static readonly RULE_str = 11;
+    public static readonly RULE_obj = 12;
+    public static readonly RULE_arr = 13;
 
     public static readonly literalNames = [
         null, "'bigint@'", "'pct@'", "'b64@'", "'{'", "'}'", "'['", "']'", 
@@ -52,9 +52,8 @@ export class leafdataParser extends antlr.Parser {
         "NOTES", "STR", "BIGINT", "PCT", "B64"
     ];
     public static readonly ruleNames = [
-        "leafdata", "v_null", "v_bool", "v_f64", "v_bigint", "v_bigint_val", 
-        "v_pct", "v_pct_val", "v_b64", "v_b64_val", "v_ident", "v_str", 
-        "v_obj", "v_arr",
+        "leafdata", "null", "bool", "f64", "bigint", "bigint_val", "pct", 
+        "pct_val", "b64", "b64_val", "ident", "str", "obj", "arr",
     ];
 
     public get grammarFileName(): string { return "leafdataParser.g4"; }
@@ -100,13 +99,13 @@ export class leafdataParser extends antlr.Parser {
                 case leafdataParser.IDENT:
                     {
                     this.state = 31;
-                    this.v_ident();
+                    this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
                     this.state = 32;
-                    this.v_str();
+                    this.str();
                     }
                     break;
                 default:
@@ -128,62 +127,62 @@ export class leafdataParser extends antlr.Parser {
                 case leafdataParser.NULL:
                     {
                     this.state = 38;
-                    this.v_null();
+                    this.null_();
                     }
                     break;
                 case leafdataParser.TRUE:
                 case leafdataParser.FALSE:
                     {
                     this.state = 39;
-                    this.v_bool();
+                    this.bool();
                     }
                     break;
                 case leafdataParser.F64:
                     {
                     this.state = 40;
-                    this.v_f64();
+                    this.f64();
                     }
                     break;
                 case leafdataParser.BIGINT_MARK:
                     {
                     this.state = 41;
-                    this.v_bigint();
+                    this.bigint();
                     }
                     break;
                 case leafdataParser.PCT_MARK:
                     {
                     this.state = 42;
-                    this.v_pct();
+                    this.pct();
                     }
                     break;
                 case leafdataParser.B64_MARK:
                     {
                     this.state = 43;
-                    this.v_b64();
+                    this.b64();
                     }
                     break;
                 case leafdataParser.IDENT:
                     {
                     this.state = 44;
-                    this.v_ident();
+                    this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
                     this.state = 45;
-                    this.v_str();
+                    this.str();
                     }
                     break;
                 case leafdataParser.OBJ_OPEN:
                     {
                     this.state = 46;
-                    this.v_obj();
+                    this.obj();
                     }
                     break;
                 case leafdataParser.ARR_OPEN:
                     {
                     this.state = 47;
-                    this.v_arr();
+                    this.arr();
                     }
                     break;
                 default:
@@ -222,9 +221,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_null(): V_nullContext {
-        let localContext = new V_nullContext(this.context, this.state);
-        this.enterRule(localContext, 2, leafdataParser.RULE_v_null);
+    public null_(): NullContext {
+        let localContext = new NullContext(this.context, this.state);
+        this.enterRule(localContext, 2, leafdataParser.RULE_null);
         try {
             this.enterOuterAlt(localContext, 1);
             {
@@ -245,9 +244,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_bool(): V_boolContext {
-        let localContext = new V_boolContext(this.context, this.state);
-        this.enterRule(localContext, 4, leafdataParser.RULE_v_bool);
+    public bool(): BoolContext {
+        let localContext = new BoolContext(this.context, this.state);
+        this.enterRule(localContext, 4, leafdataParser.RULE_bool);
         let _la: number;
         try {
             this.enterOuterAlt(localContext, 1);
@@ -276,9 +275,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_f64(): V_f64Context {
-        let localContext = new V_f64Context(this.context, this.state);
-        this.enterRule(localContext, 6, leafdataParser.RULE_v_f64);
+    public f64(): F64Context {
+        let localContext = new F64Context(this.context, this.state);
+        this.enterRule(localContext, 6, leafdataParser.RULE_f64);
         try {
             this.enterOuterAlt(localContext, 1);
             {
@@ -299,16 +298,16 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_bigint(): V_bigintContext {
-        let localContext = new V_bigintContext(this.context, this.state);
-        this.enterRule(localContext, 8, leafdataParser.RULE_v_bigint);
+    public bigint(): BigintContext {
+        let localContext = new BigintContext(this.context, this.state);
+        this.enterRule(localContext, 8, leafdataParser.RULE_bigint);
         try {
             this.enterOuterAlt(localContext, 1);
             {
             this.state = 66;
             this.match(leafdataParser.BIGINT_MARK);
             this.state = 67;
-            this.v_bigint_val();
+            this.bigint_val();
             }
         }
         catch (re) {
@@ -324,9 +323,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_bigint_val(): V_bigint_valContext {
-        let localContext = new V_bigint_valContext(this.context, this.state);
-        this.enterRule(localContext, 10, leafdataParser.RULE_v_bigint_val);
+    public bigint_val(): Bigint_valContext {
+        let localContext = new Bigint_valContext(this.context, this.state);
+        this.enterRule(localContext, 10, leafdataParser.RULE_bigint_val);
         try {
             this.enterOuterAlt(localContext, 1);
             {
@@ -347,16 +346,16 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_pct(): V_pctContext {
-        let localContext = new V_pctContext(this.context, this.state);
-        this.enterRule(localContext, 12, leafdataParser.RULE_v_pct);
+    public pct(): PctContext {
+        let localContext = new PctContext(this.context, this.state);
+        this.enterRule(localContext, 12, leafdataParser.RULE_pct);
         try {
             this.enterOuterAlt(localContext, 1);
             {
             this.state = 71;
             this.match(leafdataParser.PCT_MARK);
             this.state = 72;
-            this.v_pct_val();
+            this.pct_val();
             }
         }
         catch (re) {
@@ -372,9 +371,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_pct_val(): V_pct_valContext {
-        let localContext = new V_pct_valContext(this.context, this.state);
-        this.enterRule(localContext, 14, leafdataParser.RULE_v_pct_val);
+    public pct_val(): Pct_valContext {
+        let localContext = new Pct_valContext(this.context, this.state);
+        this.enterRule(localContext, 14, leafdataParser.RULE_pct_val);
         try {
             this.enterOuterAlt(localContext, 1);
             {
@@ -395,16 +394,16 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_b64(): V_b64Context {
-        let localContext = new V_b64Context(this.context, this.state);
-        this.enterRule(localContext, 16, leafdataParser.RULE_v_b64);
+    public b64(): B64Context {
+        let localContext = new B64Context(this.context, this.state);
+        this.enterRule(localContext, 16, leafdataParser.RULE_b64);
         try {
             this.enterOuterAlt(localContext, 1);
             {
             this.state = 76;
             this.match(leafdataParser.B64_MARK);
             this.state = 77;
-            this.v_b64_val();
+            this.b64_val();
             }
         }
         catch (re) {
@@ -420,9 +419,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_b64_val(): V_b64_valContext {
-        let localContext = new V_b64_valContext(this.context, this.state);
-        this.enterRule(localContext, 18, leafdataParser.RULE_v_b64_val);
+    public b64_val(): B64_valContext {
+        let localContext = new B64_valContext(this.context, this.state);
+        this.enterRule(localContext, 18, leafdataParser.RULE_b64_val);
         try {
             this.enterOuterAlt(localContext, 1);
             {
@@ -443,9 +442,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_ident(): V_identContext {
-        let localContext = new V_identContext(this.context, this.state);
-        this.enterRule(localContext, 20, leafdataParser.RULE_v_ident);
+    public ident(): IdentContext {
+        let localContext = new IdentContext(this.context, this.state);
+        this.enterRule(localContext, 20, leafdataParser.RULE_ident);
         try {
             this.enterOuterAlt(localContext, 1);
             {
@@ -466,9 +465,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_str(): V_strContext {
-        let localContext = new V_strContext(this.context, this.state);
-        this.enterRule(localContext, 22, leafdataParser.RULE_v_str);
+    public str(): StrContext {
+        let localContext = new StrContext(this.context, this.state);
+        this.enterRule(localContext, 22, leafdataParser.RULE_str);
         try {
             this.enterOuterAlt(localContext, 1);
             {
@@ -489,9 +488,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_obj(): V_objContext {
-        let localContext = new V_objContext(this.context, this.state);
-        this.enterRule(localContext, 24, leafdataParser.RULE_v_obj);
+    public obj(): ObjContext {
+        let localContext = new ObjContext(this.context, this.state);
+        this.enterRule(localContext, 24, leafdataParser.RULE_obj);
         let _la: number;
         try {
             this.enterOuterAlt(localContext, 1);
@@ -520,13 +519,13 @@ export class leafdataParser extends antlr.Parser {
                 case leafdataParser.IDENT:
                     {
                     this.state = 89;
-                    this.v_ident();
+                    this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
                     this.state = 90;
-                    this.v_str();
+                    this.str();
                     }
                     break;
                 default:
@@ -548,62 +547,62 @@ export class leafdataParser extends antlr.Parser {
                 case leafdataParser.NULL:
                     {
                     this.state = 96;
-                    this.v_null();
+                    this.null_();
                     }
                     break;
                 case leafdataParser.TRUE:
                 case leafdataParser.FALSE:
                     {
                     this.state = 97;
-                    this.v_bool();
+                    this.bool();
                     }
                     break;
                 case leafdataParser.F64:
                     {
                     this.state = 98;
-                    this.v_f64();
+                    this.f64();
                     }
                     break;
                 case leafdataParser.BIGINT_MARK:
                     {
                     this.state = 99;
-                    this.v_bigint();
+                    this.bigint();
                     }
                     break;
                 case leafdataParser.PCT_MARK:
                     {
                     this.state = 100;
-                    this.v_pct();
+                    this.pct();
                     }
                     break;
                 case leafdataParser.B64_MARK:
                     {
                     this.state = 101;
-                    this.v_b64();
+                    this.b64();
                     }
                     break;
                 case leafdataParser.IDENT:
                     {
                     this.state = 102;
-                    this.v_ident();
+                    this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
                     this.state = 103;
-                    this.v_str();
+                    this.str();
                     }
                     break;
                 case leafdataParser.OBJ_OPEN:
                     {
                     this.state = 104;
-                    this.v_obj();
+                    this.obj();
                     }
                     break;
                 case leafdataParser.ARR_OPEN:
                     {
                     this.state = 105;
-                    this.v_arr();
+                    this.arr();
                     }
                     break;
                 default:
@@ -642,9 +641,9 @@ export class leafdataParser extends antlr.Parser {
         }
         return localContext;
     }
-    public v_arr(): V_arrContext {
-        let localContext = new V_arrContext(this.context, this.state);
-        this.enterRule(localContext, 26, leafdataParser.RULE_v_arr);
+    public arr(): ArrContext {
+        let localContext = new ArrContext(this.context, this.state);
+        this.enterRule(localContext, 26, leafdataParser.RULE_arr);
         let _la: number;
         try {
             this.enterOuterAlt(localContext, 1);
@@ -673,62 +672,62 @@ export class leafdataParser extends antlr.Parser {
                 case leafdataParser.NULL:
                     {
                     this.state = 122;
-                    this.v_null();
+                    this.null_();
                     }
                     break;
                 case leafdataParser.TRUE:
                 case leafdataParser.FALSE:
                     {
                     this.state = 123;
-                    this.v_bool();
+                    this.bool();
                     }
                     break;
                 case leafdataParser.F64:
                     {
                     this.state = 124;
-                    this.v_f64();
+                    this.f64();
                     }
                     break;
                 case leafdataParser.BIGINT_MARK:
                     {
                     this.state = 125;
-                    this.v_bigint();
+                    this.bigint();
                     }
                     break;
                 case leafdataParser.PCT_MARK:
                     {
                     this.state = 126;
-                    this.v_pct();
+                    this.pct();
                     }
                     break;
                 case leafdataParser.B64_MARK:
                     {
                     this.state = 127;
-                    this.v_b64();
+                    this.b64();
                     }
                     break;
                 case leafdataParser.IDENT:
                     {
                     this.state = 128;
-                    this.v_ident();
+                    this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
                     this.state = 129;
-                    this.v_str();
+                    this.str();
                     }
                     break;
                 case leafdataParser.OBJ_OPEN:
                     {
                     this.state = 130;
-                    this.v_obj();
+                    this.obj();
                     }
                     break;
                 case leafdataParser.ARR_OPEN:
                     {
                     this.state = 131;
-                    this.v_arr();
+                    this.arr();
                     }
                     break;
                 default:
@@ -859,95 +858,95 @@ export class LeafdataContext extends antlr.ParserRuleContext {
     		return this.getToken(leafdataParser.NOTES, i);
     	}
     }
-    public v_ident(): V_identContext[];
-    public v_ident(i: number): V_identContext | null;
-    public v_ident(i?: number): V_identContext[] | V_identContext | null {
+    public ident(): IdentContext[];
+    public ident(i: number): IdentContext | null;
+    public ident(i?: number): IdentContext[] | IdentContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_identContext);
+            return this.getRuleContexts(IdentContext);
         }
 
-        return this.getRuleContext(i, V_identContext);
+        return this.getRuleContext(i, IdentContext);
     }
-    public v_str(): V_strContext[];
-    public v_str(i: number): V_strContext | null;
-    public v_str(i?: number): V_strContext[] | V_strContext | null {
+    public str(): StrContext[];
+    public str(i: number): StrContext | null;
+    public str(i?: number): StrContext[] | StrContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_strContext);
+            return this.getRuleContexts(StrContext);
         }
 
-        return this.getRuleContext(i, V_strContext);
+        return this.getRuleContext(i, StrContext);
     }
-    public v_null(): V_nullContext[];
-    public v_null(i: number): V_nullContext | null;
-    public v_null(i?: number): V_nullContext[] | V_nullContext | null {
+    public null_(): NullContext[];
+    public null_(i: number): NullContext | null;
+    public null_(i?: number): NullContext[] | NullContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_nullContext);
+            return this.getRuleContexts(NullContext);
         }
 
-        return this.getRuleContext(i, V_nullContext);
+        return this.getRuleContext(i, NullContext);
     }
-    public v_bool(): V_boolContext[];
-    public v_bool(i: number): V_boolContext | null;
-    public v_bool(i?: number): V_boolContext[] | V_boolContext | null {
+    public bool(): BoolContext[];
+    public bool(i: number): BoolContext | null;
+    public bool(i?: number): BoolContext[] | BoolContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_boolContext);
+            return this.getRuleContexts(BoolContext);
         }
 
-        return this.getRuleContext(i, V_boolContext);
+        return this.getRuleContext(i, BoolContext);
     }
-    public v_f64(): V_f64Context[];
-    public v_f64(i: number): V_f64Context | null;
-    public v_f64(i?: number): V_f64Context[] | V_f64Context | null {
+    public f64(): F64Context[];
+    public f64(i: number): F64Context | null;
+    public f64(i?: number): F64Context[] | F64Context | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_f64Context);
+            return this.getRuleContexts(F64Context);
         }
 
-        return this.getRuleContext(i, V_f64Context);
+        return this.getRuleContext(i, F64Context);
     }
-    public v_bigint(): V_bigintContext[];
-    public v_bigint(i: number): V_bigintContext | null;
-    public v_bigint(i?: number): V_bigintContext[] | V_bigintContext | null {
+    public bigint(): BigintContext[];
+    public bigint(i: number): BigintContext | null;
+    public bigint(i?: number): BigintContext[] | BigintContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_bigintContext);
+            return this.getRuleContexts(BigintContext);
         }
 
-        return this.getRuleContext(i, V_bigintContext);
+        return this.getRuleContext(i, BigintContext);
     }
-    public v_pct(): V_pctContext[];
-    public v_pct(i: number): V_pctContext | null;
-    public v_pct(i?: number): V_pctContext[] | V_pctContext | null {
+    public pct(): PctContext[];
+    public pct(i: number): PctContext | null;
+    public pct(i?: number): PctContext[] | PctContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_pctContext);
+            return this.getRuleContexts(PctContext);
         }
 
-        return this.getRuleContext(i, V_pctContext);
+        return this.getRuleContext(i, PctContext);
     }
-    public v_b64(): V_b64Context[];
-    public v_b64(i: number): V_b64Context | null;
-    public v_b64(i?: number): V_b64Context[] | V_b64Context | null {
+    public b64(): B64Context[];
+    public b64(i: number): B64Context | null;
+    public b64(i?: number): B64Context[] | B64Context | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_b64Context);
+            return this.getRuleContexts(B64Context);
         }
 
-        return this.getRuleContext(i, V_b64Context);
+        return this.getRuleContext(i, B64Context);
     }
-    public v_obj(): V_objContext[];
-    public v_obj(i: number): V_objContext | null;
-    public v_obj(i?: number): V_objContext[] | V_objContext | null {
+    public obj(): ObjContext[];
+    public obj(i: number): ObjContext | null;
+    public obj(i?: number): ObjContext[] | ObjContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_objContext);
+            return this.getRuleContexts(ObjContext);
         }
 
-        return this.getRuleContext(i, V_objContext);
+        return this.getRuleContext(i, ObjContext);
     }
-    public v_arr(): V_arrContext[];
-    public v_arr(i: number): V_arrContext | null;
-    public v_arr(i?: number): V_arrContext[] | V_arrContext | null {
+    public arr(): ArrContext[];
+    public arr(i: number): ArrContext | null;
+    public arr(i?: number): ArrContext[] | ArrContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_arrContext);
+            return this.getRuleContexts(ArrContext);
         }
 
-        return this.getRuleContext(i, V_arrContext);
+        return this.getRuleContext(i, ArrContext);
     }
     public override get ruleIndex(): number {
         return leafdataParser.RULE_leafdata;
@@ -965,7 +964,7 @@ export class LeafdataContext extends antlr.ParserRuleContext {
 }
 
 
-export class V_nullContext extends antlr.ParserRuleContext {
+export class NullContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -973,22 +972,22 @@ export class V_nullContext extends antlr.ParserRuleContext {
         return this.getToken(leafdataParser.NULL, 0)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_null;
+        return leafdataParser.RULE_null;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_null) {
-             listener.enterV_null(this);
+        if(listener.enterNull) {
+             listener.enterNull(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_null) {
-             listener.exitV_null(this);
+        if(listener.exitNull) {
+             listener.exitNull(this);
         }
     }
 }
 
 
-export class V_boolContext extends antlr.ParserRuleContext {
+export class BoolContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -999,22 +998,22 @@ export class V_boolContext extends antlr.ParserRuleContext {
         return this.getToken(leafdataParser.FALSE, 0);
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_bool;
+        return leafdataParser.RULE_bool;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_bool) {
-             listener.enterV_bool(this);
+        if(listener.enterBool) {
+             listener.enterBool(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_bool) {
-             listener.exitV_bool(this);
+        if(listener.exitBool) {
+             listener.exitBool(this);
         }
     }
 }
 
 
-export class V_f64Context extends antlr.ParserRuleContext {
+export class F64Context extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -1022,48 +1021,48 @@ export class V_f64Context extends antlr.ParserRuleContext {
         return this.getToken(leafdataParser.F64, 0)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_f64;
+        return leafdataParser.RULE_f64;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_f64) {
-             listener.enterV_f64(this);
+        if(listener.enterF64) {
+             listener.enterF64(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_f64) {
-             listener.exitV_f64(this);
+        if(listener.exitF64) {
+             listener.exitF64(this);
         }
     }
 }
 
 
-export class V_bigintContext extends antlr.ParserRuleContext {
+export class BigintContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
     public BIGINT_MARK(): antlr.TerminalNode {
         return this.getToken(leafdataParser.BIGINT_MARK, 0)!;
     }
-    public v_bigint_val(): V_bigint_valContext {
-        return this.getRuleContext(0, V_bigint_valContext)!;
+    public bigint_val(): Bigint_valContext {
+        return this.getRuleContext(0, Bigint_valContext)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_bigint;
+        return leafdataParser.RULE_bigint;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_bigint) {
-             listener.enterV_bigint(this);
+        if(listener.enterBigint) {
+             listener.enterBigint(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_bigint) {
-             listener.exitV_bigint(this);
+        if(listener.exitBigint) {
+             listener.exitBigint(this);
         }
     }
 }
 
 
-export class V_bigint_valContext extends antlr.ParserRuleContext {
+export class Bigint_valContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -1071,48 +1070,48 @@ export class V_bigint_valContext extends antlr.ParserRuleContext {
         return this.getToken(leafdataParser.BIGINT, 0)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_bigint_val;
+        return leafdataParser.RULE_bigint_val;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_bigint_val) {
-             listener.enterV_bigint_val(this);
+        if(listener.enterBigint_val) {
+             listener.enterBigint_val(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_bigint_val) {
-             listener.exitV_bigint_val(this);
+        if(listener.exitBigint_val) {
+             listener.exitBigint_val(this);
         }
     }
 }
 
 
-export class V_pctContext extends antlr.ParserRuleContext {
+export class PctContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
     public PCT_MARK(): antlr.TerminalNode {
         return this.getToken(leafdataParser.PCT_MARK, 0)!;
     }
-    public v_pct_val(): V_pct_valContext {
-        return this.getRuleContext(0, V_pct_valContext)!;
+    public pct_val(): Pct_valContext {
+        return this.getRuleContext(0, Pct_valContext)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_pct;
+        return leafdataParser.RULE_pct;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_pct) {
-             listener.enterV_pct(this);
+        if(listener.enterPct) {
+             listener.enterPct(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_pct) {
-             listener.exitV_pct(this);
+        if(listener.exitPct) {
+             listener.exitPct(this);
         }
     }
 }
 
 
-export class V_pct_valContext extends antlr.ParserRuleContext {
+export class Pct_valContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -1120,48 +1119,48 @@ export class V_pct_valContext extends antlr.ParserRuleContext {
         return this.getToken(leafdataParser.PCT, 0)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_pct_val;
+        return leafdataParser.RULE_pct_val;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_pct_val) {
-             listener.enterV_pct_val(this);
+        if(listener.enterPct_val) {
+             listener.enterPct_val(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_pct_val) {
-             listener.exitV_pct_val(this);
+        if(listener.exitPct_val) {
+             listener.exitPct_val(this);
         }
     }
 }
 
 
-export class V_b64Context extends antlr.ParserRuleContext {
+export class B64Context extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
     public B64_MARK(): antlr.TerminalNode {
         return this.getToken(leafdataParser.B64_MARK, 0)!;
     }
-    public v_b64_val(): V_b64_valContext {
-        return this.getRuleContext(0, V_b64_valContext)!;
+    public b64_val(): B64_valContext {
+        return this.getRuleContext(0, B64_valContext)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_b64;
+        return leafdataParser.RULE_b64;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_b64) {
-             listener.enterV_b64(this);
+        if(listener.enterB64) {
+             listener.enterB64(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_b64) {
-             listener.exitV_b64(this);
+        if(listener.exitB64) {
+             listener.exitB64(this);
         }
     }
 }
 
 
-export class V_b64_valContext extends antlr.ParserRuleContext {
+export class B64_valContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -1169,22 +1168,22 @@ export class V_b64_valContext extends antlr.ParserRuleContext {
         return this.getToken(leafdataParser.B64, 0)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_b64_val;
+        return leafdataParser.RULE_b64_val;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_b64_val) {
-             listener.enterV_b64_val(this);
+        if(listener.enterB64_val) {
+             listener.enterB64_val(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_b64_val) {
-             listener.exitV_b64_val(this);
+        if(listener.exitB64_val) {
+             listener.exitB64_val(this);
         }
     }
 }
 
 
-export class V_identContext extends antlr.ParserRuleContext {
+export class IdentContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -1192,22 +1191,22 @@ export class V_identContext extends antlr.ParserRuleContext {
         return this.getToken(leafdataParser.IDENT, 0)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_ident;
+        return leafdataParser.RULE_ident;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_ident) {
-             listener.enterV_ident(this);
+        if(listener.enterIdent) {
+             listener.enterIdent(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_ident) {
-             listener.exitV_ident(this);
+        if(listener.exitIdent) {
+             listener.exitIdent(this);
         }
     }
 }
 
 
-export class V_strContext extends antlr.ParserRuleContext {
+export class StrContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -1215,22 +1214,22 @@ export class V_strContext extends antlr.ParserRuleContext {
         return this.getToken(leafdataParser.STR, 0)!;
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_str;
+        return leafdataParser.RULE_str;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_str) {
-             listener.enterV_str(this);
+        if(listener.enterStr) {
+             listener.enterStr(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_str) {
-             listener.exitV_str(this);
+        if(listener.exitStr) {
+             listener.exitStr(this);
         }
     }
 }
 
 
-export class V_objContext extends antlr.ParserRuleContext {
+export class ObjContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -1249,113 +1248,113 @@ export class V_objContext extends antlr.ParserRuleContext {
     		return this.getToken(leafdataParser.NOTES, i);
     	}
     }
-    public v_ident(): V_identContext[];
-    public v_ident(i: number): V_identContext | null;
-    public v_ident(i?: number): V_identContext[] | V_identContext | null {
+    public ident(): IdentContext[];
+    public ident(i: number): IdentContext | null;
+    public ident(i?: number): IdentContext[] | IdentContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_identContext);
+            return this.getRuleContexts(IdentContext);
         }
 
-        return this.getRuleContext(i, V_identContext);
+        return this.getRuleContext(i, IdentContext);
     }
-    public v_str(): V_strContext[];
-    public v_str(i: number): V_strContext | null;
-    public v_str(i?: number): V_strContext[] | V_strContext | null {
+    public str(): StrContext[];
+    public str(i: number): StrContext | null;
+    public str(i?: number): StrContext[] | StrContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_strContext);
+            return this.getRuleContexts(StrContext);
         }
 
-        return this.getRuleContext(i, V_strContext);
+        return this.getRuleContext(i, StrContext);
     }
-    public v_null(): V_nullContext[];
-    public v_null(i: number): V_nullContext | null;
-    public v_null(i?: number): V_nullContext[] | V_nullContext | null {
+    public null_(): NullContext[];
+    public null_(i: number): NullContext | null;
+    public null_(i?: number): NullContext[] | NullContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_nullContext);
+            return this.getRuleContexts(NullContext);
         }
 
-        return this.getRuleContext(i, V_nullContext);
+        return this.getRuleContext(i, NullContext);
     }
-    public v_bool(): V_boolContext[];
-    public v_bool(i: number): V_boolContext | null;
-    public v_bool(i?: number): V_boolContext[] | V_boolContext | null {
+    public bool(): BoolContext[];
+    public bool(i: number): BoolContext | null;
+    public bool(i?: number): BoolContext[] | BoolContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_boolContext);
+            return this.getRuleContexts(BoolContext);
         }
 
-        return this.getRuleContext(i, V_boolContext);
+        return this.getRuleContext(i, BoolContext);
     }
-    public v_f64(): V_f64Context[];
-    public v_f64(i: number): V_f64Context | null;
-    public v_f64(i?: number): V_f64Context[] | V_f64Context | null {
+    public f64(): F64Context[];
+    public f64(i: number): F64Context | null;
+    public f64(i?: number): F64Context[] | F64Context | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_f64Context);
+            return this.getRuleContexts(F64Context);
         }
 
-        return this.getRuleContext(i, V_f64Context);
+        return this.getRuleContext(i, F64Context);
     }
-    public v_bigint(): V_bigintContext[];
-    public v_bigint(i: number): V_bigintContext | null;
-    public v_bigint(i?: number): V_bigintContext[] | V_bigintContext | null {
+    public bigint(): BigintContext[];
+    public bigint(i: number): BigintContext | null;
+    public bigint(i?: number): BigintContext[] | BigintContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_bigintContext);
+            return this.getRuleContexts(BigintContext);
         }
 
-        return this.getRuleContext(i, V_bigintContext);
+        return this.getRuleContext(i, BigintContext);
     }
-    public v_pct(): V_pctContext[];
-    public v_pct(i: number): V_pctContext | null;
-    public v_pct(i?: number): V_pctContext[] | V_pctContext | null {
+    public pct(): PctContext[];
+    public pct(i: number): PctContext | null;
+    public pct(i?: number): PctContext[] | PctContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_pctContext);
+            return this.getRuleContexts(PctContext);
         }
 
-        return this.getRuleContext(i, V_pctContext);
+        return this.getRuleContext(i, PctContext);
     }
-    public v_b64(): V_b64Context[];
-    public v_b64(i: number): V_b64Context | null;
-    public v_b64(i?: number): V_b64Context[] | V_b64Context | null {
+    public b64(): B64Context[];
+    public b64(i: number): B64Context | null;
+    public b64(i?: number): B64Context[] | B64Context | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_b64Context);
+            return this.getRuleContexts(B64Context);
         }
 
-        return this.getRuleContext(i, V_b64Context);
+        return this.getRuleContext(i, B64Context);
     }
-    public v_obj(): V_objContext[];
-    public v_obj(i: number): V_objContext | null;
-    public v_obj(i?: number): V_objContext[] | V_objContext | null {
+    public obj(): ObjContext[];
+    public obj(i: number): ObjContext | null;
+    public obj(i?: number): ObjContext[] | ObjContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_objContext);
+            return this.getRuleContexts(ObjContext);
         }
 
-        return this.getRuleContext(i, V_objContext);
+        return this.getRuleContext(i, ObjContext);
     }
-    public v_arr(): V_arrContext[];
-    public v_arr(i: number): V_arrContext | null;
-    public v_arr(i?: number): V_arrContext[] | V_arrContext | null {
+    public arr(): ArrContext[];
+    public arr(i: number): ArrContext | null;
+    public arr(i?: number): ArrContext[] | ArrContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_arrContext);
+            return this.getRuleContexts(ArrContext);
         }
 
-        return this.getRuleContext(i, V_arrContext);
+        return this.getRuleContext(i, ArrContext);
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_obj;
+        return leafdataParser.RULE_obj;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_obj) {
-             listener.enterV_obj(this);
+        if(listener.enterObj) {
+             listener.enterObj(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_obj) {
-             listener.exitV_obj(this);
+        if(listener.exitObj) {
+             listener.exitObj(this);
         }
     }
 }
 
 
-export class V_arrContext extends antlr.ParserRuleContext {
+export class ArrContext extends antlr.ParserRuleContext {
     public constructor(parent: antlr.ParserRuleContext | null, invokingState: number) {
         super(parent, invokingState);
     }
@@ -1374,107 +1373,107 @@ export class V_arrContext extends antlr.ParserRuleContext {
     		return this.getToken(leafdataParser.NOTES, i);
     	}
     }
-    public v_null(): V_nullContext[];
-    public v_null(i: number): V_nullContext | null;
-    public v_null(i?: number): V_nullContext[] | V_nullContext | null {
+    public null_(): NullContext[];
+    public null_(i: number): NullContext | null;
+    public null_(i?: number): NullContext[] | NullContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_nullContext);
+            return this.getRuleContexts(NullContext);
         }
 
-        return this.getRuleContext(i, V_nullContext);
+        return this.getRuleContext(i, NullContext);
     }
-    public v_bool(): V_boolContext[];
-    public v_bool(i: number): V_boolContext | null;
-    public v_bool(i?: number): V_boolContext[] | V_boolContext | null {
+    public bool(): BoolContext[];
+    public bool(i: number): BoolContext | null;
+    public bool(i?: number): BoolContext[] | BoolContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_boolContext);
+            return this.getRuleContexts(BoolContext);
         }
 
-        return this.getRuleContext(i, V_boolContext);
+        return this.getRuleContext(i, BoolContext);
     }
-    public v_f64(): V_f64Context[];
-    public v_f64(i: number): V_f64Context | null;
-    public v_f64(i?: number): V_f64Context[] | V_f64Context | null {
+    public f64(): F64Context[];
+    public f64(i: number): F64Context | null;
+    public f64(i?: number): F64Context[] | F64Context | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_f64Context);
+            return this.getRuleContexts(F64Context);
         }
 
-        return this.getRuleContext(i, V_f64Context);
+        return this.getRuleContext(i, F64Context);
     }
-    public v_bigint(): V_bigintContext[];
-    public v_bigint(i: number): V_bigintContext | null;
-    public v_bigint(i?: number): V_bigintContext[] | V_bigintContext | null {
+    public bigint(): BigintContext[];
+    public bigint(i: number): BigintContext | null;
+    public bigint(i?: number): BigintContext[] | BigintContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_bigintContext);
+            return this.getRuleContexts(BigintContext);
         }
 
-        return this.getRuleContext(i, V_bigintContext);
+        return this.getRuleContext(i, BigintContext);
     }
-    public v_pct(): V_pctContext[];
-    public v_pct(i: number): V_pctContext | null;
-    public v_pct(i?: number): V_pctContext[] | V_pctContext | null {
+    public pct(): PctContext[];
+    public pct(i: number): PctContext | null;
+    public pct(i?: number): PctContext[] | PctContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_pctContext);
+            return this.getRuleContexts(PctContext);
         }
 
-        return this.getRuleContext(i, V_pctContext);
+        return this.getRuleContext(i, PctContext);
     }
-    public v_b64(): V_b64Context[];
-    public v_b64(i: number): V_b64Context | null;
-    public v_b64(i?: number): V_b64Context[] | V_b64Context | null {
+    public b64(): B64Context[];
+    public b64(i: number): B64Context | null;
+    public b64(i?: number): B64Context[] | B64Context | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_b64Context);
+            return this.getRuleContexts(B64Context);
         }
 
-        return this.getRuleContext(i, V_b64Context);
+        return this.getRuleContext(i, B64Context);
     }
-    public v_ident(): V_identContext[];
-    public v_ident(i: number): V_identContext | null;
-    public v_ident(i?: number): V_identContext[] | V_identContext | null {
+    public ident(): IdentContext[];
+    public ident(i: number): IdentContext | null;
+    public ident(i?: number): IdentContext[] | IdentContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_identContext);
+            return this.getRuleContexts(IdentContext);
         }
 
-        return this.getRuleContext(i, V_identContext);
+        return this.getRuleContext(i, IdentContext);
     }
-    public v_str(): V_strContext[];
-    public v_str(i: number): V_strContext | null;
-    public v_str(i?: number): V_strContext[] | V_strContext | null {
+    public str(): StrContext[];
+    public str(i: number): StrContext | null;
+    public str(i?: number): StrContext[] | StrContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_strContext);
+            return this.getRuleContexts(StrContext);
         }
 
-        return this.getRuleContext(i, V_strContext);
+        return this.getRuleContext(i, StrContext);
     }
-    public v_obj(): V_objContext[];
-    public v_obj(i: number): V_objContext | null;
-    public v_obj(i?: number): V_objContext[] | V_objContext | null {
+    public obj(): ObjContext[];
+    public obj(i: number): ObjContext | null;
+    public obj(i?: number): ObjContext[] | ObjContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_objContext);
+            return this.getRuleContexts(ObjContext);
         }
 
-        return this.getRuleContext(i, V_objContext);
+        return this.getRuleContext(i, ObjContext);
     }
-    public v_arr(): V_arrContext[];
-    public v_arr(i: number): V_arrContext | null;
-    public v_arr(i?: number): V_arrContext[] | V_arrContext | null {
+    public arr(): ArrContext[];
+    public arr(i: number): ArrContext | null;
+    public arr(i?: number): ArrContext[] | ArrContext | null {
         if (i === undefined) {
-            return this.getRuleContexts(V_arrContext);
+            return this.getRuleContexts(ArrContext);
         }
 
-        return this.getRuleContext(i, V_arrContext);
+        return this.getRuleContext(i, ArrContext);
     }
     public override get ruleIndex(): number {
-        return leafdataParser.RULE_v_arr;
+        return leafdataParser.RULE_arr;
     }
     public override enterRule(listener: leafdataParserListener): void {
-        if(listener.enterV_arr) {
-             listener.enterV_arr(this);
+        if(listener.enterArr) {
+             listener.enterArr(this);
         }
     }
     public override exitRule(listener: leafdataParserListener): void {
-        if(listener.exitV_arr) {
-             listener.exitV_arr(this);
+        if(listener.exitArr) {
+             listener.exitArr(this);
         }
     }
 }

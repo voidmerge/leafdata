@@ -18,7 +18,7 @@ F64 : '-'? ( '0' | [1-9] [0-9]* ) ( '.' [0-9]+ )? ( [eE] [+-]? [0-9]+ )? ;
 
 IDENT : [a-zA-Z$_] [a-zA-Z0-9$_-]* ;
 
-NOTES : ( [:=, \t\r\n]+ | '#' ~[\r\n]* [\r\n]+ )+ ;
+NOTES : ( [:=, \t\r\n]+ | '#' ~[\r\n]* )+ ;
 
 STR : '"' ( ~["\\\u0000-\u001F] | [\r\n] | STR_ESC )* '"' ;
 fragment STR_ESC : '\\' ( ["\\/bfnrt] | 'u' HEX HEX HEX HEX ) ;

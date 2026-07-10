@@ -26,7 +26,7 @@ fruit = [
 ```
 
 ```ts
-import { LeafObj } from '@leaf/leaf-data`;
+import { LeafObj } from '@leaf/leafdata`;
 
 const s = new LeafObj()
   .withBigInt('huge', 9876543210000000000000000n)

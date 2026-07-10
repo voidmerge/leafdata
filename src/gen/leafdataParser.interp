@@ -40,19 +40,19 @@ B64
 
 rule names:
 leafdata
-v_null
-v_bool
-v_f64
-v_bigint
-v_bigint_val
-v_pct
-v_pct_val
-v_b64
-v_b64_val
-v_ident
-v_str
-v_obj
-v_arr
+null
+bool
+f64
+bigint
+bigint_val
+pct
+pct_val
+b64
+b64_val
+ident
+str
+obj
+arr
 
 
 atn:
