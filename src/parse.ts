@@ -5,9 +5,25 @@ import {
   TerminalNode,
   ParserRuleContext,
   CommonTokenStream,
+  BaseErrorListener,
+  RecognitionException,
+  Recognizer,
 } from 'antlr4ng';
 import { leafdataLexer } from './gen/leafdataLexer.js';
 import { leafdataParser } from './gen/leafdataParser.js';
+
+class StrictErrorListener extends BaseErrorListener {
+    syntaxError(
+        recognizer: Recognizer<any>,
+        offendingSymbol: Token | null,
+        line: number,
+        charPositionInLine: number,
+        msg: string,
+        e: RecognitionException | null
+    ): void {
+        throw new Error(`Parse error at line ${line}:${charPositionInLine} - ${msg}`);
+    }
+}
 
 export interface CSTNode {
   t: string;
@@ -66,8 +82,8 @@ export function treeToCST(
 
 const input = `
 bigint = bigint@"9876543210000000000000"
-binpct = binpct@"hello%22"
-binb64 = binb64@"bgBsbA=="
+pct = pct@"hello%22"
+b64 = b64@"bgBsbA=="
 a=[ null, true
   false
   -3.141e0
@@ -84,8 +100,13 @@ o = { a = null, b = true
 
 const inputStream = CharStream.fromString(input);
 const lexer = new leafdataLexer(inputStream);
+lexer.removeErrorListeners();
+lexer.addErrorListener(new StrictErrorListener());
+
 const tokenStream = new CommonTokenStream(lexer);
 const parser = new leafdataParser(tokenStream);
+parser.removeErrorListeners();
+parser.addErrorListener(new StrictErrorListener());
 
 const parseTree = parser.leafdata();
 

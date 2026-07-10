@@ -12,7 +12,7 @@ leafdata :
     ( v_ident | v_str )
     NOTES?
     (
-      v_null | v_bool | v_f64 | v_bigint | v_binpct | v_binb64 |
+      v_null | v_bool | v_f64 | v_bigint | v_pct | v_b64 |
       v_ident | v_str | v_obj | v_arr
     )
     NOTES?
@@ -29,11 +29,11 @@ v_f64 : F64 ;
 v_bigint : BIGINT_MARK v_bigint_val ;
 v_bigint_val : BIGINT ;
 
-v_binpct : BINPCT_MARK v_binpct_val ;
-v_binpct_val : BINPCT ;
+v_pct : PCT_MARK v_pct_val ;
+v_pct_val : PCT ;
 
-v_binb64 : BINB64_MARK v_binb64_val ;
-v_binb64_val : BINB64 ;
+v_b64 : B64_MARK v_b64_val ;
+v_b64_val : B64 ;
 
 v_ident : IDENT ;
 
@@ -46,7 +46,7 @@ v_obj :
     ( v_ident | v_str )
     NOTES?
     (
-      v_null | v_bool | v_f64 | v_bigint | v_binpct | v_binb64 |
+      v_null | v_bool | v_f64 | v_bigint | v_pct | v_b64 |
       v_ident | v_str | v_obj | v_arr
     )
     NOTES?
@@ -59,7 +59,7 @@ v_arr :
   NOTES?
   (
     (
-      v_null | v_bool | v_f64 | v_bigint | v_binpct | v_binb64 |
+      v_null | v_bool | v_f64 | v_bigint | v_pct | v_b64 |
       v_ident | v_str | v_obj | v_arr
     )
     NOTES?

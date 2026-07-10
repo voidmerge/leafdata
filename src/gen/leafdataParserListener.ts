@@ -8,10 +8,10 @@ import { V_boolContext } from "./leafdataParser.js";
 import { V_f64Context } from "./leafdataParser.js";
 import { V_bigintContext } from "./leafdataParser.js";
 import { V_bigint_valContext } from "./leafdataParser.js";
-import { V_binpctContext } from "./leafdataParser.js";
-import { V_binpct_valContext } from "./leafdataParser.js";
-import { V_binb64Context } from "./leafdataParser.js";
-import { V_binb64_valContext } from "./leafdataParser.js";
+import { V_pctContext } from "./leafdataParser.js";
+import { V_pct_valContext } from "./leafdataParser.js";
+import { V_b64Context } from "./leafdataParser.js";
+import { V_b64_valContext } from "./leafdataParser.js";
 import { V_identContext } from "./leafdataParser.js";
 import { V_strContext } from "./leafdataParser.js";
 import { V_objContext } from "./leafdataParser.js";
@@ -84,45 +84,45 @@ export class leafdataParserListener implements ParseTreeListener {
      */
     exitV_bigint_val?: (ctx: V_bigint_valContext) => void;
     /**
-     * Enter a parse tree produced by `leafdataParser.v_binpct`.
+     * Enter a parse tree produced by `leafdataParser.v_pct`.
      * @param ctx the parse tree
      */
-    enterV_binpct?: (ctx: V_binpctContext) => void;
+    enterV_pct?: (ctx: V_pctContext) => void;
     /**
-     * Exit a parse tree produced by `leafdataParser.v_binpct`.
+     * Exit a parse tree produced by `leafdataParser.v_pct`.
      * @param ctx the parse tree
      */
-    exitV_binpct?: (ctx: V_binpctContext) => void;
+    exitV_pct?: (ctx: V_pctContext) => void;
     /**
-     * Enter a parse tree produced by `leafdataParser.v_binpct_val`.
+     * Enter a parse tree produced by `leafdataParser.v_pct_val`.
      * @param ctx the parse tree
      */
-    enterV_binpct_val?: (ctx: V_binpct_valContext) => void;
+    enterV_pct_val?: (ctx: V_pct_valContext) => void;
     /**
-     * Exit a parse tree produced by `leafdataParser.v_binpct_val`.
+     * Exit a parse tree produced by `leafdataParser.v_pct_val`.
      * @param ctx the parse tree
      */
-    exitV_binpct_val?: (ctx: V_binpct_valContext) => void;
+    exitV_pct_val?: (ctx: V_pct_valContext) => void;
     /**
-     * Enter a parse tree produced by `leafdataParser.v_binb64`.
+     * Enter a parse tree produced by `leafdataParser.v_b64`.
      * @param ctx the parse tree
      */
-    enterV_binb64?: (ctx: V_binb64Context) => void;
+    enterV_b64?: (ctx: V_b64Context) => void;
     /**
-     * Exit a parse tree produced by `leafdataParser.v_binb64`.
+     * Exit a parse tree produced by `leafdataParser.v_b64`.
      * @param ctx the parse tree
      */
-    exitV_binb64?: (ctx: V_binb64Context) => void;
+    exitV_b64?: (ctx: V_b64Context) => void;
     /**
-     * Enter a parse tree produced by `leafdataParser.v_binb64_val`.
+     * Enter a parse tree produced by `leafdataParser.v_b64_val`.
      * @param ctx the parse tree
      */
-    enterV_binb64_val?: (ctx: V_binb64_valContext) => void;
+    enterV_b64_val?: (ctx: V_b64_valContext) => void;
     /**
-     * Exit a parse tree produced by `leafdataParser.v_binb64_val`.
+     * Exit a parse tree produced by `leafdataParser.v_b64_val`.
      * @param ctx the parse tree
      */
-    exitV_binb64_val?: (ctx: V_binb64_valContext) => void;
+    exitV_b64_val?: (ctx: V_b64_valContext) => void;
     /**
      * Enter a parse tree produced by `leafdataParser.v_ident`.
      * @param ctx the parse tree
