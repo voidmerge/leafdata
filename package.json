@@ -4,6 +4,10 @@
   "description": "Leafdata is a human-readable data format similar to JSON or TOML that can encode bigints and byte arrays.",
   "license": "(MIT or Apache-2.0)",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/voidmerge/leafdata"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
