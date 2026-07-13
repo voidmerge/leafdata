@@ -1,4 +1,4 @@
-name: Manual Release & Publish
+name: Tag and Npm Publish
 
 on:
   workflow_dispatch:
@@ -62,7 +62,7 @@ jobs:
           git add package.json package-lock.json
           git commit -m "chore(release): v$NEW_VERSION"
 
-          git push origin $BRANCH_NAME
+          git push origin $BRANCH_NAME --force
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
 
       - name: Create and Enable Auto-Merge PR
