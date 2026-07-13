@@ -20,9 +20,9 @@ import {
   LdVal,
   LdBigInt,
   LdBytes,
-  LdJsObj,
-  LdJsVal,
-  LdJsArr,
+  JsObj,
+  JsVal,
+  JsArr,
 } from './types.js';
 
 class StrictErrorListener extends BaseErrorListener {
@@ -152,8 +152,12 @@ function treeToCST(node: ParseTree): string | LdVal | LeafData {
   }
 }
 
-export function leafdataParse(input: string): LeafData {
-  const inputStream = CharStream.fromString(input);
+/**
+ * Takes a leafdata document string, and parses it into
+ * a leafdata symbol tree ({@link LeafData}).
+ */
+export function parseStrToTree(doc: string): LeafData {
+  const inputStream = CharStream.fromString(doc);
   const lexer = new leafdataLexer(inputStream);
   lexer.removeErrorListeners();
   lexer.addErrorListener(new StrictErrorListener());
@@ -173,13 +177,17 @@ export function leafdataParse(input: string): LeafData {
   return ld as LeafData;
 }
 
-export function leafdataToJs(data: LeafData): LdJsObj {
-  const out: LdJsObj = {};
+/**
+ * Takes a leafdata symbol tree ({@link LeafData}) and parses
+ * it into a javascript object.
+ */
+export function parseTreeToJs(data: LeafData): JsObj {
+  const out: JsObj = {};
   objToJs(out, data.v);
   return out;
 }
 
-function objToJs(out: LdJsObj, list: (string | LdVal)[]) {
+function objToJs(out: JsObj, list: (string | LdVal)[]) {
   let key: null | string = null;
   for (const item of list) {
     if (typeof item === 'string') {
@@ -194,7 +202,7 @@ function objToJs(out: LdJsObj, list: (string | LdVal)[]) {
   }
 }
 
-function valToJs(item: LdVal): LdJsVal {
+function valToJs(item: LdVal): JsVal {
   switch (item.t) {
     case LdType.Null:
       return null;
@@ -205,11 +213,11 @@ function valToJs(item: LdVal): LdJsVal {
     case LdType.Str:
       return item.v;
     case LdType.Obj:
-      const obj: LdJsObj = {};
+      const obj: JsObj = {};
       objToJs(obj, item.v);
       return obj;
     case LdType.Arr:
-      const arr: LdJsArr = [];
+      const arr: JsArr = [];
       for (const sub of item.v) {
         if (typeof sub === 'string') {
           continue;

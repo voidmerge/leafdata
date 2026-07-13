@@ -45,58 +45,24 @@ const parsed = LeafObj.parse(s);
 
 ## Namespaces
 
+- [parse](Namespace.parse.md)
+- [render](Namespace.render.md)
 - [types](Namespace.types.md)
 
 ## Functions
 
 ### leafdataParse()
 
-> **leafdataParse**(`input`): [`LeafData`](Namespace.types.md#leafdata-1)
+> **leafdataParse**(`doc`): [`JsObj`](Namespace.types.md#jsobj)
 
-Defined in: [parse.ts:155](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/parse.ts#L155)
+Parse a leafdata document string into a Javascript object.
 
 #### Parameters
 
-##### input
+##### doc
 
 `string`
 
 #### Returns
 
-[`LeafData`](Namespace.types.md#leafdata-1)
-
-***
-
-### leafdataRender()
-
-> **leafdataRender**(`data`): `string`
-
-Defined in: [render.ts:3](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/render.ts#L3)
-
-#### Parameters
-
-##### data
-
-[`LeafData`](Namespace.types.md#leafdata-1)
-
-#### Returns
-
-`string`
-
-***
-
-### leafdataToJs()
-
-> **leafdataToJs**(`data`): [`LdJsObj`](Namespace.types.md#ldjsobj)
-
-Defined in: [parse.ts:176](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/parse.ts#L176)
-
-#### Parameters
-
-##### data
-
-[`LeafData`](Namespace.types.md#leafdata-1)
-
-#### Returns
-
-[`LdJsObj`](Namespace.types.md#ldjsobj)
+[`JsObj`](Namespace.types.md#jsobj)

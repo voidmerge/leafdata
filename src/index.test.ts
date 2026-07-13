@@ -1,4 +1,4 @@
-import { leafdataParse, leafdataToJs, leafdataRender } from './index.js';
+import { parse, render } from './index.js';
 
 const FIX_P_AND_R = [
   ['a = b', 'a = b'],
@@ -45,16 +45,16 @@ const FIX_TO_JS: [string, any][] = [
 describe('leafdata', async () => {
   it('parse and render fixtures', () => {
     for (const [fix, exp] of FIX_P_AND_R) {
-      const tree = leafdataParse(fix);
-      const leaf = leafdataRender(tree);
+      const tree = parse.parseStrToTree(fix);
+      const leaf = render.renderTreeToStr(tree);
       expect(leaf).to.equal(exp);
     }
   });
 
   it('toJs fixtures', () => {
     for (const [fix, exp] of FIX_TO_JS) {
-      const tree = leafdataParse(fix);
-      const js = leafdataToJs(tree);
+      const tree = parse.parseStrToTree(fix);
+      const js = parse.parseTreeToJs(tree);
       expect(js).to.deep.equal(exp);
     }
   });

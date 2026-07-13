@@ -6,11 +6,13 @@
 
 # types
 
+Types used by this leafdata library.
+
 ## Enumerations
 
 ### LdType
 
-Defined in: [types.ts:1](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L1)
+Leafdata node type. The value of the "t" property on a leafdata node.
 
 #### Enumeration Members
 
@@ -18,61 +20,43 @@ Defined in: [types.ts:1](https://github.com/neonphog/leaf-data/blob/d224cc4560c2
 
 > **Arr**: `"arr"`
 
-Defined in: [types.ts:10](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L10)
-
 ##### BigInt
 
 > **BigInt**: `"bigint"`
-
-Defined in: [types.ts:6](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L6)
 
 ##### Bool
 
 > **Bool**: `"bool"`
 
-Defined in: [types.ts:4](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L4)
-
 ##### Bytes
 
 > **Bytes**: `"bytes"`
-
-Defined in: [types.ts:7](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L7)
 
 ##### F64
 
 > **F64**: `"f64"`
 
-Defined in: [types.ts:5](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L5)
-
 ##### LeafData
 
 > **LeafData**: `"leafdata"`
-
-Defined in: [types.ts:2](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L2)
 
 ##### Null
 
 > **Null**: `"null"`
 
-Defined in: [types.ts:3](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L3)
-
 ##### Obj
 
 > **Obj**: `"obj"`
-
-Defined in: [types.ts:9](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L9)
 
 ##### Str
 
 > **Str**: `"str"`
 
-Defined in: [types.ts:8](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L8)
-
 ## Interfaces
 
 ### LdArr
 
-Defined in: [types.ts:60](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L60)
+An "array" or list of values.
 
 #### Extends
 
@@ -84,7 +68,9 @@ Defined in: [types.ts:60](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -94,7 +80,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`Arr`](#arr)
 
-Defined in: [types.ts:61](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L61)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -104,13 +90,11 @@ Defined in: [types.ts:61](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **v**: (`string` \| [`LdVal`](#ldval))[]
 
-Defined in: [types.ts:62](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L62)
-
 ***
 
 ### LdBigInt
 
-Defined in: [types.ts:40](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L40)
+An arbitrary precision big integer value.
 
 #### Extends
 
@@ -122,7 +106,9 @@ Defined in: [types.ts:40](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -132,7 +118,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`BigInt`](#bigint)
 
-Defined in: [types.ts:41](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L41)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -142,13 +128,11 @@ Defined in: [types.ts:41](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **v**: `bigint`
 
-Defined in: [types.ts:42](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L42)
-
 ***
 
 ### LdBool
 
-Defined in: [types.ts:30](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L30)
+A boolean value (`true` | `false`).
 
 #### Extends
 
@@ -160,7 +144,9 @@ Defined in: [types.ts:30](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -170,7 +156,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`Bool`](#bool)
 
-Defined in: [types.ts:31](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L31)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -180,13 +166,11 @@ Defined in: [types.ts:31](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **v**: `boolean`
 
-Defined in: [types.ts:32](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L32)
-
 ***
 
 ### LdBytes
 
-Defined in: [types.ts:45](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L45)
+A byte array (array of u8 integers) value.
 
 #### Extends
 
@@ -198,7 +182,9 @@ Defined in: [types.ts:45](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -208,7 +194,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`Bytes`](#bytes)
 
-Defined in: [types.ts:46](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L46)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -218,13 +204,11 @@ Defined in: [types.ts:46](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **v**: `ArrayBuffer`
 
-Defined in: [types.ts:47](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L47)
-
 ***
 
 ### LdF64
 
-Defined in: [types.ts:35](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L35)
+A numeric (f64) value.
 
 #### Extends
 
@@ -236,7 +220,9 @@ Defined in: [types.ts:35](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -246,7 +232,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`F64`](#f64)
 
-Defined in: [types.ts:36](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L36)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -256,13 +242,11 @@ Defined in: [types.ts:36](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **v**: `number`
 
-Defined in: [types.ts:37](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L37)
-
 ***
 
 ### LdNode
 
-Defined in: [types.ts:16](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L16)
+Leafdata node base-type definition.
 
 #### Extended by
 
@@ -282,19 +266,21 @@ Defined in: [types.ts:16](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ##### t
 
 > **t**: [`LdType`](#ldtype)
 
-Defined in: [types.ts:17](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L17)
+The [LdType](#ldtype) of this leafdata node.
 
 ***
 
 ### LdNull
 
-Defined in: [types.ts:26](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L26)
+A null value (`null`).
 
 #### Extends
 
@@ -306,7 +292,9 @@ Defined in: [types.ts:26](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -316,7 +304,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`Null`](#null)
 
-Defined in: [types.ts:27](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L27)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -326,7 +314,7 @@ Defined in: [types.ts:27](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 ### LdObj
 
-Defined in: [types.ts:55](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L55)
+An "object" or map of strings to values.
 
 #### Extends
 
@@ -338,7 +326,9 @@ Defined in: [types.ts:55](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -348,7 +338,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`Obj`](#obj)
 
-Defined in: [types.ts:56](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L56)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -358,13 +348,11 @@ Defined in: [types.ts:56](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **v**: (`string` \| [`LdVal`](#ldval))[]
 
-Defined in: [types.ts:57](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L57)
-
 ***
 
 ### LdStr
 
-Defined in: [types.ts:50](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L50)
+A string value.
 
 #### Extends
 
@@ -376,7 +364,9 @@ Defined in: [types.ts:50](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -386,7 +376,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`Str`](#str)
 
-Defined in: [types.ts:51](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L51)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -396,13 +386,13 @@ Defined in: [types.ts:51](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **v**: `string`
 
-Defined in: [types.ts:52](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L52)
-
 ***
 
 ### LeafData
 
-Defined in: [types.ts:21](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L21)
+This is the root document type of a leafdata document.
+
+Akin to an [LdObj](#ldobj), but without surrounding braces ('{}').
 
 #### Extends
 
@@ -414,7 +404,9 @@ Defined in: [types.ts:21](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > `optional` **l?**: `string`
 
-Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L18)
+The source location of this leafdata node.
+
+In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 ###### Inherited from
 
@@ -424,7 +416,7 @@ Defined in: [types.ts:18](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **t**: [`LeafData`](#leafdata)
 
-Defined in: [types.ts:22](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L22)
+The [LdType](#ldtype) of this leafdata node.
 
 ###### Overrides
 
@@ -434,35 +426,33 @@ Defined in: [types.ts:22](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **v**: (`string` \| [`LdVal`](#ldval))[]
 
-Defined in: [types.ts:23](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L23)
-
 ## Type Aliases
 
-### LdJsArr
+### JsArr
 
-> **LdJsArr** = [`LdJsVal`](#ldjsval)[]
+> **JsArr** = [`JsVal`](#jsval)[]
 
-Defined in: [types.ts:70](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L70)
+A Javascript "array" or list of values.
 
 ***
 
-### LdJsObj
+### JsObj
 
-> **LdJsObj** = `object`
+> **JsObj** = `object`
 
-Defined in: [types.ts:68](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L68)
+A Javascript "object" or map of strings to values.
 
 #### Index Signature
 
-\[`key`: `string`\]: [`LdJsVal`](#ldjsval)
+\[`key`: `string`\]: [`JsVal`](#jsval)
 
 ***
 
-### LdJsVal
+### JsVal
 
-> **LdJsVal** = `null` \| `boolean` \| `number` \| `bigint` \| `ArrayBuffer` \| `string` \| [`LdJsObj`](#ldjsobj) \| [`LdJsArr`](#ldjsarr)
+> **JsVal** = `null` \| `boolean` \| `number` \| `bigint` \| `ArrayBuffer` \| `string` \| [`JsObj`](#jsobj) \| [`JsArr`](#jsarr)
 
-Defined in: [types.ts:65](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L65)
+A Javascript value.
 
 ***
 
@@ -470,4 +460,5 @@ Defined in: [types.ts:65](https://github.com/neonphog/leaf-data/blob/d224cc4560c
 
 > **LdVal** = [`LdNull`](#ldnull) \| [`LdBool`](#ldbool) \| [`LdF64`](#ldf64) \| [`LdBigInt`](#ldbigint) \| [`LdBytes`](#ldbytes) \| [`LdStr`](#ldstr) \| [`LdObj`](#ldobj) \| [`LdArr`](#ldarr)
 
-Defined in: [types.ts:13](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/types.ts#L13)
+A leafdata "value" type. Can be found as the value of an object property,
+or the content item of an array.

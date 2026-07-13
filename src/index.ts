@@ -40,6 +40,29 @@
  * const parsed = LeafObj.parse(s);
  * ```
  */
+
+import * as types from './types.js';
+import * as parse from './parse.js';
+import * as render from './render.js';
+
+/**
+ * Types used by this leafdata library.
+ */
 export * as types from './types.js';
-export { leafdataParse, leafdataToJs } from './parse.js';
-export { leafdataRender } from './render.js';
+
+/**
+ * Low-level parsing functions.
+ */
+export * as parse from './parse.js';
+
+/**
+ * Low-level rendering functions.
+ */
+export * as render from './render.js';
+
+/**
+ * Parse a leafdata document string into a Javascript object.
+ */
+export function leafdataParse(doc: string): types.JsObj {
+  return parse.parseTreeToJs(parse.parseStrToTree(doc));
+}

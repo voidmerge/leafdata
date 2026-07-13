@@ -1,6 +1,6 @@
 import { LeafData, LdType, LdVal, LdBigInt, LdBytes } from './types.js';
 
-export function leafdataRender(data: LeafData): string {
+export function renderTreeToStr(data: LeafData): string {
   const out: string[] = [];
   renderList(out, data.v);
   return out.join('');
