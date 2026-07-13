@@ -70,7 +70,6 @@ function renderTreeVal(data: JsVal, depth: number, indent?: string): LdVal {
     return { t: LdType.Bytes, v: data };
   } else if (Array.isArray(data)) {
     const out: (string | LdVal)[] = [];
-    renderTreeDepth(out, depth, indent);
     out.push('[');
     if (indent) {
       out.push('\n');
@@ -101,7 +100,6 @@ function renderTreeVal(data: JsVal, depth: number, indent?: string): LdVal {
         return { t: LdType.Str, v: data };
       case 'object':
         const out: (string | LdVal)[] = [];
-        renderTreeDepth(out, depth, indent);
         out.push('{');
         if (indent) {
           out.push('\n');
@@ -159,7 +157,12 @@ function render(out: string[], item: LdVal) {
 }
 
 function renderStr(out: string[], str: string) {
-  if (/[a-zA-Z$_](?:a-zA-Z0-9$_-)*/.test(str)) {
+  if (
+    /^[a-zA-Z$_][a-zA-Z0-9$_-]*$/.test(str) &&
+    str !== 'null' &&
+    str !== 'true' &&
+    str !== 'false'
+  ) {
     out.push(str);
   } else {
     out.push(JSON.stringify(str));

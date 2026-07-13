@@ -11,19 +11,7 @@ import {
 } from 'antlr4ng';
 import { leafdataLexer } from './gen/leafdataLexer.js';
 import { leafdataParser } from './gen/leafdataParser.js';
-import {
-  LeafData,
-  LdNode,
-  LdType,
-  LdObj,
-  LdStr,
-  LdVal,
-  LdBigInt,
-  LdBytes,
-  JsObj,
-  JsVal,
-  JsArr,
-} from './types.js';
+import { LeafData, LdType, LdVal, JsObj, JsVal, JsArr } from './types.js';
 
 class StrictErrorListener extends BaseErrorListener {
   syntaxError(
@@ -195,9 +183,9 @@ function objToJs(out: JsObj, list: (string | LdVal)[]) {
     if (typeof item === 'string') {
       continue;
     }
-    if (!key && item.t === LdType.Str) {
+    if (key === null && item.t === LdType.Str) {
       key = item.v;
-    } else if (key) {
+    } else if (key !== null) {
       out[key] = valToJs(item);
       key = null;
     }
