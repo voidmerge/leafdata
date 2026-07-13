@@ -102,3 +102,15 @@ export * as render from './render.js';
 export function leafdataParse(doc: string): types.JsObj {
   return parse.parseTreeToJs(parse.parseStrToTree(doc));
 }
+
+/**
+ * Render a Javascript object into a leafdata document string.
+ *
+ * @param obj - the js object to render
+ * @param indent - if omitted, the tree will be generated without pretty
+ *                 printing to conserve space. If specified, the content
+ *                 will be pretty printed for humans.
+ */
+export function leafdataRender(obj: types.JsObj, indent?: string): string {
+  return render.renderTreeToStr(render.renderJsToTree(obj, indent));
+}

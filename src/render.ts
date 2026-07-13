@@ -1,9 +1,117 @@
-import { LeafData, LdType, LdVal, LdBigInt, LdBytes } from './types.js';
+import {
+  LeafData,
+  LdType,
+  LdVal,
+  LdBigInt,
+  LdBytes,
+  JsObj,
+  JsVal,
+} from './types.js';
 
+/**
+ * Given a leafdata symbol tree, render a leafdata document string.
+ */
 export function renderTreeToStr(data: LeafData): string {
   const out: string[] = [];
   renderList(out, data.v);
   return out.join('');
+}
+
+/**
+ * Given a Javascript object, render a leafdata symbol tree.
+ *
+ * @param data - the js object to render
+ * @param indent - if omitted, the tree will be generated without pretty
+ *                 printing to conserve space. If specified, the content
+ *                 will be pretty printed for humans.
+ */
+export function renderJsToTree(data: JsObj, indent?: string): LeafData {
+  const out: (string | LdVal)[] = [];
+  renderTreeObjProps(out, data, 0, indent);
+  return { t: LdType.LeafData, v: out };
+}
+
+function renderTreeDepth(
+  out: (string | LdVal)[],
+  depth: number,
+  indent?: string,
+) {
+  if (indent) {
+    out.push(indent.repeat(depth));
+  }
+}
+
+function renderTreeObjProps(
+  out: (string | LdVal)[],
+  data: JsObj,
+  depth: number,
+  indent?: string,
+) {
+  const keys = Object.keys(data);
+  for (let idx = 0; idx < keys.length; ++idx) {
+    renderTreeDepth(out, depth, indent);
+    out.push({ t: LdType.Str, v: keys[idx] });
+    if (indent) {
+      out.push(' = ');
+    } else {
+      out.push('=');
+    }
+    out.push(renderTreeVal(data[keys[idx]], depth, indent));
+    if (indent) {
+      out.push('\n');
+    } else if (idx < keys.length - 1) {
+      out.push(',');
+    }
+  }
+}
+
+function renderTreeVal(data: JsVal, depth: number, indent?: string): LdVal {
+  if (data instanceof ArrayBuffer) {
+    return { t: LdType.Bytes, v: data };
+  } else if (Array.isArray(data)) {
+    const out: (string | LdVal)[] = [];
+    renderTreeDepth(out, depth, indent);
+    out.push('[');
+    if (indent) {
+      out.push('\n');
+    }
+    for (let idx = 0; idx < data.length; ++idx) {
+      renderTreeDepth(out, depth + 1, indent);
+      out.push(renderTreeVal(data[idx], depth + 1, indent));
+      if (indent) {
+        out.push('\n');
+      } else if (idx < data.length - 1) {
+        out.push(',');
+      }
+    }
+    renderTreeDepth(out, depth, indent);
+    out.push(']');
+    return { t: LdType.Arr, v: out };
+  } else if (data === null) {
+    return { t: LdType.Null };
+  } else {
+    switch (typeof data) {
+      case 'boolean':
+        return { t: LdType.Bool, v: data };
+      case 'number':
+        return { t: LdType.F64, v: data };
+      case 'bigint':
+        return { t: LdType.BigInt, v: data };
+      case 'string':
+        return { t: LdType.Str, v: data };
+      case 'object':
+        const out: (string | LdVal)[] = [];
+        renderTreeDepth(out, depth, indent);
+        out.push('{');
+        if (indent) {
+          out.push('\n');
+        }
+        renderTreeObjProps(out, data, depth + 1, indent);
+        renderTreeDepth(out, depth, indent);
+        out.push('}');
+        return { t: LdType.Obj, v: out };
+    }
+  }
 }
 
 function renderList(out: string[], list: (string | LdVal)[]) {
@@ -31,7 +139,7 @@ function render(out: string[], item: LdVal) {
       out.push(`bigint@${JSON.stringify(item.v.toString())}`);
       break;
     case LdType.Bytes:
-      const [t, bin] = renderBin(item.v, 0);
+      const [t, bin] = renderBin(item.v);
       if (t === 'pct') {
         out.push(`pct@${JSON.stringify(bin)}`);
       } else {
@@ -58,7 +166,7 @@ function renderStr(out: string[], str: string) {
   }
 }
 
-function renderBinB64(b: ArrayBuffer, depth?: number): string {
+function renderBinB64(b: ArrayBuffer): string {
   const bytes = new Uint8Array(b);
   const binary = [];
 
@@ -66,26 +174,7 @@ function renderBinB64(b: ArrayBuffer, depth?: number): string {
     binary.push(String.fromCharCode(bytes[i]));
   }
 
-  let result = btoa(binary.join(''));
-
-  if (depth) {
-    depth += 1;
-
-    let limit = 78 - depth * 2;
-    if (limit < 64) {
-      limit = 64;
-    }
-
-    if (result.length > limit) {
-      const re = new RegExp(`.{1,${limit}}`, 'g');
-      const chunks: string[] = result.match(re) || [];
-
-      chunks.unshift('');
-      result = chunks.join('\n' + '  '.repeat(depth));
-    }
-  }
-
-  return result;
+  return btoa(binary.join(''));
 }
 
 function renderBinPct(b: ArrayBuffer): string {
@@ -113,9 +202,9 @@ function renderBinPct(b: ArrayBuffer): string {
   return result.join('');
 }
 
-function renderBin(b: ArrayBuffer, depth?: number): ['pct' | 'b64', string] {
+function renderBin(b: ArrayBuffer): ['pct' | 'b64', string] {
   const pct = renderBinPct(b);
-  const b64 = renderBinB64(b, depth);
+  const b64 = renderBinB64(b);
 
   if (b64.length < pct.length) {
     return ['b64', b64];

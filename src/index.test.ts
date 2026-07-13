@@ -1,4 +1,4 @@
-import { parse, render } from './index.js';
+import { parse, render, leafdataRender } from './index.js';
 
 const FIX_P_AND_R = [
   ['a = b', 'a = b'],
@@ -42,6 +42,12 @@ const FIX_TO_JS: [string, any][] = [
   ['a = [ a ]', { a: ['a'] }],
 ];
 
+const FIX_RENDER: [any, string, string][] = [
+  [{ a: 'b', c: 'd' }, 'a=b,c=d', 'a = b\nc = d\n'],
+  [{ a: ['a', 'b'] }, 'a=[a,b]', 'a = [\n  a\n  b\n]\n'],
+  [{ a: { b: 'c', d: 'e' } }, 'a={b=c,d=e}', 'a = {\n  b = c\n  d = e\n}\n'],
+];
+
 describe('leafdata', async () => {
   it('parse and render fixtures', () => {
     for (const [fix, exp] of FIX_P_AND_R) {
@@ -56,6 +62,15 @@ describe('leafdata', async () => {
       const tree = parse.parseStrToTree(fix);
       const js = parse.parseTreeToJs(tree);
       expect(js).to.deep.equal(exp);
+    }
+  });
+
+  it('render fixtures', () => {
+    for (const [fix, expCompress, expPretty] of FIX_RENDER) {
+      const comp = leafdataRender(fix);
+      expect(comp).to.equal(expCompress);
+      const pretty = leafdataRender(fix, '  ');
+      expect(pretty).to.equal(expPretty);
     }
   });
 });
