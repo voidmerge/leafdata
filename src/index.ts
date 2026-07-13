@@ -1,7 +1,17 @@
 /**
  * @packageDocumentation
  *
- * # leaf-data encoding
+ * Leafdata is yet another human-readable data format similar to JSON or TOML.
+ *
+ * I was tired of not being able to represent big integers and binary data.
+ *
+ * Why would you want binary data in a human-readable text format, you ask?
+ *
+ * It just comes up sometimes. Like wanting to store cryptographic public keys
+ * along-side other configuration data. Or if you are wanting to debug a format
+ * that can have binary data in it, such as MessagePack.
+ *
+ * # Example
  *
  * ```sh
  * # This is Leaf Data!
@@ -29,16 +39,37 @@
  * ```
  *
  * ```ts
- * import { LeafObj } from '@leaf/leafdata`;
- * 
- * const s = new LeafObj()
- *   .withBigInt('huge', 9876543210000000000000000n)
- *   .stringify();
+ * import { leafdataParse, leafdataRender } from '@leaf/leafdata`;
  *
- * // huge = n@"9876543210000000000000000"
+ * const js = leafdataParse(exampleString);
  *
- * const parsed = LeafObj.parse(s);
+ * // - the value of 'js':
+ * //
+ * // {
+ * //   bugCount: 0,
+ * //   huge: 9876543210000000000000000n,
+ * //   pubKey: < ArrayBuffer >,
+ * //   tab: { fruit1: "apple", fruit2: "grape" },
+ * //   fruit: [ "apple", "grape" ],
+ * // }
+ *
+ * // Then, turn it back into a string:
+ *
+ * const output = leafdataRender(js);
  * ```
+ *
+ * # Specification
+ *
+ * The Antlr4 Lexer and Parser g4 files in this repo are the specification:
+ *
+ * - [leafdataLexer.g4](leafdataLexer.g4)
+ * - [leafdataParser.g4](leafdataParser.g4);
+ *
+ * Why Antlr4 when there are faster parsers? It is a well recognized format
+ * that compiles into many languages. Feel free to write a new, faster parser,
+ * just make it compliant with this one.
+ *
+ * # API Documentation
  */
 
 import * as types from './types.js';
