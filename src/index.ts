@@ -68,7 +68,7 @@
  * The Antlr4 Lexer and Parser g4 files in this repo are the specification:
  *
  * - [leafdataLexer.g4](leafdataLexer.g4)
- * - [leafdataParser.g4](leafdataParser.g4);
+ * - [leafdataParser.g4](leafdataParser.g4)
  *
  * Why Antlr4 when there are faster parsers? It is a well recognized format
  * that compiles into many languages. Feel free to write a new, faster parser,
