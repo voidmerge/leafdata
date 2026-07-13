@@ -20,10 +20,14 @@
  * bugCount = 0
  *
  * # Big Integer? No Biggie.
- * huge = n@"9876543210000000000000000"
+ * huge = bigint@"9876543210000000000000000"
  *
  * # What about those public key bytes?
- * pubKey = B@"68KJMg9WmuadUM3dUVdiaXW7898qanhIuvtftFxCPXw="
+ * pubKey = b64@"68KJMg9WmuadUM3dUVdiaXW7898qanhIuvtftFxCPXw="
+ *
+ * # Or, for more human readable binary data...
+ * # Leafdata will pick the smaller of b64@ or pct@ when encoding.
+ * myNullSeparatedData = pct@"age%00color%0A42%00red";
  *
  * # We gotz tablez.
  * tab = {
@@ -49,6 +53,7 @@
  * //   bugCount: 0,
  * //   huge: 9876543210000000000000000n,
  * //   pubKey: < ArrayBuffer >,
+ * //   myNullSeparatedData: < ArrayBuffer >,
  * //   tab: { fruit1: "apple", fruit2: "grape" },
  * //   fruit: [ "apple", "grape" ],
  * // }
