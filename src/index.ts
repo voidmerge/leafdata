@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
  *
- * # Leafdata (@leaf/leafdata)
+ * # Leafdata (@voidmerge/leafdata)
  *
  * Leafdata is yet another human-readable data format similar to JSON or TOML.
  *
@@ -45,7 +45,7 @@
  * ```
  *
  * ```ts
- * import { leafdataParse, leafdataRender } from '@leaf/leafdata`;
+ * import { leafdataParse, leafdataRender } from '@voidmerge/leafdata`;
  *
  * const js = leafdataParse(exampleString);
  *
