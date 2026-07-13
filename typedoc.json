@@ -6,5 +6,6 @@
   "outputFileStrategy": "modules",
   "entryFileName": "README.md",
   "flattenOutputFiles": true,
-  "disableSources": true
+  "disableSources": true,
+  "expandParameters": true
 }

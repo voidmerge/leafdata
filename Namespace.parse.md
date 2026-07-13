@@ -12,7 +12,7 @@ Low-level parsing functions.
 
 ### parseStrToTree()
 
-> **parseStrToTree**(`doc`): [`LeafData`](Namespace.types.md#leafdata-1)
+> **parseStrToTree**(`doc`: `string`): [`LeafData`](Namespace.types.md#leafdata-1)
 
 Takes a leafdata document string, and parses it into
 a leafdata symbol tree ([LeafData](Namespace.types.md#leafdata-1)).
@@ -31,7 +31,7 @@ a leafdata symbol tree ([LeafData](Namespace.types.md#leafdata-1)).
 
 ### parseTreeToJs()
 
-> **parseTreeToJs**(`data`): [`JsObj`](Namespace.types.md#jsobj)
+> **parseTreeToJs**(`data`: [`LeafData`](Namespace.types.md#leafdata-1)): [`JsObj`](Namespace.types.md#jsobj)
 
 Takes a leafdata symbol tree ([LeafData](Namespace.types.md#leafdata-1)) and parses
 it into a javascript object.

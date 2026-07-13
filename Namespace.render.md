@@ -12,7 +12,7 @@ Low-level rendering functions.
 
 ### renderJsToTree()
 
-> **renderJsToTree**(`data`, `indent?`): [`LeafData`](Namespace.types.md#leafdata-1)
+> **renderJsToTree**(`data`: [`JsObj`](Namespace.types.md#jsobj), `indent?`: `string`): [`LeafData`](Namespace.types.md#leafdata-1)
 
 Given a Javascript object, render a leafdata symbol tree.
 
@@ -40,7 +40,7 @@ will be pretty printed for humans.
 
 ### renderTreeToStr()
 
-> **renderTreeToStr**(`data`): `string`
+> **renderTreeToStr**(`data`: [`LeafData`](Namespace.types.md#leafdata-1)): `string`
 
 Given a leafdata symbol tree, render a leafdata document string.
 

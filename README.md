@@ -89,7 +89,7 @@ just make it compliant with this one.
 
 ### leafdataParse()
 
-> **leafdataParse**(`doc`): [`JsObj`](Namespace.types.md#jsobj)
+> **leafdataParse**(`doc`: `string`): [`JsObj`](Namespace.types.md#jsobj)
 
 Parse a leafdata document string into a Javascript object.
 
@@ -107,7 +107,7 @@ Parse a leafdata document string into a Javascript object.
 
 ### leafdataRender()
 
-> **leafdataRender**(`obj`, `indent?`): `string`
+> **leafdataRender**(`obj`: [`JsObj`](Namespace.types.md#jsobj), `indent?`: `string`): `string`
 
 Render a Javascript object into a leafdata document string.
 
