@@ -1,6 +1,8 @@
 {
   "name": "@voidmerge/leafdata",
   "version": "0.0.1",
+  "description": "Leafdata is a human-readable data format similar to JSON or TOML that can encode bigints and byte arrays.",
+  "license": "(MIT or Apache-2.0)",
   "type": "module",
   "exports": {
     ".": {
