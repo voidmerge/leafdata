@@ -19,6 +19,7 @@
     "antlr-ng": "^1.0.10",
     "prettier": "^3.9.4",
     "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.12.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   },

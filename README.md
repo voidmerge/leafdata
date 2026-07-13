@@ -1,3 +1,9 @@
+**@leaf/leafdata**
+
+***
+
+# @leaf/leafdata
+
 # leaf-data encoding
 
 ```sh
@@ -36,3 +42,61 @@ const s = new LeafObj()
 
 const parsed = LeafObj.parse(s);
 ```
+
+## Namespaces
+
+- [types](Namespace.types.md)
+
+## Functions
+
+### leafdataParse()
+
+> **leafdataParse**(`input`): [`LeafData`](Namespace.types.md#leafdata-1)
+
+Defined in: [parse.ts:155](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/parse.ts#L155)
+
+#### Parameters
+
+##### input
+
+`string`
+
+#### Returns
+
+[`LeafData`](Namespace.types.md#leafdata-1)
+
+***
+
+### leafdataRender()
+
+> **leafdataRender**(`data`): `string`
+
+Defined in: [render.ts:3](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/render.ts#L3)
+
+#### Parameters
+
+##### data
+
+[`LeafData`](Namespace.types.md#leafdata-1)
+
+#### Returns
+
+`string`
+
+***
+
+### leafdataToJs()
+
+> **leafdataToJs**(`data`): [`LdJsObj`](Namespace.types.md#ldjsobj)
+
+Defined in: [parse.ts:176](https://github.com/neonphog/leaf-data/blob/d224cc4560c248a154c99e7ac47b7df86e343f51/src/parse.ts#L176)
+
+#### Parameters
+
+##### data
+
+[`LeafData`](Namespace.types.md#leafdata-1)
+
+#### Returns
+
+[`LdJsObj`](Namespace.types.md#ldjsobj)

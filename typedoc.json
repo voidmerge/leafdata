@@ -1,0 +1,9 @@
+{
+  "entryPoints": ["./src/index.ts"],
+  "out": ".",
+  "cleanOutputDir": false,
+  "plugin": ["typedoc-plugin-markdown"],
+  "outputFileStrategy": "modules",
+  "entryFileName": "README.md",
+  "flattenOutputFiles": true
+}
