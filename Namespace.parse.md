@@ -1,11 +1,3 @@
-[**@leaf/leafdata**](README.md)
-
----
-
-[@leaf/leafdata](README.md) / parse
-
-# parse
-
 Low-level parsing functions.
 
 ## Functions
@@ -19,9 +11,9 @@ a leafdata symbol tree ([LeafData](Namespace.types.md#leafdata-1)).
 
 #### Parameters
 
-##### doc
-
-`string`
+| Parameter | Type     |
+| --------- | -------- |
+| `doc`     | `string` |
 
 #### Returns
 
@@ -38,9 +30,9 @@ it into a javascript object.
 
 #### Parameters
 
-##### data
-
-[`LeafData`](Namespace.types.md#leafdata-1)
+| Parameter | Type                                        |
+| --------- | ------------------------------------------- |
+| `data`    | [`LeafData`](Namespace.types.md#leafdata-1) |
 
 #### Returns
 

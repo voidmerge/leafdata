@@ -1,11 +1,3 @@
-[**@leaf/leafdata**](README.md)
-
----
-
-[@leaf/leafdata](README.md) / types
-
-# types
-
 Types used by this leafdata library.
 
 ## Enumerations
@@ -64,31 +56,11 @@ An "array" or list of values.
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`Arr`](#arr)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
-
-##### v
-
-> **v**: (`string` \| [`LdVal`](#ldval))[]
+| Property                     | Type                              | Description                                                                                             | Overrides                                | Inherited from                           |
+| ---------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l"></a> `l?` | `string`                          | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t"></a> `t`  | [`Arr`](#arr)                     | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
+| <a id="property-v"></a> `v`  | (`string` \| [`LdVal`](#ldval))[] | -                                                                                                       | -                                        | -                                        |
 
 ---
 
@@ -102,31 +74,11 @@ An arbitrary precision big integer value.
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`BigInt`](#bigint)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
-
-##### v
-
-> **v**: `bigint`
+| Property                       | Type                | Description                                                                                             | Overrides                                | Inherited from                           |
+| ------------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l-1"></a> `l?` | `string`            | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t-1"></a> `t`  | [`BigInt`](#bigint) | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
+| <a id="property-v-1"></a> `v`  | `bigint`            | -                                                                                                       | -                                        | -                                        |
 
 ---
 
@@ -140,31 +92,11 @@ A boolean value (`true` | `false`).
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`Bool`](#bool)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
-
-##### v
-
-> **v**: `boolean`
+| Property                       | Type            | Description                                                                                             | Overrides                                | Inherited from                           |
+| ------------------------------ | --------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l-2"></a> `l?` | `string`        | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t-2"></a> `t`  | [`Bool`](#bool) | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
+| <a id="property-v-2"></a> `v`  | `boolean`       | -                                                                                                       | -                                        | -                                        |
 
 ---
 
@@ -178,31 +110,11 @@ A byte array (array of u8 integers) value.
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`Bytes`](#bytes)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
-
-##### v
-
-> **v**: `ArrayBuffer`
+| Property                       | Type              | Description                                                                                             | Overrides                                | Inherited from                           |
+| ------------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l-3"></a> `l?` | `string`          | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t-3"></a> `t`  | [`Bytes`](#bytes) | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
+| <a id="property-v-3"></a> `v`  | `ArrayBuffer`     | -                                                                                                       | -                                        | -                                        |
 
 ---
 
@@ -216,31 +128,11 @@ A numeric (f64) value.
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`F64`](#f64)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
-
-##### v
-
-> **v**: `number`
+| Property                       | Type          | Description                                                                                             | Overrides                                | Inherited from                           |
+| ------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l-4"></a> `l?` | `string`      | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t-4"></a> `t`  | [`F64`](#f64) | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
+| <a id="property-v-4"></a> `v`  | `number`      | -                                                                                                       | -                                        | -                                        |
 
 ---
 
@@ -262,19 +154,10 @@ Leafdata node base-type definition.
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-##### t
-
-> **t**: [`LdType`](#ldtype)
-
-The [LdType](#ldtype) of this leafdata node.
+| Property                       | Type                | Description                                                                                             |
+| ------------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------- |
+| <a id="property-l-5"></a> `l?` | `string`            | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. |
+| <a id="property-t-5"></a> `t`  | [`LdType`](#ldtype) | The [LdType](#ldtype) of this leafdata node.                                                            |
 
 ---
 
@@ -288,27 +171,10 @@ A null value (`null`).
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`Null`](#null)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
+| Property                       | Type            | Description                                                                                             | Overrides                                | Inherited from                           |
+| ------------------------------ | --------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l-6"></a> `l?` | `string`        | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t-6"></a> `t`  | [`Null`](#null) | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
 
 ---
 
@@ -322,31 +188,11 @@ An "object" or map of strings to values.
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`Obj`](#obj)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
-
-##### v
-
-> **v**: (`string` \| [`LdVal`](#ldval))[]
+| Property                       | Type                              | Description                                                                                             | Overrides                                | Inherited from                           |
+| ------------------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l-7"></a> `l?` | `string`                          | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t-7"></a> `t`  | [`Obj`](#obj)                     | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
+| <a id="property-v-5"></a> `v`  | (`string` \| [`LdVal`](#ldval))[] | -                                                                                                       | -                                        | -                                        |
 
 ---
 
@@ -360,31 +206,11 @@ A string value.
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`Str`](#str)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
-
-##### v
-
-> **v**: `string`
+| Property                       | Type          | Description                                                                                             | Overrides                                | Inherited from                           |
+| ------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l-8"></a> `l?` | `string`      | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t-8"></a> `t`  | [`Str`](#str) | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
+| <a id="property-v-6"></a> `v`  | `string`      | -                                                                                                       | -                                        | -                                        |
 
 ---
 
@@ -400,31 +226,11 @@ Akin to an [LdObj](#ldobj), but without surrounding braces ('{}').
 
 #### Properties
 
-##### l?
-
-> `optional` **l?**: `string`
-
-The source location of this leafdata node.
-
-In the form `<linenumber>:<column>:<startindex>:<endindex>`.
-
-###### Inherited from
-
-[`LdNode`](#ldnode).[`l`](#l-5)
-
-##### t
-
-> **t**: [`LeafData`](#leafdata)
-
-The [LdType](#ldtype) of this leafdata node.
-
-###### Overrides
-
-[`LdNode`](#ldnode).[`t`](#t-5)
-
-##### v
-
-> **v**: (`string` \| [`LdVal`](#ldval))[]
+| Property                       | Type                              | Description                                                                                             | Overrides                                | Inherited from                           |
+| ------------------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| <a id="property-l-9"></a> `l?` | `string`                          | The source location of this leafdata node. In the form `<linenumber>:<column>:<startindex>:<endindex>`. | -                                        | [`LdNode`](#ldnode).[`l`](#property-l-5) |
+| <a id="property-t-9"></a> `t`  | [`LeafData`](#leafdata)           | The [LdType](#ldtype) of this leafdata node.                                                            | [`LdNode`](#ldnode).[`t`](#property-t-5) | -                                        |
+| <a id="property-v-7"></a> `v`  | (`string` \| [`LdVal`](#ldval))[] | -                                                                                                       | -                                        | -                                        |
 
 ## Type Aliases
 

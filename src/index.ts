@@ -1,6 +1,8 @@
 /**
  * @packageDocumentation
  *
+ * # Leafdata (@leaf/leafdata)
+ *
  * Leafdata is yet another human-readable data format similar to JSON or TOML.
  *
  * I was tired of not being able to represent big integers and binary data.

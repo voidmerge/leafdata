@@ -1,11 +1,3 @@
-[**@leaf/leafdata**](README.md)
-
----
-
-[@leaf/leafdata](README.md) / render
-
-# render
-
 Low-level rendering functions.
 
 ## Functions
@@ -18,19 +10,10 @@ Given a Javascript object, render a leafdata symbol tree.
 
 #### Parameters
 
-##### data
-
-[`JsObj`](Namespace.types.md#jsobj)
-
-the js object to render
-
-##### indent?
-
-`string`
-
-if omitted, the tree will be generated without pretty
-printing to conserve space. If specified, the content
-will be pretty printed for humans.
+| Parameter | Type                                | Description                                                                                                                                    |
+| --------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data`    | [`JsObj`](Namespace.types.md#jsobj) | the js object to render                                                                                                                        |
+| `indent?` | `string`                            | if omitted, the tree will be generated without pretty printing to conserve space. If specified, the content will be pretty printed for humans. |
 
 #### Returns
 
@@ -46,9 +29,9 @@ Given a leafdata symbol tree, render a leafdata document string.
 
 #### Parameters
 
-##### data
-
-[`LeafData`](Namespace.types.md#leafdata-1)
+| Parameter | Type                                        |
+| --------- | ------------------------------------------- |
+| `data`    | [`LeafData`](Namespace.types.md#leafdata-1) |
 
 #### Returns
 

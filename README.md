@@ -1,8 +1,4 @@
-**@leaf/leafdata**
-
----
-
-# @leaf/leafdata
+# Leafdata (@leaf/leafdata)
 
 Leafdata is yet another human-readable data format similar to JSON or TOML.
 
@@ -95,9 +91,9 @@ Parse a leafdata document string into a Javascript object.
 
 #### Parameters
 
-##### doc
-
-`string`
+| Parameter | Type     |
+| --------- | -------- |
+| `doc`     | `string` |
 
 #### Returns
 
@@ -113,19 +109,10 @@ Render a Javascript object into a leafdata document string.
 
 #### Parameters
 
-##### obj
-
-[`JsObj`](Namespace.types.md#jsobj)
-
-the js object to render
-
-##### indent?
-
-`string`
-
-if omitted, the tree will be generated without pretty
-printing to conserve space. If specified, the content
-will be pretty printed for humans.
+| Parameter | Type                                | Description                                                                                                                                    |
+| --------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `obj`     | [`JsObj`](Namespace.types.md#jsobj) | the js object to render                                                                                                                        |
+| `indent?` | `string`                            | if omitted, the tree will be generated without pretty printing to conserve space. If specified, the content will be pretty printed for humans. |
 
 #### Returns
 
