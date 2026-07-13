@@ -1,6 +1,6 @@
 [**@leaf/leafdata**](README.md)
 
-***
+---
 
 [@leaf/leafdata](README.md) / types
 
@@ -90,7 +90,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 > **v**: (`string` \| [`LdVal`](#ldval))[]
 
-***
+---
 
 ### LdBigInt
 
@@ -128,7 +128,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 > **v**: `bigint`
 
-***
+---
 
 ### LdBool
 
@@ -166,7 +166,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 > **v**: `boolean`
 
-***
+---
 
 ### LdBytes
 
@@ -204,7 +204,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 > **v**: `ArrayBuffer`
 
-***
+---
 
 ### LdF64
 
@@ -242,7 +242,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 > **v**: `number`
 
-***
+---
 
 ### LdNode
 
@@ -276,7 +276,7 @@ In the form `<linenumber>:<column>:<startindex>:<endindex>`.
 
 The [LdType](#ldtype) of this leafdata node.
 
-***
+---
 
 ### LdNull
 
@@ -310,7 +310,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 [`LdNode`](#ldnode).[`t`](#t-5)
 
-***
+---
 
 ### LdObj
 
@@ -348,7 +348,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 > **v**: (`string` \| [`LdVal`](#ldval))[]
 
-***
+---
 
 ### LdStr
 
@@ -386,7 +386,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 > **v**: `string`
 
-***
+---
 
 ### LeafData
 
@@ -434,7 +434,7 @@ The [LdType](#ldtype) of this leafdata node.
 
 A Javascript "array" or list of values.
 
-***
+---
 
 ### JsObj
 
@@ -446,7 +446,7 @@ A Javascript "object" or map of strings to values.
 
 \[`key`: `string`\]: [`JsVal`](#jsval)
 
-***
+---
 
 ### JsVal
 
@@ -454,7 +454,7 @@ A Javascript "object" or map of strings to values.
 
 A Javascript value.
 
-***
+---
 
 ### LdVal
 

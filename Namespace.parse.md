@@ -1,6 +1,6 @@
 [**@leaf/leafdata**](README.md)
 
-***
+---
 
 [@leaf/leafdata](README.md) / parse
 
@@ -27,7 +27,7 @@ a leafdata symbol tree ([LeafData](Namespace.types.md#leafdata-1)).
 
 [`LeafData`](Namespace.types.md#leafdata-1)
 
-***
+---
 
 ### parseTreeToJs()
 

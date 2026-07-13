@@ -122,20 +122,22 @@ function treeToCST(node: ParseTree): string | LdVal | LeafData {
       return { t: LdType.Bool, l, v: childNodes[0] === 'true' };
     case LdType.F64:
       return { t: LdType.F64, l, v: parseFloat(childNodes[0] as string) };
-    case 'bigint_val':
-      const bigint = BigInt(JSON.parse(childNodes[0] as string));
-      return { t: LdType.BigInt, l, v: bigint };
-    case LdType.BigInt:
-      return childNodes[1] as LdBigInt;
-    case 'pct_val':
-      const pct = parsePct(childNodes[0] as string);
-      return { t: LdType.Bytes, l, v: pct };
-    case 'b64_val':
-      const b64 = parseB64(childNodes[0] as string);
-      return { t: LdType.Bytes, l, v: b64 };
-    case 'pct':
-    case 'b64':
-      return childNodes[1] as LdBytes;
+    case 'typed_val':
+      return childNodes[0] as string;
+    case 'typed':
+      switch (childNodes[0] as string) {
+        case 'bigint@':
+          const bigint = BigInt(JSON.parse(childNodes[1] as string));
+          return { t: LdType.BigInt, l, v: bigint };
+        case 'pct@':
+          const pct = parsePct(childNodes[1] as string);
+          return { t: LdType.Bytes, l, v: pct };
+        case 'b64@':
+          const b64 = parseB64(childNodes[1] as string);
+          return { t: LdType.Bytes, l, v: b64 };
+        default:
+          throw new Error(`Unknown typed: ${childNodes[0] as string}`);
+      }
     case 'ident':
       return { t: LdType.Str, l, v: childNodes[0] as string };
     case LdType.Str:

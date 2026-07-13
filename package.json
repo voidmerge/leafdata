@@ -11,7 +11,7 @@
   "scripts": {
     "gen": "antlr-ng -Dlanguage=TypeScript -visitor -o ./src/gen ./leafdataLexer.g4 ./leafdataParser.g4",
     "fmt": "prettier . --write",
-    "build": "npm run gen && tsc --build",
+    "build": "npm run gen && npm run doc && npm run fmt && tsc --build",
     "test": "npm run build && vitest run",
     "doc": "rimraf ./*.md && typedoc"
   },

@@ -1,6 +1,6 @@
 [**@leaf/leafdata**](README.md)
 
-***
+---
 
 [@leaf/leafdata](README.md) / render
 
