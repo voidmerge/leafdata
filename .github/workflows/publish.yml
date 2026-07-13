@@ -19,8 +19,8 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write      # Required to commit changes and push tags
-      id-token: write      # Required for npm Trusted Publishing OIDC token
+      contents: write # Required to commit changes and push tags
+      id-token: write # Required for npm Trusted Publishing OIDC token
       pull-requests: write # Required if managing PR infrastructure
 
     steps:
