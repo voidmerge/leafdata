@@ -95,15 +95,15 @@ Parse a leafdata document string into a Javascript object.
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `doc` | `string` |
+| Parameter | Type     |
+| --------- | -------- |
+| `doc`     | `string` |
 
 #### Returns
 
 [`JsObj`](Namespace.types.md#jsobj)
 
-***
+---
 
 ### leafdataRender()
 
@@ -113,10 +113,10 @@ Render a Javascript object into a leafdata document string.
 
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `obj` | [`JsObj`](Namespace.types.md#jsobj) | the js object to render |
-| `indent?` | `string` | if omitted, the tree will be generated without pretty printing to conserve space. If specified, the content will be pretty printed for humans. |
+| Parameter | Type                                | Description                                                                                                                                    |
+| --------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `obj`     | [`JsObj`](Namespace.types.md#jsobj) | the js object to render                                                                                                                        |
+| `indent?` | `string`                            | if omitted, the tree will be generated without pretty printing to conserve space. If specified, the content will be pretty printed for humans. |
 
 #### Returns
 

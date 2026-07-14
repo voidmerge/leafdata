@@ -3,6 +3,9 @@
  *
  * # Leafdata (@voidmerge/leafdata)
  *
+ * ![NPM License](https://img.shields.io/npm/l/%40voidmerge%2Fleafdata)
+ * ![NPM Version](https://img.shields.io/npm/v/%40voidmerge%2Fleafdata)
+ *
  * Leafdata is a human-readable data format similar to JSON or TOML that can
  * encode bigints and byte arrays.
  *
