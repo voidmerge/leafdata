@@ -9,13 +9,13 @@ endif
 syntax match leafdataPunctuation "[\{\}\[\]]"
 
 " --- Identifiers ---
-syntax match leafdataIdentifier "\<[a-zA-Z$_][a-zA-Z0-9$_-]*\>"
+syntax match leafdataIdentifier "\<[a-zA-Z$_][a-zA-Z0-9$_-]*"
 
 " --- Numbers ---
 syntax match leafdataNumber "-\?\(0\|[1-9][0-9]*\)\(\.[0-9]\+\)\?\([eE][+-]\?[0-9]\+\)\?"
 
 " --- Constants ---
-syntax keyword leafdataConstant null true false
+syntax match leafdataConstant "\<\(null\|true\|false\)\>\([a-zA-Z0-9$_-]\)\@!"
 
 " --- Strings ---
 syntax region leafdataString start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=leafdataEscape
@@ -24,11 +24,11 @@ syntax match leafdataEscape contained "\\\([\"\\/bfnrt]\|u[0-9a-fA-F]\{4\}\)"
 " --- Typed CDATA ---
 " Use matchgroup to style the bounding markers (type@") and the closing quote
 syntax region leafdataCData
+    \ matchgroup=leafdataCDataMarker
     \ start="\([a-zA-Z][a-zA-Z0-9]*\)\(@\)\(\"\)"
     \ end="\""
     \ contains=leafdataCDataInner
     \ keepend
-    \ matchgroup=leafdataCDataMarker
 
 " Style the raw text safely inside the CDATA quotes
 syntax match leafdataCDataInner contained "[^\"]\+"

@@ -1,5 +1,4 @@
 {
-  "$schema": "https://githubusercontent.com",
   "name": "leafdata",
   "scopeName": "source.leafdata",
   "fileTypes": ["leafdata"],
@@ -66,11 +65,11 @@
       "patterns": [
         {
           "name": "constant.language.null.leafdata",
-          "match": "\\bnull\\b"
+          "match": "(?<![a-zA-Z0-9$_-])null(?![a-zA-Z0-9$_-])"
         },
         {
           "name": "constant.language.boolean.leafdata",
-          "match": "\\b(true|false)\\b"
+          "match": "(?<![a-zA-Z0-9$_-])(true|false)(?![a-zA-Z0-9$_-])"
         }
       ]
     },
@@ -97,7 +96,7 @@
     },
     "identifiers": {
       "name": "variable.other.readwrite.leafdata",
-      "match": "\\b[a-zA-Z$_][a-zA-Z0-9$_-]*\\b"
+      "match": "\\b[a-zA-Z$_][a-zA-Z0-9$_-]*"
     },
     "punctuation": {
       "patterns": [
