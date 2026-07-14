@@ -7,6 +7,7 @@ import {
 } from './index.js';
 
 const FIX_P_AND_R = [
+  ['{a = b}', '{a = b}'],
   ['a = ""', 'a = ""'],
   ['"" = a', '"" = a'],
   ['a = b', 'a = b'],
@@ -25,6 +26,7 @@ const FIX_P_AND_R = [
   ['a = bigint@"123"', 'a = bigint@"123"'],
   ['a = b64@"AAECAw=="', 'a = b64@"AAECAw=="'],
   ['a = pct@"hello%22"', 'a = pct@"hello%22"'],
+  ['{a = {}}', '{a = {}}'],
   ['a = {}', 'a = {}'],
   ['a = { a = a }', 'a = { a = a }'],
   ['a = []', 'a = []'],
@@ -44,6 +46,7 @@ a = a
 ];
 
 const FIX_TO_JS: [string, any][] = [
+  ['{a=b}', { a: 'b' }],
   ['a = ""', { a: '' }],
   ['"" = a', { '': 'a' }],
   ['a = b', { a: 'b' }],

@@ -8,6 +8,8 @@ options {
 
 leafdata :
   NOTES?
+  OBJ_OPEN?
+  NOTES?
   (
     ( ident | str )
     NOTES
@@ -20,6 +22,8 @@ leafdata :
     )*
     NOTES?
   )?
+  OBJ_CLOSE?
+  NOTES?
   EOF
   ;
 

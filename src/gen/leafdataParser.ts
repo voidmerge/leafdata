@@ -70,172 +70,192 @@ export class leafdataParser extends antlr.Parser {
             {
             this.state = 21;
             this.errorHandler.sync(this);
-            _la = this.tokenStream.LA(1);
-            if (_la === 11) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 0, this.context) ) {
+            case 1:
                 {
                 this.state = 20;
                 this.match(leafdataParser.NOTES);
                 }
+                break;
+            }
+            this.state = 24;
+            this.errorHandler.sync(this);
+            _la = this.tokenStream.LA(1);
+            if (_la === 2) {
+                {
+                this.state = 23;
+                this.match(leafdataParser.OBJ_OPEN);
+                }
             }
 
-            this.state = 62;
+            this.state = 27;
+            this.errorHandler.sync(this);
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 2, this.context) ) {
+            case 1:
+                {
+                this.state = 26;
+                this.match(leafdataParser.NOTES);
+                }
+                break;
+            }
+            this.state = 68;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if (_la === 10 || _la === 12) {
                 {
-                this.state = 25;
+                this.state = 31;
                 this.errorHandler.sync(this);
                 switch (this.tokenStream.LA(1)) {
                 case leafdataParser.IDENT:
                     {
-                    this.state = 23;
+                    this.state = 29;
                     this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
-                    this.state = 24;
+                    this.state = 30;
                     this.str();
                     }
                     break;
                 default:
                     throw new antlr.NoViableAltException(this);
                 }
-                this.state = 27;
+                this.state = 33;
                 this.match(leafdataParser.NOTES);
-                this.state = 36;
+                this.state = 42;
                 this.errorHandler.sync(this);
                 switch (this.tokenStream.LA(1)) {
                 case leafdataParser.NULL:
                     {
-                    this.state = 28;
+                    this.state = 34;
                     this.null_();
                     }
                     break;
                 case leafdataParser.TRUE:
                 case leafdataParser.FALSE:
                     {
-                    this.state = 29;
+                    this.state = 35;
                     this.bool();
                     }
                     break;
                 case leafdataParser.F64:
                     {
-                    this.state = 30;
+                    this.state = 36;
                     this.f64();
                     }
                     break;
                 case leafdataParser.TYPED_MARK:
                     {
-                    this.state = 31;
+                    this.state = 37;
                     this.typed();
                     }
                     break;
                 case leafdataParser.IDENT:
                     {
-                    this.state = 32;
+                    this.state = 38;
                     this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
-                    this.state = 33;
+                    this.state = 39;
                     this.str();
                     }
                     break;
                 case leafdataParser.OBJ_OPEN:
                     {
-                    this.state = 34;
+                    this.state = 40;
                     this.obj();
                     }
                     break;
                 case leafdataParser.ARR_OPEN:
                     {
-                    this.state = 35;
+                    this.state = 41;
                     this.arr();
                     }
                     break;
                 default:
                     throw new antlr.NoViableAltException(this);
                 }
-                this.state = 56;
+                this.state = 62;
                 this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 5, this.context);
+                alternative = this.interpreter.adaptivePredict(this.tokenStream, 7, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
                         {
-                        this.state = 38;
+                        this.state = 44;
                         this.match(leafdataParser.NOTES);
-                        this.state = 41;
+                        this.state = 47;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case leafdataParser.IDENT:
                             {
-                            this.state = 39;
+                            this.state = 45;
                             this.ident();
                             }
                             break;
                         case leafdataParser.STR:
                             {
-                            this.state = 40;
+                            this.state = 46;
                             this.str();
                             }
                             break;
                         default:
                             throw new antlr.NoViableAltException(this);
                         }
-                        this.state = 43;
+                        this.state = 49;
                         this.match(leafdataParser.NOTES);
-                        this.state = 52;
+                        this.state = 58;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case leafdataParser.NULL:
                             {
-                            this.state = 44;
+                            this.state = 50;
                             this.null_();
                             }
                             break;
                         case leafdataParser.TRUE:
                         case leafdataParser.FALSE:
                             {
-                            this.state = 45;
+                            this.state = 51;
                             this.bool();
                             }
                             break;
                         case leafdataParser.F64:
                             {
-                            this.state = 46;
+                            this.state = 52;
                             this.f64();
                             }
                             break;
                         case leafdataParser.TYPED_MARK:
                             {
-                            this.state = 47;
+                            this.state = 53;
                             this.typed();
                             }
                             break;
                         case leafdataParser.IDENT:
                             {
-                            this.state = 48;
+                            this.state = 54;
                             this.ident();
                             }
                             break;
                         case leafdataParser.STR:
                             {
-                            this.state = 49;
+                            this.state = 55;
                             this.str();
                             }
                             break;
                         case leafdataParser.OBJ_OPEN:
                             {
-                            this.state = 50;
+                            this.state = 56;
                             this.obj();
                             }
                             break;
                         case leafdataParser.ARR_OPEN:
                             {
-                            this.state = 51;
+                            this.state = 57;
                             this.arr();
                             }
                             break;
@@ -245,24 +265,44 @@ export class leafdataParser extends antlr.Parser {
                         }
                         }
                     }
-                    this.state = 58;
+                    this.state = 64;
                     this.errorHandler.sync(this);
-                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 5, this.context);
+                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 7, this.context);
                 }
-                this.state = 60;
+                this.state = 66;
                 this.errorHandler.sync(this);
-                _la = this.tokenStream.LA(1);
-                if (_la === 11) {
+                switch (this.interpreter.adaptivePredict(this.tokenStream, 8, this.context) ) {
+                case 1:
                     {
-                    this.state = 59;
+                    this.state = 65;
                     this.match(leafdataParser.NOTES);
                     }
+                    break;
                 }
-
                 }
             }
 
-            this.state = 64;
+            this.state = 71;
+            this.errorHandler.sync(this);
+            _la = this.tokenStream.LA(1);
+            if (_la === 3) {
+                {
+                this.state = 70;
+                this.match(leafdataParser.OBJ_CLOSE);
+                }
+            }
+
+            this.state = 74;
+            this.errorHandler.sync(this);
+            _la = this.tokenStream.LA(1);
+            if (_la === 11) {
+                {
+                this.state = 73;
+                this.match(leafdataParser.NOTES);
+                }
+            }
+
+            this.state = 76;
             this.match(leafdataParser.EOF);
             }
         }
@@ -285,7 +325,7 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 66;
+            this.state = 78;
             this.match(leafdataParser.NULL);
             }
         }
@@ -309,7 +349,7 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 68;
+            this.state = 80;
             _la = this.tokenStream.LA(1);
             if(!(_la === 7 || _la === 8)) {
             this.errorHandler.recoverInline(this);
@@ -339,7 +379,7 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 70;
+            this.state = 82;
             this.match(leafdataParser.F64);
             }
         }
@@ -362,9 +402,9 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 72;
+            this.state = 84;
             this.match(leafdataParser.TYPED_MARK);
-            this.state = 73;
+            this.state = 85;
             this.typed_val();
             }
         }
@@ -387,7 +427,7 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 75;
+            this.state = 87;
             this.match(leafdataParser.TYPED);
             }
         }
@@ -410,7 +450,7 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 77;
+            this.state = 89;
             this.match(leafdataParser.IDENT);
             }
         }
@@ -433,7 +473,7 @@ export class leafdataParser extends antlr.Parser {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 79;
+            this.state = 91;
             this.match(leafdataParser.STR);
             }
         }
@@ -458,176 +498,176 @@ export class leafdataParser extends antlr.Parser {
             let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 81;
+            this.state = 93;
             this.match(leafdataParser.OBJ_OPEN);
-            this.state = 83;
+            this.state = 95;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if (_la === 11) {
                 {
-                this.state = 82;
+                this.state = 94;
                 this.match(leafdataParser.NOTES);
                 }
             }
 
-            this.state = 124;
+            this.state = 136;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if (_la === 10 || _la === 12) {
                 {
-                this.state = 87;
+                this.state = 99;
                 this.errorHandler.sync(this);
                 switch (this.tokenStream.LA(1)) {
                 case leafdataParser.IDENT:
                     {
-                    this.state = 85;
+                    this.state = 97;
                     this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
-                    this.state = 86;
+                    this.state = 98;
                     this.str();
                     }
                     break;
                 default:
                     throw new antlr.NoViableAltException(this);
                 }
-                this.state = 89;
+                this.state = 101;
                 this.match(leafdataParser.NOTES);
-                this.state = 98;
+                this.state = 110;
                 this.errorHandler.sync(this);
                 switch (this.tokenStream.LA(1)) {
                 case leafdataParser.NULL:
                     {
-                    this.state = 90;
+                    this.state = 102;
                     this.null_();
                     }
                     break;
                 case leafdataParser.TRUE:
                 case leafdataParser.FALSE:
                     {
-                    this.state = 91;
+                    this.state = 103;
                     this.bool();
                     }
                     break;
                 case leafdataParser.F64:
                     {
-                    this.state = 92;
+                    this.state = 104;
                     this.f64();
                     }
                     break;
                 case leafdataParser.TYPED_MARK:
                     {
-                    this.state = 93;
+                    this.state = 105;
                     this.typed();
                     }
                     break;
                 case leafdataParser.IDENT:
                     {
-                    this.state = 94;
+                    this.state = 106;
                     this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
-                    this.state = 95;
+                    this.state = 107;
                     this.str();
                     }
                     break;
                 case leafdataParser.OBJ_OPEN:
                     {
-                    this.state = 96;
+                    this.state = 108;
                     this.obj();
                     }
                     break;
                 case leafdataParser.ARR_OPEN:
                     {
-                    this.state = 97;
+                    this.state = 109;
                     this.arr();
                     }
                     break;
                 default:
                     throw new antlr.NoViableAltException(this);
                 }
-                this.state = 118;
+                this.state = 130;
                 this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 13, this.context);
+                alternative = this.interpreter.adaptivePredict(this.tokenStream, 17, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
                         {
-                        this.state = 100;
+                        this.state = 112;
                         this.match(leafdataParser.NOTES);
-                        this.state = 103;
+                        this.state = 115;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case leafdataParser.IDENT:
                             {
-                            this.state = 101;
+                            this.state = 113;
                             this.ident();
                             }
                             break;
                         case leafdataParser.STR:
                             {
-                            this.state = 102;
+                            this.state = 114;
                             this.str();
                             }
                             break;
                         default:
                             throw new antlr.NoViableAltException(this);
                         }
-                        this.state = 105;
+                        this.state = 117;
                         this.match(leafdataParser.NOTES);
-                        this.state = 114;
+                        this.state = 126;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case leafdataParser.NULL:
                             {
-                            this.state = 106;
+                            this.state = 118;
                             this.null_();
                             }
                             break;
                         case leafdataParser.TRUE:
                         case leafdataParser.FALSE:
                             {
-                            this.state = 107;
+                            this.state = 119;
                             this.bool();
                             }
                             break;
                         case leafdataParser.F64:
                             {
-                            this.state = 108;
+                            this.state = 120;
                             this.f64();
                             }
                             break;
                         case leafdataParser.TYPED_MARK:
                             {
-                            this.state = 109;
+                            this.state = 121;
                             this.typed();
                             }
                             break;
                         case leafdataParser.IDENT:
                             {
-                            this.state = 110;
+                            this.state = 122;
                             this.ident();
                             }
                             break;
                         case leafdataParser.STR:
                             {
-                            this.state = 111;
+                            this.state = 123;
                             this.str();
                             }
                             break;
                         case leafdataParser.OBJ_OPEN:
                             {
-                            this.state = 112;
+                            this.state = 124;
                             this.obj();
                             }
                             break;
                         case leafdataParser.ARR_OPEN:
                             {
-                            this.state = 113;
+                            this.state = 125;
                             this.arr();
                             }
                             break;
@@ -637,16 +677,16 @@ export class leafdataParser extends antlr.Parser {
                         }
                         }
                     }
-                    this.state = 120;
+                    this.state = 132;
                     this.errorHandler.sync(this);
-                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 13, this.context);
+                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 17, this.context);
                 }
-                this.state = 122;
+                this.state = 134;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 11) {
                     {
-                    this.state = 121;
+                    this.state = 133;
                     this.match(leafdataParser.NOTES);
                     }
                 }
@@ -654,7 +694,7 @@ export class leafdataParser extends antlr.Parser {
                 }
             }
 
-            this.state = 126;
+            this.state = 138;
             this.match(leafdataParser.OBJ_CLOSE);
             }
         }
@@ -679,136 +719,136 @@ export class leafdataParser extends antlr.Parser {
             let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 128;
+            this.state = 140;
             this.match(leafdataParser.ARR_OPEN);
-            this.state = 130;
+            this.state = 142;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if (_la === 11) {
                 {
-                this.state = 129;
+                this.state = 141;
                 this.match(leafdataParser.NOTES);
                 }
             }
 
-            this.state = 161;
+            this.state = 173;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if ((((_la) & ~0x1F) === 0 && ((1 << _la) & 6102) !== 0)) {
                 {
-                this.state = 140;
+                this.state = 152;
                 this.errorHandler.sync(this);
                 switch (this.tokenStream.LA(1)) {
                 case leafdataParser.NULL:
                     {
-                    this.state = 132;
+                    this.state = 144;
                     this.null_();
                     }
                     break;
                 case leafdataParser.TRUE:
                 case leafdataParser.FALSE:
                     {
-                    this.state = 133;
+                    this.state = 145;
                     this.bool();
                     }
                     break;
                 case leafdataParser.F64:
                     {
-                    this.state = 134;
+                    this.state = 146;
                     this.f64();
                     }
                     break;
                 case leafdataParser.TYPED_MARK:
                     {
-                    this.state = 135;
+                    this.state = 147;
                     this.typed();
                     }
                     break;
                 case leafdataParser.IDENT:
                     {
-                    this.state = 136;
+                    this.state = 148;
                     this.ident();
                     }
                     break;
                 case leafdataParser.STR:
                     {
-                    this.state = 137;
+                    this.state = 149;
                     this.str();
                     }
                     break;
                 case leafdataParser.OBJ_OPEN:
                     {
-                    this.state = 138;
+                    this.state = 150;
                     this.obj();
                     }
                     break;
                 case leafdataParser.ARR_OPEN:
                     {
-                    this.state = 139;
+                    this.state = 151;
                     this.arr();
                     }
                     break;
                 default:
                     throw new antlr.NoViableAltException(this);
                 }
-                this.state = 155;
+                this.state = 167;
                 this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 19, this.context);
+                alternative = this.interpreter.adaptivePredict(this.tokenStream, 23, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
                         {
-                        this.state = 142;
+                        this.state = 154;
                         this.match(leafdataParser.NOTES);
-                        this.state = 151;
+                        this.state = 163;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case leafdataParser.NULL:
                             {
-                            this.state = 143;
+                            this.state = 155;
                             this.null_();
                             }
                             break;
                         case leafdataParser.TRUE:
                         case leafdataParser.FALSE:
                             {
-                            this.state = 144;
+                            this.state = 156;
                             this.bool();
                             }
                             break;
                         case leafdataParser.F64:
                             {
-                            this.state = 145;
+                            this.state = 157;
                             this.f64();
                             }
                             break;
                         case leafdataParser.TYPED_MARK:
                             {
-                            this.state = 146;
+                            this.state = 158;
                             this.typed();
                             }
                             break;
                         case leafdataParser.IDENT:
                             {
-                            this.state = 147;
+                            this.state = 159;
                             this.ident();
                             }
                             break;
                         case leafdataParser.STR:
                             {
-                            this.state = 148;
+                            this.state = 160;
                             this.str();
                             }
                             break;
                         case leafdataParser.OBJ_OPEN:
                             {
-                            this.state = 149;
+                            this.state = 161;
                             this.obj();
                             }
                             break;
                         case leafdataParser.ARR_OPEN:
                             {
-                            this.state = 150;
+                            this.state = 162;
                             this.arr();
                             }
                             break;
@@ -818,16 +858,16 @@ export class leafdataParser extends antlr.Parser {
                         }
                         }
                     }
-                    this.state = 157;
+                    this.state = 169;
                     this.errorHandler.sync(this);
-                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 19, this.context);
+                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 23, this.context);
                 }
-                this.state = 159;
+                this.state = 171;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 11) {
                     {
-                    this.state = 158;
+                    this.state = 170;
                     this.match(leafdataParser.NOTES);
                     }
                 }
@@ -835,7 +875,7 @@ export class leafdataParser extends antlr.Parser {
                 }
             }
 
-            this.state = 163;
+            this.state = 175;
             this.match(leafdataParser.ARR_CLOSE);
             }
         }
@@ -854,70 +894,75 @@ export class leafdataParser extends antlr.Parser {
     }
 
     public static readonly _serializedATN: number[] = [
-        4,1,13,166,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
-        6,2,7,7,7,2,8,7,8,2,9,7,9,1,0,3,0,22,8,0,1,0,1,0,3,0,26,8,0,1,0,
-        1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,3,0,37,8,0,1,0,1,0,1,0,3,0,42,8,
-        0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,3,0,53,8,0,5,0,55,8,0,10,0,
-        12,0,58,9,0,1,0,3,0,61,8,0,3,0,63,8,0,1,0,1,0,1,1,1,1,1,2,1,2,1,
-        3,1,3,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,7,1,7,1,8,1,8,3,8,84,8,8,1,8,
-        1,8,3,8,88,8,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,99,8,8,1,
-        8,1,8,1,8,3,8,104,8,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,115,
-        8,8,5,8,117,8,8,10,8,12,8,120,9,8,1,8,3,8,123,8,8,3,8,125,8,8,1,
-        8,1,8,1,9,1,9,3,9,131,8,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,3,9,141,
-        8,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,3,9,152,8,9,5,9,154,8,9,
-        10,9,12,9,157,9,9,1,9,3,9,160,8,9,3,9,162,8,9,1,9,1,9,1,9,0,0,10,
-        0,2,4,6,8,10,12,14,16,18,0,1,1,0,7,8,213,0,21,1,0,0,0,2,66,1,0,0,
-        0,4,68,1,0,0,0,6,70,1,0,0,0,8,72,1,0,0,0,10,75,1,0,0,0,12,77,1,0,
-        0,0,14,79,1,0,0,0,16,81,1,0,0,0,18,128,1,0,0,0,20,22,5,11,0,0,21,
-        20,1,0,0,0,21,22,1,0,0,0,22,62,1,0,0,0,23,26,3,12,6,0,24,26,3,14,
-        7,0,25,23,1,0,0,0,25,24,1,0,0,0,26,27,1,0,0,0,27,36,5,11,0,0,28,
-        37,3,2,1,0,29,37,3,4,2,0,30,37,3,6,3,0,31,37,3,8,4,0,32,37,3,12,
-        6,0,33,37,3,14,7,0,34,37,3,16,8,0,35,37,3,18,9,0,36,28,1,0,0,0,36,
-        29,1,0,0,0,36,30,1,0,0,0,36,31,1,0,0,0,36,32,1,0,0,0,36,33,1,0,0,
-        0,36,34,1,0,0,0,36,35,1,0,0,0,37,56,1,0,0,0,38,41,5,11,0,0,39,42,
-        3,12,6,0,40,42,3,14,7,0,41,39,1,0,0,0,41,40,1,0,0,0,42,43,1,0,0,
-        0,43,52,5,11,0,0,44,53,3,2,1,0,45,53,3,4,2,0,46,53,3,6,3,0,47,53,
-        3,8,4,0,48,53,3,12,6,0,49,53,3,14,7,0,50,53,3,16,8,0,51,53,3,18,
-        9,0,52,44,1,0,0,0,52,45,1,0,0,0,52,46,1,0,0,0,52,47,1,0,0,0,52,48,
-        1,0,0,0,52,49,1,0,0,0,52,50,1,0,0,0,52,51,1,0,0,0,53,55,1,0,0,0,
-        54,38,1,0,0,0,55,58,1,0,0,0,56,54,1,0,0,0,56,57,1,0,0,0,57,60,1,
-        0,0,0,58,56,1,0,0,0,59,61,5,11,0,0,60,59,1,0,0,0,60,61,1,0,0,0,61,
-        63,1,0,0,0,62,25,1,0,0,0,62,63,1,0,0,0,63,64,1,0,0,0,64,65,5,0,0,
-        1,65,1,1,0,0,0,66,67,5,6,0,0,67,3,1,0,0,0,68,69,7,0,0,0,69,5,1,0,
-        0,0,70,71,5,9,0,0,71,7,1,0,0,0,72,73,5,1,0,0,73,74,3,10,5,0,74,9,
-        1,0,0,0,75,76,5,13,0,0,76,11,1,0,0,0,77,78,5,10,0,0,78,13,1,0,0,
-        0,79,80,5,12,0,0,80,15,1,0,0,0,81,83,5,2,0,0,82,84,5,11,0,0,83,82,
-        1,0,0,0,83,84,1,0,0,0,84,124,1,0,0,0,85,88,3,12,6,0,86,88,3,14,7,
-        0,87,85,1,0,0,0,87,86,1,0,0,0,88,89,1,0,0,0,89,98,5,11,0,0,90,99,
-        3,2,1,0,91,99,3,4,2,0,92,99,3,6,3,0,93,99,3,8,4,0,94,99,3,12,6,0,
-        95,99,3,14,7,0,96,99,3,16,8,0,97,99,3,18,9,0,98,90,1,0,0,0,98,91,
-        1,0,0,0,98,92,1,0,0,0,98,93,1,0,0,0,98,94,1,0,0,0,98,95,1,0,0,0,
-        98,96,1,0,0,0,98,97,1,0,0,0,99,118,1,0,0,0,100,103,5,11,0,0,101,
-        104,3,12,6,0,102,104,3,14,7,0,103,101,1,0,0,0,103,102,1,0,0,0,104,
-        105,1,0,0,0,105,114,5,11,0,0,106,115,3,2,1,0,107,115,3,4,2,0,108,
-        115,3,6,3,0,109,115,3,8,4,0,110,115,3,12,6,0,111,115,3,14,7,0,112,
-        115,3,16,8,0,113,115,3,18,9,0,114,106,1,0,0,0,114,107,1,0,0,0,114,
-        108,1,0,0,0,114,109,1,0,0,0,114,110,1,0,0,0,114,111,1,0,0,0,114,
-        112,1,0,0,0,114,113,1,0,0,0,115,117,1,0,0,0,116,100,1,0,0,0,117,
-        120,1,0,0,0,118,116,1,0,0,0,118,119,1,0,0,0,119,122,1,0,0,0,120,
-        118,1,0,0,0,121,123,5,11,0,0,122,121,1,0,0,0,122,123,1,0,0,0,123,
-        125,1,0,0,0,124,87,1,0,0,0,124,125,1,0,0,0,125,126,1,0,0,0,126,127,
-        5,3,0,0,127,17,1,0,0,0,128,130,5,4,0,0,129,131,5,11,0,0,130,129,
-        1,0,0,0,130,131,1,0,0,0,131,161,1,0,0,0,132,141,3,2,1,0,133,141,
-        3,4,2,0,134,141,3,6,3,0,135,141,3,8,4,0,136,141,3,12,6,0,137,141,
-        3,14,7,0,138,141,3,16,8,0,139,141,3,18,9,0,140,132,1,0,0,0,140,133,
-        1,0,0,0,140,134,1,0,0,0,140,135,1,0,0,0,140,136,1,0,0,0,140,137,
-        1,0,0,0,140,138,1,0,0,0,140,139,1,0,0,0,141,155,1,0,0,0,142,151,
-        5,11,0,0,143,152,3,2,1,0,144,152,3,4,2,0,145,152,3,6,3,0,146,152,
-        3,8,4,0,147,152,3,12,6,0,148,152,3,14,7,0,149,152,3,16,8,0,150,152,
-        3,18,9,0,151,143,1,0,0,0,151,144,1,0,0,0,151,145,1,0,0,0,151,146,
-        1,0,0,0,151,147,1,0,0,0,151,148,1,0,0,0,151,149,1,0,0,0,151,150,
-        1,0,0,0,152,154,1,0,0,0,153,142,1,0,0,0,154,157,1,0,0,0,155,153,
-        1,0,0,0,155,156,1,0,0,0,156,159,1,0,0,0,157,155,1,0,0,0,158,160,
-        5,11,0,0,159,158,1,0,0,0,159,160,1,0,0,0,160,162,1,0,0,0,161,140,
-        1,0,0,0,161,162,1,0,0,0,162,163,1,0,0,0,163,164,5,5,0,0,164,19,1,
-        0,0,0,22,21,25,36,41,52,56,60,62,83,87,98,103,114,118,122,124,130,
-        140,151,155,159,161
+        4,1,13,178,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        6,2,7,7,7,2,8,7,8,2,9,7,9,1,0,3,0,22,8,0,1,0,3,0,25,8,0,1,0,3,0,
+        28,8,0,1,0,1,0,3,0,32,8,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,3,
+        0,43,8,0,1,0,1,0,1,0,3,0,48,8,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,
+        1,0,3,0,59,8,0,5,0,61,8,0,10,0,12,0,64,9,0,1,0,3,0,67,8,0,3,0,69,
+        8,0,1,0,3,0,72,8,0,1,0,3,0,75,8,0,1,0,1,0,1,1,1,1,1,2,1,2,1,3,1,
+        3,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,7,1,7,1,8,1,8,3,8,96,8,8,1,8,1,8,
+        3,8,100,8,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,111,8,8,1,8,
+        1,8,1,8,3,8,116,8,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,127,
+        8,8,5,8,129,8,8,10,8,12,8,132,9,8,1,8,3,8,135,8,8,3,8,137,8,8,1,
+        8,1,8,1,9,1,9,3,9,143,8,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,3,9,153,
+        8,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,3,9,164,8,9,5,9,166,8,9,
+        10,9,12,9,169,9,9,1,9,3,9,172,8,9,3,9,174,8,9,1,9,1,9,1,9,0,0,10,
+        0,2,4,6,8,10,12,14,16,18,0,1,1,0,7,8,229,0,21,1,0,0,0,2,78,1,0,0,
+        0,4,80,1,0,0,0,6,82,1,0,0,0,8,84,1,0,0,0,10,87,1,0,0,0,12,89,1,0,
+        0,0,14,91,1,0,0,0,16,93,1,0,0,0,18,140,1,0,0,0,20,22,5,11,0,0,21,
+        20,1,0,0,0,21,22,1,0,0,0,22,24,1,0,0,0,23,25,5,2,0,0,24,23,1,0,0,
+        0,24,25,1,0,0,0,25,27,1,0,0,0,26,28,5,11,0,0,27,26,1,0,0,0,27,28,
+        1,0,0,0,28,68,1,0,0,0,29,32,3,12,6,0,30,32,3,14,7,0,31,29,1,0,0,
+        0,31,30,1,0,0,0,32,33,1,0,0,0,33,42,5,11,0,0,34,43,3,2,1,0,35,43,
+        3,4,2,0,36,43,3,6,3,0,37,43,3,8,4,0,38,43,3,12,6,0,39,43,3,14,7,
+        0,40,43,3,16,8,0,41,43,3,18,9,0,42,34,1,0,0,0,42,35,1,0,0,0,42,36,
+        1,0,0,0,42,37,1,0,0,0,42,38,1,0,0,0,42,39,1,0,0,0,42,40,1,0,0,0,
+        42,41,1,0,0,0,43,62,1,0,0,0,44,47,5,11,0,0,45,48,3,12,6,0,46,48,
+        3,14,7,0,47,45,1,0,0,0,47,46,1,0,0,0,48,49,1,0,0,0,49,58,5,11,0,
+        0,50,59,3,2,1,0,51,59,3,4,2,0,52,59,3,6,3,0,53,59,3,8,4,0,54,59,
+        3,12,6,0,55,59,3,14,7,0,56,59,3,16,8,0,57,59,3,18,9,0,58,50,1,0,
+        0,0,58,51,1,0,0,0,58,52,1,0,0,0,58,53,1,0,0,0,58,54,1,0,0,0,58,55,
+        1,0,0,0,58,56,1,0,0,0,58,57,1,0,0,0,59,61,1,0,0,0,60,44,1,0,0,0,
+        61,64,1,0,0,0,62,60,1,0,0,0,62,63,1,0,0,0,63,66,1,0,0,0,64,62,1,
+        0,0,0,65,67,5,11,0,0,66,65,1,0,0,0,66,67,1,0,0,0,67,69,1,0,0,0,68,
+        31,1,0,0,0,68,69,1,0,0,0,69,71,1,0,0,0,70,72,5,3,0,0,71,70,1,0,0,
+        0,71,72,1,0,0,0,72,74,1,0,0,0,73,75,5,11,0,0,74,73,1,0,0,0,74,75,
+        1,0,0,0,75,76,1,0,0,0,76,77,5,0,0,1,77,1,1,0,0,0,78,79,5,6,0,0,79,
+        3,1,0,0,0,80,81,7,0,0,0,81,5,1,0,0,0,82,83,5,9,0,0,83,7,1,0,0,0,
+        84,85,5,1,0,0,85,86,3,10,5,0,86,9,1,0,0,0,87,88,5,13,0,0,88,11,1,
+        0,0,0,89,90,5,10,0,0,90,13,1,0,0,0,91,92,5,12,0,0,92,15,1,0,0,0,
+        93,95,5,2,0,0,94,96,5,11,0,0,95,94,1,0,0,0,95,96,1,0,0,0,96,136,
+        1,0,0,0,97,100,3,12,6,0,98,100,3,14,7,0,99,97,1,0,0,0,99,98,1,0,
+        0,0,100,101,1,0,0,0,101,110,5,11,0,0,102,111,3,2,1,0,103,111,3,4,
+        2,0,104,111,3,6,3,0,105,111,3,8,4,0,106,111,3,12,6,0,107,111,3,14,
+        7,0,108,111,3,16,8,0,109,111,3,18,9,0,110,102,1,0,0,0,110,103,1,
+        0,0,0,110,104,1,0,0,0,110,105,1,0,0,0,110,106,1,0,0,0,110,107,1,
+        0,0,0,110,108,1,0,0,0,110,109,1,0,0,0,111,130,1,0,0,0,112,115,5,
+        11,0,0,113,116,3,12,6,0,114,116,3,14,7,0,115,113,1,0,0,0,115,114,
+        1,0,0,0,116,117,1,0,0,0,117,126,5,11,0,0,118,127,3,2,1,0,119,127,
+        3,4,2,0,120,127,3,6,3,0,121,127,3,8,4,0,122,127,3,12,6,0,123,127,
+        3,14,7,0,124,127,3,16,8,0,125,127,3,18,9,0,126,118,1,0,0,0,126,119,
+        1,0,0,0,126,120,1,0,0,0,126,121,1,0,0,0,126,122,1,0,0,0,126,123,
+        1,0,0,0,126,124,1,0,0,0,126,125,1,0,0,0,127,129,1,0,0,0,128,112,
+        1,0,0,0,129,132,1,0,0,0,130,128,1,0,0,0,130,131,1,0,0,0,131,134,
+        1,0,0,0,132,130,1,0,0,0,133,135,5,11,0,0,134,133,1,0,0,0,134,135,
+        1,0,0,0,135,137,1,0,0,0,136,99,1,0,0,0,136,137,1,0,0,0,137,138,1,
+        0,0,0,138,139,5,3,0,0,139,17,1,0,0,0,140,142,5,4,0,0,141,143,5,11,
+        0,0,142,141,1,0,0,0,142,143,1,0,0,0,143,173,1,0,0,0,144,153,3,2,
+        1,0,145,153,3,4,2,0,146,153,3,6,3,0,147,153,3,8,4,0,148,153,3,12,
+        6,0,149,153,3,14,7,0,150,153,3,16,8,0,151,153,3,18,9,0,152,144,1,
+        0,0,0,152,145,1,0,0,0,152,146,1,0,0,0,152,147,1,0,0,0,152,148,1,
+        0,0,0,152,149,1,0,0,0,152,150,1,0,0,0,152,151,1,0,0,0,153,167,1,
+        0,0,0,154,163,5,11,0,0,155,164,3,2,1,0,156,164,3,4,2,0,157,164,3,
+        6,3,0,158,164,3,8,4,0,159,164,3,12,6,0,160,164,3,14,7,0,161,164,
+        3,16,8,0,162,164,3,18,9,0,163,155,1,0,0,0,163,156,1,0,0,0,163,157,
+        1,0,0,0,163,158,1,0,0,0,163,159,1,0,0,0,163,160,1,0,0,0,163,161,
+        1,0,0,0,163,162,1,0,0,0,164,166,1,0,0,0,165,154,1,0,0,0,166,169,
+        1,0,0,0,167,165,1,0,0,0,167,168,1,0,0,0,168,171,1,0,0,0,169,167,
+        1,0,0,0,170,172,5,11,0,0,171,170,1,0,0,0,171,172,1,0,0,0,172,174,
+        1,0,0,0,173,152,1,0,0,0,173,174,1,0,0,0,174,175,1,0,0,0,175,176,
+        5,5,0,0,176,19,1,0,0,0,26,21,24,27,31,42,47,58,62,66,68,71,74,95,
+        99,110,115,126,130,134,136,142,152,163,167,171,173
     ];
 
     private static __ATN: antlr.ATN;
@@ -954,6 +999,12 @@ export class LeafdataContext extends antlr.ParserRuleContext {
     	} else {
     		return this.getToken(leafdataParser.NOTES, i);
     	}
+    }
+    public OBJ_OPEN(): antlr.TerminalNode | null {
+        return this.getToken(leafdataParser.OBJ_OPEN, 0);
+    }
+    public OBJ_CLOSE(): antlr.TerminalNode | null {
+        return this.getToken(leafdataParser.OBJ_CLOSE, 0);
     }
     public ident(): IdentContext[];
     public ident(i: number): IdentContext | null;
