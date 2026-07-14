@@ -3,20 +3,19 @@
  *
  * # Leafdata (@voidmerge/leafdata)
  *
- * Leafdata is yet another human-readable data format similar to JSON or TOML.
+ * Leafdata is a human-readable data format similar to JSON or TOML that can
+ * encode bigints and byte arrays.
  *
- * I was tired of not being able to represent big integers and binary data.
- *
- * Why would you want binary data in a human-readable text format, you ask?
- *
- * It just comes up sometimes. Like wanting to store cryptographic public keys
- * along-side other configuration data. Or if you are wanting to debug a format
- * that can have binary data in it, such as MessagePack.
+ * - Simple, flexible format makes data obvious for human editing.
+ * - Encode public keys along with other configuration data.
+ * - Transcode other formats that can contain binary data, such as
+ *   Message Pack for logging or debugging.
+ * - Natively parses JSON objects.
  *
  * # Example
  *
- * ```sh
- * # This is Leaf Data!
+ * ```bash
+ * # This is leafdata!
  *
  * # Wouldn't this be nice : )
  * bugCount = 0
@@ -29,7 +28,7 @@
  *
  * # Or, for more human readable binary data...
  * # Leafdata will pick the smaller of b64@ or pct@ when encoding.
- * myNullSeparatedData = pct@"age%00color%0A42%00red";
+ * myNullSeparatedData = pct@"age%00color%0A42%00red"
  *
  * # We gotz tablez.
  * tab = {
@@ -47,21 +46,23 @@
  * ```ts
  * import { leafdataParse, leafdataRender } from '@voidmerge/leafdata`;
  *
+ * // Parse
  * const js = leafdataParse(exampleString);
+ * ```
  *
- * // - the value of 'js':
- * //
- * // {
- * //   bugCount: 0,
- * //   huge: 9876543210000000000000000n,
- * //   pubKey: < ArrayBuffer >,
- * //   myNullSeparatedData: < ArrayBuffer >,
- * //   tab: { fruit1: "apple", fruit2: "grape" },
- * //   fruit: [ "apple", "grape" ],
- * // }
+ * ```javascript
+ * {
+ *   bugCount: 0,
+ *   huge: 9876543210000000000000000n,
+ *   pubKey: ArrayBuffer(),
+ *   myNullSeparatedData: ArrayBuffer(),
+ *   tab: { fruit1: "apple", fruit2: "grape" },
+ *   fruit: [ "apple", "grape" ],
+ * }
+ * ```
  *
- * // Then, turn it back into a string:
- *
+ * ```ts
+ * // Render
  * const output = leafdataRender(js);
  * ```
  *
